@@ -17,11 +17,10 @@ class ProductsHelper
         $this->db = $db;
     }
 
-    function getProductById($id_product)
+    public function getProductById($id_product)
     {
-        $query = "SELECT $this->ID, $this->NAME, $this->DESC, $this->AMOUNT
-        $this->IMG_PATH, $this->PRICE, $this->DISCOUNT
-         FROM normal_products WHERE idarticolo=?";
+        $query = "SELECT *
+        FROM normal_products WHERE idarticolo=?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i',$id_product);
         $stmt->execute();
@@ -31,8 +30,7 @@ class ProductsHelper
 
     public function getRandomProducts($n)
     {
-        $query = "SELECT $this->ID, $this->NAME, $this->DESC, 
-        $this->IMG_PATH, $this->PRICE, $this->DISCOUNT 
+        $query = "SELECT * 
                 FROM normal_products 
                 ORDER BY RAND() 
                 LIMIT ?";
@@ -45,9 +43,7 @@ class ProductsHelper
 
     public function getProductByCategory($idcategory)
     {
-        $query = "SELECT 
-        {$this->ID}, {$this->NAME}, {$this->DESC}, 
-        {$this->IMG_PATH}, {$this->PRICE}, {$this->DISCOUNT} 
+        $query = "SELECT *
          FROM normal_products WHERE id_category=?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i', $idcategory);
@@ -59,20 +55,16 @@ class ProductsHelper
 
     private function toProducts($result)
     {
-        $products = [];
         foreach ($result as $product) :
-            array_push(
-                $products,
-                ProductBuilder::create()
-                    ->setId($product['id_normal_product'])
-                    ->setName($product['name'])
-                    ->setDescription($product['description'])
-                    ->setImage_path($product['image'])
-                    ->setPrice($product['price'])
-                    ->setDiscount($product['discount'])
-                    ->build()
-            );
+           yield ProductBuilder::create()
+                    ->setId($product[$this->ID])
+                    ->setName($product[$this->NAME])
+                    ->setDescription($product[$this->DESC])
+                    ->setImage_path($product[$this->IMG_PATH])
+                    ->setPrice($product[$this->PRICE])
+                    ->setDiscount($product[$this->DISCOUNT])
+                    ->setAmount($product[$this->AMOUNT])
+                    ->build();
         endforeach;
-        return $products;
     }
 }
