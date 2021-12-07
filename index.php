@@ -4,26 +4,12 @@
   require_once "db/database.php";
   require_once "utils/functions.php";
   require_once "bootstrap.php";
-
+  require_once "template/common_html.php";
 
   $templateParams['title'] = "Home";
-
-?>
-<!DOCTYPE html>
-<html lang="it">
-
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><?php echo $templateParams["title"]; ?></title>
-    <link rel="stylesheet" type="text/css" href="./css/style.css" />
-</head>
-
-<body>
-    <?php
+  echo withBody(function (){
     require "template/header.php";
     $db = DbConnections::mySqlConnection();
     require "template/horizontal_products.php";
-    ?>
-</body>
-
-</html>
+  }, $templateParams);
+?>
