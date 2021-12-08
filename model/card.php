@@ -4,12 +4,14 @@ class Card{
     private $number;
     private $expire_date;
     private $cvv;
+    private $client;
 
-    function __construct($id,$number,$cvv,$expire_date){
+    function __construct($id,$number,$cvv,$expire_date,$client){
         $this->id=$id;
         $this->number=$number;
         $this->cvv=$cvv;
         $this->expire_date=$expire_date;
+        $this->client = $client;
     }
 
     /**
@@ -42,6 +44,14 @@ class Card{
     public function getCvv()
     {
         return $this->cvv;
+    }
+
+    /**
+     * Get the value of client
+     */ 
+    public function getClient()
+    {
+        return $this->client;
     }
 }
 

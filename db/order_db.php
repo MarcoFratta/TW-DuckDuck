@@ -22,11 +22,17 @@
         $stmt->bind_param('i',$order->getId_Card());
         $stmt->bind_param('i',$order->getId_Client());
         $stmt->execute();
-        $result = $stmt->get_result();
+        $result = $stmt->insert_id;
+        foreach($order->getNormalProduct() as $product){
+            $this->addNormalProductToOrder($product,$result);
+        }
+        foreach($order->getCustomProduct() as $product){
+            $this->addCustomProductToOrder($product,$result);
+        }
         return $result;
     }
 
-    public function addNormalProductToOrder($product, $order){
+    private function addNormalProductToOrder($product, $order){
         $query = "INSERT INTO normal_product_orders('price','id_normal_product',
         'id_order') values (?,?,?)";
         $stmt = $this->db->prepare($query);
@@ -35,20 +41,19 @@
         $stmt->bind_param('i',$product->getId());
         $stmt->bind_param('i',$order->getId());
         $stmt->execute();
-        $result = $stmt->get_result();
+        $result = $stmt->insert_id;
         return $result;
     }
 
-    public function addCustomProductToOrder($product, $order){
+    private function addCustomProductToOrder($product, $order){
         $query = "INSERT INTO custom_product_orders('price','id_custom_product',
         'id_order') values (?,?,?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('i',$product->getPrice() - 
-        ($product->getPrice()*100/$product->getDiscount()));
+        $stmt->bind_param('i',$product->getPrice());
         $stmt->bind_param('i',$product->getId());
         $stmt->bind_param('i',$order->getId());
         $stmt->execute();
-        $result = $stmt->get_result();
+        $result = $stmt->insert_id;
         return $result;
     }
 
