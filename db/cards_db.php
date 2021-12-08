@@ -24,7 +24,7 @@ class CardHelper{
         return $this->toCards($result->fetch_all(MYSQLI_ASSOC));
     }
 
-    private function insertCard($card){
+    public function insertCard($card){
         $query = "INSERT INTO cards($this->NUMBER,$this->CVV,
         $this->DATE,$this->CLIENT) values (?,?,?,?,?)";
         $stmt = $this->db->prepare($query);
@@ -37,10 +37,11 @@ class CardHelper{
         return $result;
     }
 
-    private function toCard($cards){
+    private function toCards($cards){
         foreach($cards as $card){
             yield new Card($card[$this->ID], 
             $card[$this->NUMBER],$card[$this->CVV],$card[$this->DATE],
             $card[$this->CLIENT]);
         }
     }
+}

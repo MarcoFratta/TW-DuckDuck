@@ -36,8 +36,8 @@
         $query = "INSERT INTO normal_product_orders('price','id_normal_product',
         'id_order') values (?,?,?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('i',$product->getPrice() - 
-        ($product->getPrice()*100/$product->getDiscount()));
+        $stmt->bind_param('i',$product->getDiscount()== 0 ? $product->getPrice() :
+        $product->getPrice() - ($product->getPrice()*100/$product->getDiscount()));
         $stmt->bind_param('i',$product->getId());
         $stmt->bind_param('i',$order->getId());
         $stmt->execute();

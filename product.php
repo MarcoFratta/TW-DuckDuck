@@ -8,7 +8,7 @@
       require "template/header.php";
       $db = DbConnections::mySqlConnection();
       $selected_product_id = $_GET['id_product'];
-      $product = $db->products()->getProductById($selected_product_id);
+      $product = $db->products()->getNormalProductById($selected_product_id);
       require "template/product_big.php";
     }, $templateParams);
 ?>

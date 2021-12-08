@@ -1,4 +1,5 @@
 <?php
+require_once "model/product.php";
 class ProductsHelper
 {
     private $db;
@@ -138,7 +139,7 @@ class ProductsHelper
     private function toProducts($result)
     {
         foreach ($result as $product) :
-           yield new Product($product[$this->ID],$product[$this->NAME],
+           yield new Product($product[$this->NORMAL_ID],$product[$this->NAME],
            $product[$this->DESC],$product[$this->IMG_PATH],
            $product[$this->PRICE],$product[$this->DIMENSION],$product[$this->AMOUNT],
            $product[$this->DISCOUNT],$product[$this->SELLER],$product[$this->CATEGORY],
