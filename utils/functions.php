@@ -9,4 +9,7 @@ function getIdFromName($name){
     return preg_replace("/[^a-z]/", '', strtolower($name));
 }
 
+function hashPassword($password){
+    return hash('sha512', $password);
+}
 ?>
