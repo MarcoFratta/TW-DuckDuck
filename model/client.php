@@ -19,6 +19,18 @@ class Client{
     static function createSeller($id,$name,$email,$password){
         return new Self($id,$name,$email,$password,null,null);
     }
+
+    static function newUser($name,$email,$password){
+        return new Self(null,$name,$email,$password,null,null);
+    }
+
+    static function createForSession($id,$email,$name){
+        return new Self($id,$name,$email,null,null,null);
+    }
+
+
+    
+
     /**
      * Get the value of id
      */ 
@@ -57,6 +69,14 @@ class Client{
     public function getSex()
     {
         return $this->sex;
+    }
+
+    /**
+     * Get the value of password
+     */ 
+    public function getPassword()
+    {
+        return $this->password;
     }
 }
 

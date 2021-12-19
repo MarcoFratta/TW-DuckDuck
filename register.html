@@ -20,29 +20,35 @@
                             <h3 style="color: #9E90FF;">Create Account</h3>
                         </div>
                         <div class="p-4">
-                            <form method="POST" action="register.php">
+                            <form method="POST" action="insert_new_client.php" id="form">
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" style="background-color: #9E90FF;" ><i
                                         data-feather="user" class="text-white"></i></span>
-                                    <input type="text" class="form-control" placeholder="Nome">
+                                    <input type="text" name="name" class="form-control" placeholder="Nome">
                                 </div>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" style="background-color: #9E90FF;"><i
                                         data-feather="mail" class="text-white"></i></span>
-                                    <input type="email" class="form-control" placeholder="Email">
+                                    <input type="email" name="email" class="form-control" placeholder="Email">
                                 </div>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" style="background-color: #9E90FF;"><i
                                         data-feather="lock" class="text-white"></i></span>
-                                    <input type="password" class="form-control" placeholder="Password">
+                                    <input type="password" name="password" class="form-control" placeholder="Password">
                                 </div>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" style="background-color: #9E90FF;"><i
                                         data-feather="lock" class="text-white"></i></span>
-                                    <input type="confirm_password" class="form-control" placeholder="Conferma password">
+                                    <input type="password" class="form-control" placeholder="Conferma password">
+                                </div>
+                                <div>
+                                    <select name="type" id="type">
+                                        <option value="client">Cliente</option>
+                                        <option value="seller">Venditore</option>
+                                    </select>
                                 </div>
                                 <div class="d-grid col-12 mx-auto">
-                                    <button style="background-color: #9E90FF; border-color: #9E90FF;" class="btn btn-primary" type="button"><span></span> Sign up</button>
+                                    <button style="background-color: #9E90FF; border-color: #9E90FF;" form="form" class="btn btn-primary" type="submit"><span></span> Sign up</button>
                                 </div>
                                 <p class="text-center mt-3">Already have an account?
                                     <span style="color: #9E90FF;">Sign in</span>
