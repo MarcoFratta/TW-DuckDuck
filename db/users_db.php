@@ -18,7 +18,10 @@
         $query = 'INSERT INTO clients ('.$this->PASSWORD.','.
         $this->EMAIL.','. $this->NAME.') values (?,?,?)';
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('sss',$client->getPassword(),$client->getEmail(),$client->getName());
+        $pass = $client->getPassword();
+        $email = $client->getEmail();
+        $name = $client->getName();
+        $stmt->bind_param('sss',$pass,$email,$name);
         $stmt->execute();
         $result = $stmt->insert_id;
         return $result;
@@ -28,7 +31,10 @@
         $query = 'INSERT INTO sellers ('.$this->PASSWORD.','.
         $this->EMAIL.','. $this->NAME.') values (?,?,?)';
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('sss',$client->getPassword(),$client->getEmail(),$client->getName());
+        $pass = $client->getPassword();
+        $email = $client->getEmail();
+        $name = $client->getName();
+        $stmt->bind_param('sss',$pass,$email,$name);
         $stmt->execute();
         $result = $stmt->insert_id;
         return $result;
@@ -50,18 +56,30 @@
         $result = $stmt->get_result();
         $result = $result->fetch_all(MYSQLI_ASSOC);
         $stmt->close();
-        return $result[0];
+        if (sizeof($result) > 0)
+            return $result[0];
+        return false;
     }
 
     public function getSellerByEmail($email){
-        $query = "SELECT $this->ID_SELLER, $this->PASSWORD, $this->NAME
+        $query = "SELECT $this->ID_SELLER as id, $this->PASSWORD, $this->NAME 
         FROM sellers WHERE $this->EMAIL=?";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('s',$email);
-        $stmt->execute();
-        $stmt->store_results();
-        $stmt->close();
-        return $stmt;
+        if($stmt = $this->db->prepare($query)) { // assuming $mysqli is the connection
+           $stmt->bind_param('s',$email);
+           $stmt->execute();
+           // any additional code you need would go here.
+       } else {
+           $error = $this->db->errno . ' ' . $this->db->error;
+           echo $error; // 1054 Unknown column 'foo' in 'field list'
+           return false;
+       }
+        
+       $result = $stmt->get_result();
+       $result = $result->fetch_all(MYSQLI_ASSOC);
+       $stmt->close();
+       if (sizeof($result) > 0)
+           return $result[0];
+       return false;
     }
  }
 ?>
