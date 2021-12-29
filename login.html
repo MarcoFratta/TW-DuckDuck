@@ -3,23 +3,37 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>login cliente</title>
+    <title>Login cliente</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
 </head>
 
 <body>
-    <img>
+
+    <!-- el: HEADER -->
+
+    <img> <!-- papera frontale con cerchi -->
+
     <h3>Bentornato su Duck Duck</h3>
     <h5>Accedi per continuare</h5>
+
     <form method="POST" action="auth.php?type=client">
         <input type="email" placeholder="Email" name="email">
         <input type="password" placeholder="Password" name="password">
         <button type="submit">Accedi</button>
     </form>
+
     <h3>OPPURE</h3>
+
+    <button type="button">Accedi con Google</button>
+    <button type="button">Accedi con Facebook</button>
+
     <a>Password dimenticata?</a>
     <h6>Non hai un account?</h6><a>Registrati</a>
-    <h6>Sei un fornitore?</h6><a>Area privata</a>
+    <h6>Sei un fornitore?</h6><a>Area privata</a> 
+    <!-- Sei un cliente? Area clienti -->
+
+    <!-- el: FOOTER -->
+
 </body>
 
 </html>
