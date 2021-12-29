@@ -10,11 +10,8 @@ function getIdFromName($name){
     return preg_replace("/[^a-z]/", '', strtolower($name));
 }
 
-function hashPassword($password){
-    return hash('sha512', $password);
-}
-
 function registerLoggedUser($user, $type){
+    $_SESSION["loggedin"] = true;
     $_SESSION["id"] = $user->getId();
     $_SESSION["email"] = $user->getEmail();
     $_SESSION["name"] = $user->getName();

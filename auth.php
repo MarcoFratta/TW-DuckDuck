@@ -2,6 +2,7 @@
     require_once "db/database.php";
     require_once "db/connections.php";
     require_once "utils/functions.php";
+    session_start();
     if (!isset($_POST['email'], $_POST['password'], $_GET['type'])) {
         // Could not get the data that should have been sent.
         exit('Errore');
@@ -20,6 +21,7 @@
         if (password_verify($_POST['password'], $res['password'])) {
             registerLoggedUser(Client::createForSession($id, $email, $name),$_GET['type']);
             echo 'Welcome ' . $_SESSION['name'] . '!';
+            header("Location:index.php");
         } else {
             // Incorrect password
             echo 'Incorrect username and/or password!';
