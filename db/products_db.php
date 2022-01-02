@@ -1,5 +1,6 @@
 <?php
 require_once "model/product.php";
+require_once "model/dimension.php";
 class ProductsHelper
 {
     private $db;
@@ -34,7 +35,26 @@ class ProductsHelper
         $stmt->bind_param('i',$id_product);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $this->toProducts($result->fetch_all(MYSQLI_ASSOC))->current();
+        try{    
+            return $this->toProducts($result->fetch_all(MYSQLI_ASSOC))->current();
+        }catch(Exception $e){
+            return false;
+        }    
+    }
+
+    public function getCustomProductById($id_product)
+    {
+        $query = "SELECT *
+        FROM custom_products WHERE $this->NORMAL_ID=?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i',$id_product);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        try{    
+            return $this->toProducts($result->fetch_all(MYSQLI_ASSOC))->current();
+        }catch(Exception $e){
+            return false;
+        }    
     }
 
     public function getRandomNormalProducts($n)
@@ -60,6 +80,8 @@ class ProductsHelper
         $result = $stmt->get_result();
         return $this->toProducts($result->fetch_all(MYSQLI_ASSOC));
     }
+
+
 
     public function insertCustomProduct($product){
         if($product->getParts() == []){
@@ -123,8 +145,36 @@ class ProductsHelper
     public function getCustomItems(){
         $query = "SELECT *
         FROM custom_items";
-        $result = $this->db->query();
+        $result = $this->db->query($query);
         return $this->toItems($result->fetch_all(MYSQLI_ASSOC));
+    }
+
+    public function getDimensionDetails($id){
+        $query = "SELECT *
+        FROM dimension where id = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i',$id); 
+        $stmt->execute();
+        $result = $stmt->get_result();   
+        try{    
+            return $this->toDimension($result->fetch_all(MYSQLI_ASSOC))->current();
+        }catch(Exception $e){
+            return false;
+        }   
+    }
+
+    public function getCustomItemById($id){
+        $query = "SELECT *
+        FROM custom_items WHERE ID=?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i',$id); 
+        $stmt->execute();
+        $result = $stmt->get_result();   
+        try{    
+            return $this->toItems($result->fetch_all(MYSQLI_ASSOC))->current();
+        }catch(Exception $e){
+            return false;
+        }    
     }
 
     private function toItems($result){
@@ -134,6 +184,13 @@ class ProductsHelper
             $product[$this->SELLER],$product[$this->NAME],
             $product[$this->DATE],$product[$this->LAYER]);
          endforeach;
+    }
+
+    private function toDimension($result){
+        foreach ($result as $dim):
+            yield new Dimension($dim['id'],
+            $dim['width'],$dim['height'],$dim['depth'],$dim['price'],$dim['size']);
+        endforeach;
     }
 
     private function toProducts($result)

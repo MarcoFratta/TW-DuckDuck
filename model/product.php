@@ -166,8 +166,6 @@ class CustomProduct extends Product
 
 class CustomItem extends Product
 {
-        private $layer = [];
-
         public function __construct($id, $price, $image_path, $seller, $name, $addition_date, $layer)
         {
                 $this->id = $id;

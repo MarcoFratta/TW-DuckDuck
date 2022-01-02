@@ -7,6 +7,7 @@
             <li><a <?php isActive("categorie.php");?> href="categories.php">Categorie</a></li>
             <li><a <?php isActive("account.php");?> href="account.php">Account</a></li>
             <li><a <?php isActive("crea.php");?> href="crea.php">Crea</a></li>
+            <li><a <?php isActive("cart.php");?> href="cart.php">Carrello</a></li>
             <li><a <?php isActive("login.php");?> href="login.php?type=seller">Accesso venditore</a></li>
             <li><a <?php isActive("login.php");?> href="login.php?type=client">Accesso cliente</a></li>
             <li><a <?php isActive("register.php");?> href="register.html">Registrati</a></li>

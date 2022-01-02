@@ -1,0 +1,69 @@
+<?php
+    class Dimension{
+        private $id;
+        private $width;
+        private $height;
+        private $depth;
+        private $price;
+        private $size;
+        
+        public function __construct($id,$width,$height,$depth,$price,$size){
+            $this->id= $id;
+            $this->width = $width;
+            $this->height = $height;
+            $this->depth = $depth;
+            $this->price = $price;
+            $this->size = $size;
+        }
+
+        /**
+         * Get the value of id
+         */ 
+        public function getId()
+        {
+                return $this->id;
+        }
+
+        /**
+         * Get the value of width
+         */ 
+        public function getWidth()
+        {
+                return $this->width;
+        }
+
+        /**
+         * Get the value of height
+         */ 
+        public function getHeight()
+        {
+                return $this->height;
+        }
+
+        /**
+         * Get the value of depth
+         */ 
+        public function getDepth()
+        {
+                return $this->depth;
+        }
+
+        /**
+         * Get the value of price
+         */ 
+        public function getPrice()
+        {
+                return $this->price;
+        }
+
+        /**
+         * Get the value of size
+         */ 
+        public function getSize()
+        {
+                return $this->size;
+        }
+    }
+
+
+?>
