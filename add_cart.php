@@ -5,12 +5,10 @@ require_once "utils/functions.php";
 require_once "bootstrap.php";
 require_once "template/common_html.php";
 
-
 if (isset($_POST['type'])) {
-    // Set the post variables so we easily identify them, also make sure they are integer
+    // get the type of the product
     $type = $_POST['type'];
     $quantity = 1;
-    // Prepare the SQL statement, we basically are checking if the product exists in our databaser
     $db = DbConnections::mySqlConnection();
     if ($type == "normal") {
         $product_id = (int)$_POST['product_id'];
@@ -23,7 +21,6 @@ if (isset($_POST['type'])) {
         if (isset($_POST['top_id'], $_POST['middle_id'], $_POST['bottom_id'], $_POST['dimension'])) {
             $parts = [$_POST['top_id'], $_POST['middle'], $_POST['bottom']];
             $price = 0;
-
             foreach ($parts as $part) {
                 $item = $db->products()->getCustomItemById($part);
                 if ($item == false) {
@@ -49,9 +46,6 @@ if (isset($_POST['type'])) {
         }
     }
 
-
-    // Check if the product exists (array is not empty)
-
     // Product exists in database, now we can create/update the session variable for the cart
     if (isset($_SESSION[$cart_name]) && is_array($_SESSION[$cart_name])) {
         if (array_key_exists($product_id, $_SESSION[$cart_name])) {
@@ -66,7 +60,6 @@ if (isset($_POST['type'])) {
         $_SESSION[$cart_name] = array($product_id => $quantity);
     }
 }
-
 // Prevent form resubmission...
 header('location: cart.php');
 exit;
