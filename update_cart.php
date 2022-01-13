@@ -16,6 +16,9 @@
                     $_SESSION['cart_'.$type][$product_id] -= 1;
                 } else {
                     unset($_SESSION['cart_'.$type][$product_id]);
+                    if(sizeof($_SESSION['cart_'.$type]) == 0){
+                        unset($_SESSION['cart_'.$type]);
+                    }
                 }               
             }
         }

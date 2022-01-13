@@ -3,7 +3,6 @@ require_once "db/connections.php";
 require_once "db/database.php";
 require_once "utils/functions.php";
 require_once "bootstrap.php";
-require_once "template/common_html.php";
 
 if (isset($_POST['type'])) {
     // get the type of the product

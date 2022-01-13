@@ -48,5 +48,3 @@
 <button type="button">Procedi all'acquisto</button>
 
 <!-- el: FOOTER -->
-
-</body>
