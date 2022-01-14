@@ -4,18 +4,18 @@ class Card{
     private $number;
     private $expire_date;
     private $cvv;
-    private $client;
+    private $client_id;
 
-    function __construct($id, $number, $expire_date, $cvv, $client){
+    function __construct($id, $number, $expire_date, $cvv, $client_id){
         $this->id=$id;
         $this->number=$number;
         $this->cvv=$cvv;
         $this->expire_date=$expire_date;
-        $this->client = $client;
+        $this->client_id = $client_id;
     }
 
-    static function newCard($number, $expire_date, $cvv, $client){
-        return new Self(null, $number, $expire_date, $cvv, $client);
+    static function newCard($number, $expire_date, $cvv, $client_id){
+        return new Self(null, $number, $expire_date, $cvv, $client_id);
     }
 
     public function getId()
@@ -34,9 +34,9 @@ class Card{
     {
         return $this->cvv;
     }
-    public function getClient()
+    public function getClientId()
     {
-        return $this->client;
+        return $this->client_id;
     }
 }
 
