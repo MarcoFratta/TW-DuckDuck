@@ -7,7 +7,7 @@
     <?php foreach($cards as $card): ?>
         <input type="radio" id="<?php echo $card->getId() ?>" name="card" value="<?php echo $card->getId() ?>" checked>
         <label for="<?php echo $card->getId() ?>"><?php echo 
-            "Titolare: ".$card->getClient().", "
+            "Titolare: ".$client->getName().", "
             ."Numero: ".$card->getNumber().", "
             ."Data di scadenza: ".$card->getExpire_date().", " ?></label>
     <?php endforeach; ?>

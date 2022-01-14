@@ -15,5 +15,5 @@
     $db = DbConnections::mySqlConnection();
     $card = Card::newCard($_POST['number'], $_POST['expire_date'], $_POST['cvv'], $_POST['client_id']);
     $db->cards()->insertCard($card);
-    echo "ok";
+    header("Location:cards.php");
 ?>

@@ -27,10 +27,11 @@ class CardHelper{
     public function insertCard($card){
         $query = "INSERT INTO cards($this->NUMBER, $this->DATE, $this->CVV, $this->CLIENT_ID) values (?,?,?,?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('i',$card->getNumber());
-        $stmt->bind_param('s',$card->getExpire_date());
-        $stmt->bind_param('i',$card->getCvv());
-        $stmt->bind_param('i',$card->getClientId());
+        $number = $card->getNumber();
+        $date = $card->getExpire_date();
+        $cvv = $card->getCvv();
+        $client = $card->getClientId();
+        $stmt->bind_param('isii',$number, $date, $cvv, $client);
         $stmt->execute();
         $result = $stmt->insert_id;
         return $result;
