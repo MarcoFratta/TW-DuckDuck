@@ -1,6 +1,5 @@
 <?php 
     $addresses = $db->addresses()->getAddresses();
-    $idChecked = null;
 ?>
 <h1>Indirizzo di consegna</h1>
 <section id="addresses">
