@@ -25,12 +25,12 @@ class CardHelper{
     }
 
     public function insertCard($card){
-        $query = "INSERT INTO cards($this->NUMBER,$this->CVV,
-        $this->DATE,$this->CLIENT) values (?,?,?,?,?)";
+        $query = "INSERT INTO cards($this->NUMBER,$this->DATE,
+        $this->CVV,$this->CLIENT) values (?,?,?,?,?)";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i',$card->getNumber());
-        $stmt->bind_param('i',$card->getCvv());
         $stmt->bind_param('i',$card->getDate());
+        $stmt->bind_param('i',$card->getCvv());
         $stmt->bind_param('i',$card->getClient());
         $stmt->execute();
         $result = $stmt->insert_id;

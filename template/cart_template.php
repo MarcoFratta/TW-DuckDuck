@@ -45,6 +45,6 @@
     <h6>€ <?php echo $sum + $shipping ?></h6>
 </section>
 
-<button type="button">Procedi all'acquisto</button>
+<button type="button" onclick="document.location='addresses.php'">Procedi all'acquisto</button>
 
 <!-- el: FOOTER -->

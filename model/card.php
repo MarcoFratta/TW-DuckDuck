@@ -6,12 +6,16 @@ class Card{
     private $cvv;
     private $client;
 
-    function __construct($id,$number,$cvv,$expire_date,$client){
+    function __construct($id, $number, $expire_date, $cvv, $client){
         $this->id=$id;
         $this->number=$number;
         $this->cvv=$cvv;
         $this->expire_date=$expire_date;
         $this->client = $client;
+    }
+
+    static function newCard($number, $expire_date, $cvv, $client){
+        return new Self(null, $number, $expire_date, $cvv, $client);
     }
 
     /**

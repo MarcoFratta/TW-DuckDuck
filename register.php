@@ -10,7 +10,7 @@
          echo $_POST['password'];
          echo $_POST['name'];
          echo $_POST['type'];
-         exit('Errore inerimento');
+         exit('Errore inserimento');
      }
  
      $db = DbConnections::mySqlConnection();
