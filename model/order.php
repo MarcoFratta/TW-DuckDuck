@@ -1,5 +1,5 @@
 <?php
-    class Order{
+        class Order{
         private $id;
         private $id_client;
         private $id_card;
@@ -10,24 +10,24 @@
         private $custom_products = [];
 
 
-        function __construct($id,$date, $destination, $status,$id_card,$id_client,
-        $normal_products,$custom_products){
-            $this->id = $id;
-            $this->date = $date;
-            $this->destination = $destination;
-            $this->status = $status;
-            $this->id_card = $id_card;
-            $this->id_client = $id_client;
-            $this->normal_products = $normal_products;
-            $this->custom_products = $custom_products;
+        function __construct($id, $date, $destination, $status, $id_card, $id_client,
+        $normal_products, $custom_products){
+                $this->id = $id;
+                $this->date = $date;
+                $this->destination = $destination;
+                $this->status = $status;
+                $this->id_card = $id_card;
+                $this->id_client = $id_client;
+                $this->normal_products = $normal_products;
+                $this->custom_products = $custom_products;
         }
 
         public function addNormalProduct($product, $price){
-            array_push($normal_products, $product);
+                array_push($normal_products, $product);
         }
 
         public function addCustomProduct($product, $price){
-            array_push($custom_products, $product);
+                array_push($custom_products, $product);
         }
 
         
@@ -95,5 +95,5 @@
         {
                 return $this->custom_products;
         }
-    }
+}
 ?>

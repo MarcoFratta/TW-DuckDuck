@@ -4,16 +4,15 @@
     private $ID = "id_order";
     private $DATE =  "creation_date";
     private $STATUS = "status";
-    private $DESTINATION  = "destination";
+    private $DESTINATION  = "id_address";
     private $ID_CARD = "id_card";
     private $ID_CLIENT =  "id_client";
-
     public function __construct($db){
         $this->db = $db;
     }
 
     public function addNewOrder($order){
-        $query = "INSERT INTO orders ('creation_date','status','destination',
+        $query = "INSERT INTO orders ('creation_date','status','id_address',
         'id_card','id_client') values (?,?,?,?,?)";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('d',$order->getDate());
@@ -67,7 +66,7 @@
         return $this->toOrder($result->fetch_all(MYSQLI_ASSOC),$withProducts)->current();
     }
 
-   
+
     private function toOrder($orders, $withProducts=false){
         foreach ($orders as $order){
             $n_products = [];
@@ -84,9 +83,9 @@
                     $product['price']));
                 }
             }
-           yield new Order($order[$this->ID],$order[$this->DATE],
-           $order[$this->STATUS],$order[$this->DESTINATION],
-           $order[$this->ID_CARD],$order[$this->ID_CLIENT],$n_products,$c_products);
+        yield new Order($order[$this->ID],$order[$this->DATE],
+        $order[$this->DESTINATION],$order[$this->STATUS],
+        $order[$this->ID_CARD],$order[$this->ID_CLIENT],$n_products,$c_products);
         }
     }
 
@@ -110,7 +109,13 @@
         return $result;
     }
 
+    public function getOrdersByClient($id_client){
+        $query = "SELECT * FROM orders WHERE id_client=$id_client";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $this->toOrder($result->fetch_all(MYSQLI_ASSOC));
+    }
 
-    
 }
 ?>
