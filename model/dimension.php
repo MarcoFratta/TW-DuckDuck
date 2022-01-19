@@ -6,14 +6,16 @@
         private $depth;
         private $price;
         private $size;
+        private $name;
         
-        public function __construct($id,$width,$height,$depth,$price,$size){
+        public function __construct($id,$width,$height,$depth,$price,$size,$name){
             $this->id= $id;
             $this->width = $width;
             $this->height = $height;
             $this->depth = $depth;
             $this->price = $price;
             $this->size = $size;
+            $this->name = $name;
         }
 
         /**
@@ -62,6 +64,14 @@
         public function getSize()
         {
                 return $this->size;
+        }
+
+        /**
+         * Get the value of name
+         */ 
+        public function getName()
+        {
+                return $this->name;
         }
     }
 

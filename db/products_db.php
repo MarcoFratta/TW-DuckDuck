@@ -149,11 +149,25 @@ class ProductsHelper
         return $this->toItems($result->fetch_all(MYSQLI_ASSOC));
     }
 
-    public function getDimensionDetails($id){
+    public function getDimensionById($id){
         $query = "SELECT *
-        FROM dimension where id = ?";
+        FROM dimensions where id_dimension = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i',$id); 
+        $stmt->execute();
+        $result = $stmt->get_result();   
+        try{    
+            return $this->toDimension($result->fetch_all(MYSQLI_ASSOC))->current();
+        }catch(Exception $e){
+            return false;
+        }   
+    }
+
+    public function getDimensionBySize($size){
+        $query = "SELECT *
+        FROM dimensions where size = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i',$size); 
         $stmt->execute();
         $result = $stmt->get_result();   
         try{    
@@ -188,8 +202,8 @@ class ProductsHelper
 
     private function toDimension($result){
         foreach ($result as $dim):
-            yield new Dimension($dim['id'],
-            $dim['width'],$dim['height'],$dim['depth'],$dim['price'],$dim['size']);
+            yield new Dimension($dim['id_dimension'],
+            $dim['width'],$dim['height'],$dim['depth'],$dim['price'],$dim['size'],$dim['name']);
         endforeach;
     }
 

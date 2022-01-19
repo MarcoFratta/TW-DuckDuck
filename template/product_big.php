@@ -1,6 +1,8 @@
 <?php
 require_once "model/product.php";
-// $product contains the product to show   
+// $product contains the product to show 
+$dim_id = $product->getDimension();
+$dimension = $db->products()->getDimensionById($dim_id);
 ?>
 <article>
     <h1><?php echo $product->getName() ?></h1>
@@ -16,11 +18,11 @@ require_once "model/product.php";
     <h3>IVA inclusa</h3>
 
     <img> <!-- Papere che indicano la dimensione -->
-    <a>Guida alle taglie</a>
+    <a href="size.php?size=<?php echo $dimension->getSize()?>">Guida alle taglie</a>
 
     <form action="add_cart.php" method="post">
         <input type="hidden" name="type" value="normal">
-        <input type="hidden" name="product_id" value="<?php echo $product->getId()?>">
+        <input type="hidden" name="product_id" value="<?php echo $product->getId() ?>">
         <button type="submit">Aggiungi al carrello</button>
     </form>
 

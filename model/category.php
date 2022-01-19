@@ -8,7 +8,6 @@ class Category{
         $this->name = $name;
     }
 
-    
     /**
      * Get the value of id
      */ 
