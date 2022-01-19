@@ -18,7 +18,7 @@
             <h3>OPPURE</h3>
             <a>Password dimenticata?</a>
             <h6>Non hai un account?</h6><a>Registrati</a>
-            <h6>Sei un fornitore?</h6><a>Area privata</a>';
+            <h6>Sei un fornitore?</h6><a href="login.php?type=seller">Area privata</a>';
             #footer
         require "template/common_bottom_html.php"
 ?>

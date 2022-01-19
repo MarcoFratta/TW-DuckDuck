@@ -104,5 +104,28 @@
            return $result[0];
        return false;
     }
+
+    public function getSellerById($id){
+        $query = "SELECT *
+         FROM sellers WHERE $this->ID_SELLER=?";
+         if($stmt = $this->db->prepare($query)) { 
+            $stmt->bind_param('i',$id);
+            $stmt->execute();
+        } else {
+            $error = $this->db->errno . ' ' . $this->db->error;
+            echo $error; 
+            return false;
+        }
+         
+        $res = $stmt->get_result();
+        $res = $res->fetch_all(MYSQLI_ASSOC);
+        $stmt->close();
+        if (sizeof($res) > 0){
+            $res = $res[0];
+            return Client::createSeller($id,$res['name'],$res['email'],
+            $res['password']);
+        }
+        return false;
+    }
  }
 ?>

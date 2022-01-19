@@ -21,5 +21,5 @@
      } else {
           $db->users()->insertSeller($user);
      }
-     echo "ok";
+     header('location:index.php');
 ?>

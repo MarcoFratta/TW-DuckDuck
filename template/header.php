@@ -11,6 +11,6 @@
             <li><a <?php isActive("login.php");?> href="login.php?type=seller">Accesso venditore</a></li>
             <li><a <?php isActive("login.php");?> href="login.php?type=client">Accesso cliente</a></li>
             <li><a <?php isActive("register.php");?> href="register.html">Registrati</a></li>
-            <li><a <?php isActive("client_details.php");?> href="client_details.php">Dettagli</a></li>
+            <li><a <?php isActive("details.php");?> href="details.php">Dettagli</a></li>
          </ul>
     </nav>
