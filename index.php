@@ -10,5 +10,6 @@
   require "template/common_top_html.php";
   require "template/header.php";
   $db = DbConnections::mySqlConnection();
+  $products = $db->products()->getLastNormalProducts();
   require "template/horizontal_products.php";
   require "template/common_bottom_html.php";

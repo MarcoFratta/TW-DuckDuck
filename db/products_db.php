@@ -57,11 +57,24 @@ class ProductsHelper
         }
     }
 
-    public function getRandomNormalProducts($n)
+    public function getRandomNormalProducts($n=500)
     {
         $query = "SELECT * 
                 FROM normal_products 
                 ORDER BY RAND() 
+                LIMIT ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $n);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $this->toProducts($result->fetch_all(MYSQLI_ASSOC));
+    }
+
+    public function getLastNormalProducts($n=500)
+    {
+        $query = "SELECT * 
+                FROM normal_products 
+                ORDER BY $this->DATE DESC
                 LIMIT ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i', $n);
@@ -122,19 +135,18 @@ class ProductsHelper
     {
         $query = 'INSERT INTO normal_products(' . $this->NAME . ',' . $this->DESC . ',
         ' . $this->IMG_PATH . ',' . $this->AMOUNT . ',' . $this->DISCOUNT . ',' . $this->PRICE . ',' . $this->DATE . ',
-        ' . $this->SELLER . ',' . $this->DIMENSION . ',' . $this->CATEGORY . ') values (?,?,?,?,?,?,?,?,?,?)';
+        ' . $this->SELLER . ',' . $this->DIMENSION . ',' . $this->CATEGORY . ') values (?,?,?,?,?,?,CURDATE(),?,?,?)';
         if ($stmt = $this->db->prepare($query)) {
             $n = $product->getName();
             $d = $product->getDescription();
-            $i = $product->getImagePath();
+            $i = $product->getImagePath() !== null ?$product->getImagePath(): "NULL" ;
             $a = $product->getAmount();
             $di = $product->getDiscount();
             $p = $product->getPrice();
-            $da = $product->getAdditionDate();
             $s = $product->getSeller();
             $dim = $product->getDimension();
             $c = $product->getCategory();
-            $stmt->bind_param('sssiiidiii', $n, $d, $i, $a, $di, $p, $da, $s, $dim, $c);
+            $stmt->bind_param('sssiiiiii', $n, $d, $i, $a, $di, $p, $s, $dim, $c);
             $stmt->execute();
             $result = $stmt->insert_id;
             return $result;

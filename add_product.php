@@ -23,23 +23,35 @@ if ($_GET['type'] == "normal") {
     $db = DbConnections::mySqlConnection();
     $img = uploadImage();
     $img_path = $img == false ? null : $img;
-    $date = date("Y-m-d");
-    $product = new Product(null,$_POST['name'],$_POST['desc'],$img_path,
-    $_POST['price'],$_POST['dim'],$_POST['amount'],$_POST['discount'],$_SESSION['id'],
-    $_POST['category'],$_POST['price'],$date);
+    var_dump($date);
+    $product = new Product(
+        null,
+        $_POST['name'],
+        $_POST['desc'],
+        $img_path,
+        $_POST['price'],
+        $_POST['dim'],
+        $_POST['amount'],
+        $_POST['discount'],
+        $_SESSION['id'],
+        $_POST['category'],
+        $_POST['price'],
+        null
+    );
     $res = $db->products()->insertNormalProduct($product);
-    if (!$res){
+    if (!$res) {
         echo "errore inserimento nel db";
     } else {
+
         header("Location:new_product.php");
     }
-    
 }
 
 
 
 
-function uploadImage(){
+function uploadImage()
+{
     $target_dir = "uploads/";
     $target_file = $target_dir . basename($_FILES["img"]["name"]);
     $uploadOk = 1;
@@ -52,20 +64,20 @@ function uploadImage(){
             $uploadOk = 1;
         } else {
             echo "Error, file is not an image.";
-            $uploadOk = 0;
+            return false;
         }
     }
 
     // Check if file already exists
     if (file_exists($target_file)) {
         echo "File gia esistente";
-        $uploadOk = 0;
+        return false;
     }
 
     // Check file size
     if ($_FILES["img"]["size"] > 500000) {
         echo "Dimensione del file troppo grande";
-        $uploadOk = 0;
+        return false;
     }
 
     // Allow certain file formats
@@ -74,19 +86,12 @@ function uploadImage(){
         && $imageFileType != "gif"
     ) {
         echo "Solo JPG, JPEG, PNG ammessi.";
-        $uploadOk = 0;
+        return false;
     }
 
-    // Check if $uploadOk is set to 0 by an error
-    if ($uploadOk == 0) {
-        echo "Errore inserimento immagine";
-        return false;
-        // if everything is ok, try to upload file
+    if (move_uploaded_file($_FILES["img"]["tmp_name"], $target_file)) {
+        return $target_file;
     } else {
-        if (move_uploaded_file($_FILES["img"]["tmp_name"], $target_file)) {
-            return $target_file;
-        } else {
-            echo "Errore caricamento file";
-        }
+        echo "Errore caricamento file";
     }
 }

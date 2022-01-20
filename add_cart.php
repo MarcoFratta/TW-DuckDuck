@@ -32,10 +32,7 @@ if (isset($_POST['type'])) {
             if ($dimension === false)
                 die('dimension not existing');
             $price += $dimension->getPrice();
-            $date = new DateTime('now');
-            $date->setTimezone(new DateTimeZone('UTC'));
-            $date = $date->format('Y-m-d');
-            $product = new CustomProduct(null, $price, $dim_id, $date, $parts);
+            $product = new CustomProduct(null, $price, $dim_id, null, $parts);
             $inserted_id = $db->products()->insertCustomProduct($product);
             if (!$inserted_id) {
                 die("error inserting custom item");
