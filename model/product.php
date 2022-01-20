@@ -66,7 +66,7 @@ class Product
         /**
          * Get the value of image_path
          */
-        public function getImage_path()
+        public function getImagePath()
         {
                 return $this->image_path;
         }
@@ -138,7 +138,7 @@ class Product
         /**
          * Get the value of addition_date
          */
-        public function getAddition_date()
+        public function getAdditionDate()
         {
                 return $this->addition_date;
         }

@@ -20,16 +20,14 @@ $seller = $db->users()->getSellerById($_SESSION['id']);
     <div>
         <i>Busta</i>
         <h4>Prodotti</h4>
-        <button type="button">'>'</button>
+        <form action="products.php">
+            <input type="submit" value=">" />
+        </form>
     </div>
     <div>
-        <button id="logout">Esci</button>
-        <script>
-            var btn = document.getElementById('logout');
-            btn.addEventListener('click', function() {
-                document.location.href = "logout.php";
-            });
-        </script>
+        <form action="logout.php">
+            <input type="submit" value="Esci" />
+        </form>
     </div>
 
 </section>

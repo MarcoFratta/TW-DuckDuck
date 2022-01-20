@@ -5,4 +5,11 @@ function smallProductCard($product){
                 <a href="product.php?id_product='.$product->getId().'">'.$product->getName().'</a>          
             </article>';
 }
+
+
+function sellerProductCard($product){
+    return '<article> 
+                <a href="product.php?id_product='.$product->getId().'">'.$product->getName().'</a>          
+            </article>';
+}
 ?>

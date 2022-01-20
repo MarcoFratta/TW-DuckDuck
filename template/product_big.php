@@ -9,7 +9,7 @@ $dimension = $db->products()->getDimensionById($dim_id);
     <h3>Categorie</h3>
     <img> <!-- icona cuore per i preferiti -->
 
-    <img> <!-- immagine prodotto -->
+    <img alt="" src="<?php echo $product->getImagePath() ?>"> <!-- immagine prodotto -->
 
     <p><?php echo $product->getDescription() ?></p>
     <h3>- <?php echo $product->getAmount() ?> disponibili</h3>

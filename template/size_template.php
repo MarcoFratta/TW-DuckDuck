@@ -2,13 +2,19 @@
     <section>
 
         <!--create the size view with duck images: -->
-        <button type="button">-</button>
+        <form method="GET" action="size.php">
+        <input type="hidden" name="size" value="<?php echo $dimension->getSize()!=1 ? $dimension->getSize()-1: 1?>"/>
+            <input type="submit" value="-" />
+        </form>
         <img>
         <img>
         <img>
         <img>
         <img>
-        <button type="button">+</button>
+        <form method="GET" action="size.php">
+            <input type="hidden" name="size" value="<?php echo $dimension->getSize()!=5 ? $dimension->getSize()+1: 5?>"/>
+            <input type="submit" value="+" />
+        </form>
         <h3><?php echo $dimension->getName()?></h3>
         <img>
 

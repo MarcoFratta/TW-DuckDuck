@@ -1,6 +1,7 @@
 <?php
     require_once "bootstrap.php"; 
-    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+    require_once "utils/functions.php";
+    if (userIsLogged()) {
         require_once "db/connections.php";
         require_once "db/database.php";
         require_once "db/users_db.php";

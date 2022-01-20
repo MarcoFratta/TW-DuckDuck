@@ -28,7 +28,7 @@ if (isset($_POST['type'])) {
                 $price += $item->getPrice();
             }
             $dim_id = $_POST['dimension'];
-            $dimension = $db->products()->getDimensionDetails($dim_id);
+            $dimension = $db->products()->getDimensionById($dim_id);
             if ($dimension === false)
                 die('dimension not existing');
             $price += $dimension->getPrice();
