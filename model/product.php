@@ -150,11 +150,8 @@ class CustomProduct extends Product
 
         public function __construct($id, $price, $dimension, $addition_date, $parts)
         {
-                $this->id = $id;
-                $this->price = $price;
-                $this->dimension = $dimension;
+                parent::__construct($id,null,null,null,$price,$dimension,null,null,null,null,$addition_date);
                 $this->parts = $parts;
-                $this->addition_date = $addition_date;
         }
 
 
@@ -166,15 +163,11 @@ class CustomProduct extends Product
 
 class CustomItem extends Product
 {
+        private $layer;
         public function __construct($id, $price, $image_path, $seller, $name, $addition_date, $layer)
         {
-                $this->id = $id;
-                $this->price = $price;
-                $this->image_path = $image_path;
+                parent::__construct($id,$name,null,$image_path,$price,null,null,null,$seller,null,$addition_date);
                 $this->layer = $layer;
-                $this->seller = $seller;
-                $this->name = $name;
-                $this->addition_date = $addition_date;
         }
 
         public function getLayer()

@@ -14,7 +14,7 @@
         <h3>Immagine</h3>
         <input type="file" name="img">
 
-        <label for="dim" id="dimensnion">Dimensione</label>
+        <label for="dim" id="dimension">Dimensione</label>
             <select name="dim">
                 <?php 
                     foreach($dimensions as $dimension){

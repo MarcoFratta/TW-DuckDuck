@@ -7,12 +7,22 @@
  
 
   $templateParams['title'] = "Aggiungi Prodotto";
+  if (!isset($_GET['type'])){
+      die("Errore tipo");
+  }
   if(userIsLogged()){
     if(isSeller()){
         require "template/common_top_html.php";
         require "template/header.php";
+        $type = $_GET['type'];
         $db = DbConnections::mySqlConnection();
-        require "template/new_product.php";
+        if($type == "normal"){
+            require "template/new_product.php";
+        } elseif ($type == "custom"){
+
+        } elseif ($type == "item"){
+            require "template/new_item.php";
+        }     
         require "template/common_bottom_html.php";
     } else{
         die("Accesso negato");
