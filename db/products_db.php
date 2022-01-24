@@ -159,19 +159,24 @@ class ProductsHelper
 
     public function insertCustomItem($item)
     {
-        $query = "INSERT INTO custom_item($this->NAME,
-        $this->IMG_PATH,$this->PRICE,$this->DATE,$this->SELLER, $this->LAYER) 
-         values (?,?,?,?,?,?)";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('s', $item->getName());
-        $stmt->bind_param('s', $item->getImage());
-        $stmt->bind_param('i', $item->getPrice());
-        $stmt->bind_param('d', $item->getAdditionDate());
-        $stmt->bind_param('i', $item->getSeller());
-        $stmt->bind_param('i', $item->getLayer());
-        $stmt->execute();
-        $result = $stmt->insert_id;
-        return $result;
+         $query = 'INSERT INTO custom_items(' . $this->NAME .',
+        ' . $this->IMG_PATH . ',' . $this->PRICE . ',' . $this->DATE . ',
+        ' . $this->SELLER . ',' . $this->LAYER .') values (?,?,?,CURDATE(),?,?)';
+        if ($stmt = $this->db->prepare($query)) {
+            $n = $item->getName();
+            $i = $item->getImagePath();
+            $p = $item->getPrice();
+            $s = $item->getSeller();
+            $l = $item->getLayer();
+            $stmt->bind_param('ssiii', $n, $i, $p, $s, $l);
+            $stmt->execute();
+            $result = $stmt->insert_id;
+            return $result;
+        } else {
+            $error = $this->db->errno . ' ' . $this->db->error;
+            echo $error; // 1054 Unknown column 'foo' in 'field list'
+            return $error;
+        }
     }
 
     public function getCustomItems()

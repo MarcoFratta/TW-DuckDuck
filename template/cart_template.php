@@ -1,7 +1,7 @@
 <h1>Il tuo carrello</h1>
 <section id="cart_products">
     <?php
-    include_once "template/cart.product.php";
+    include_once "template/cart_product.php";
     if (!isset($_SESSION['cart_normal']) && !isset($_SESSION['cart_custom'])) {
         //require "template/empty_chart";
         echo "Carrello vuoto";

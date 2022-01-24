@@ -2,12 +2,17 @@
 require_once "db/connections.php";
 require_once "db/database.php";
 require_once "utils/functions.php";
-session_start();
 require_once "model/product.php";
+session_start();
+
 if (!isset($_GET['type'])) {
-    die("Errore");
+    die("Errore tipo");
 }
-if ($_GET['type'] == "normal") {
+if (!userIsLogged()) {
+    die("Errore sessione");
+}
+$db = DbConnections::mySqlConnection();
+if ($_GET['type'] == "normal" && isSeller()) {
     if (!isset(
         $_POST['name'],
         $_POST['dim'],
@@ -20,16 +25,14 @@ if ($_GET['type'] == "normal") {
         var_dump($_POST);
         die("errore inserimento");
     }
-    $db = DbConnections::mySqlConnection();
     $img = uploadImage();
     $img_path = $img == false ? null : $img;
-    var_dump($date);
     $product = new Product(
         null,
         $_POST['name'],
         $_POST['desc'],
         $img_path,
-        $_POST['price'],
+        $_POST['price'] * 100,
         $_POST['dim'],
         $_POST['amount'],
         $_POST['discount'],
@@ -41,10 +44,32 @@ if ($_GET['type'] == "normal") {
     $res = $db->products()->insertNormalProduct($product);
     if (!$res) {
         echo "errore inserimento nel db";
+        if($img_path!== null)
+            unlink($img_path);
     } else {
-
-        header("Location:new_product.php");
+        header("Location:new_product.php?type=normal");
     }
+} elseif ($_GET['type'] == "item" && isSeller()) {
+    if (!isset(
+        $_POST['name'],
+        $_POST['price'],
+        $_POST['layer'],
+    )) {
+        var_dump($_POST);
+        die("errore inserimento");
+    }
+    $img = uploadImage();
+    if(!$img){
+        die("errore immagine non valida");
+    }
+    $item = new CustomItem(null,$_POST['price'] * 100,$img,$_SESSION['id'],$_POST['name'],null,$_POST['layer']);
+    $res = $db->products()->insertCustomItem($item);
+    if (!$res) {
+        unlink($img);
+        echo "errore inserimento nel db";
+     } else {
+        header("Location:new_product.php?type=item");
+     }
 }
 
 
@@ -60,9 +85,7 @@ function uploadImage()
     // Check if image file is a actual image or fake image
     if (isset($_POST["submit"])) {
         $check = getimagesize($_FILES["img"]["tmp_name"]);
-        if ($check !== false) {
-            $uploadOk = 1;
-        } else {
+        if ($check == false) {
             echo "Error, file is not an image.";
             return false;
         }
