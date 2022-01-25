@@ -6,6 +6,7 @@ require_once __DIR__."/orders_db.php";
 require_once __DIR__."/addresses_db.php";
 require_once __DIR__."/cards_db.php";
 require_once __DIR__."/users_db.php";
+require_once __DIR__."/notification_db.php";
 class DbHelper{
     private $db;
     private $products;
