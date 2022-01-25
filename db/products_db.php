@@ -1,6 +1,6 @@
 <?php
-require_once "model/product.php";
-require_once "model/dimension.php";
+require_once __DIR__."\..\model\product.php";
+require_once __DIR__."\..\model\dimension.php";
 class ProductsHelper
 {
     private $db;
@@ -110,25 +110,36 @@ class ProductsHelper
     public function insertCustomProduct($product)
     {
         if ($product->getParts() == []) {
-            return null;
+            return false;
         }
-        $query = "INSERT INTO custom_products ($this->PRICE,$this->DATE,
-        $this->DIMENSION) values (?,?,?)";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('i', $product->getPrice());
-        $stmt->bind_param('d', $product->getAdditionDate());
-        $stmt->bind_param('i', $product->getDimension());
-        $stmt->execute();
-        $result = $stmt->insert_id;
-        foreach ($product->getParts() as $part) {
-            $query = "INSERT INTO custom_products_custom_items 
-            ($this->ITEM_ID, $this->CUSTOM_ID) values (?,?)";
-            $stmt = $this->db->prepare($query);
-            $stmt->bind_param('i', $part);
-            $stmt->bind_param('i', $result);
+        $query = 'INSERT INTO custom_products(' . $this->PRICE . ',' . $this->DATE . ',
+        ' . $this->DIMENSION . ') values (?,CURDATE(),?)';
+        if ($stmt = $this->db->prepare($query)) {
+            $p = $product->getPrice();
+            $dim = $product->getDimension();
+            $stmt->bind_param('ii', $p, $dim);
             $stmt->execute();
-        }
+            $result = $stmt->insert_id;
+            foreach ($product->getParts() as $part) {
+                $query = 'INSERT INTO custom_products_custom_items(' . $this->CUSTOM_ID . ',' . $this->ITEM_ID . ') 
+                values (?,?)';
+                if ($stmt = $this->db->prepare($query)) {
+                    $p = $part->getId();
+                    $stmt->bind_param('ii', $result, $p);
+                    $stmt->execute();
+                }else {
+                        $error = $this->db->errno . ' ' . $this->db->error;
+                        echo $error; // 1054 Unknown column 'foo' in 'field list'
+                        return false;
+                }   
+            }
+        $result = $stmt->insert_id;      
         return $result;
+        } else {
+            $error = $this->db->errno . ' ' . $this->db->error;
+            echo $error; // 1054 Unknown column 'foo' in 'field list'
+            return false;
+        }   
     }
 
     public function insertNormalProduct($product)
@@ -233,8 +244,8 @@ class ProductsHelper
 
     public function getCustomItemById($id)
     {
-        $query = "SELECT *
-        FROM custom_items WHERE ID=?";
+        $query = 'SELECT *
+        FROM custom_items WHERE '.$this->ITEM_ID.'=?';
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i', $id);
         $stmt->execute();
@@ -245,12 +256,26 @@ class ProductsHelper
             return false;
         }
     }
+    public function getCustomItemByLayer($layer)
+    {
+        $query = "SELECT *
+        FROM custom_items WHERE LAYER=?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $layer);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        try {
+            return $this->toItems($result->fetch_all(MYSQLI_ASSOC));
+        } catch (Exception $e) {
+            return false;
+        }
+    }
 
     private function toItems($result)
     {
         foreach ($result as $product) :
             yield new CustomItem(
-                $product[$this->ID],
+                $product[$this->ITEM_ID],
                 $product[$this->PRICE],
                 $product[$this->IMG_PATH],
                 $product[$this->SELLER],

@@ -1,5 +1,5 @@
 <?php
-    class Dimension{
+    class Dimension implements JsonSerializable{
         private $id;
         private $width;
         private $height;
@@ -73,7 +73,8 @@
         {
                 return $this->name;
         }
+        public function jsonSerialize() {
+                return (object) get_object_vars($this);
+        }
     }
-
-
 ?>

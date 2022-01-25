@@ -1,8 +1,10 @@
 <?php
 require_once "model/product.php";
+require_once "template/common.php";
 // $product contains the product to show 
 $dim_id = $product->getDimension();
 $dimension = $db->products()->getDimensionById($dim_id);
+$price = productPriceWithDiscount($product);
 ?>
 <article>
     <h1><?php echo $product->getName() ?></h1>
@@ -14,10 +16,10 @@ $dimension = $db->products()->getDimensionById($dim_id);
     <p><?php echo $product->getDescription() ?></p>
     <h3>- <?php echo $product->getAmount() ?> disponibili</h3>
 
-    <h1>€ <?php echo $product->getPrice() / 100 ?></h1>
+    <h1>€ <?php echo $price?></h1>
     <h3>IVA inclusa</h3>
 
-    <img> <!-- Papere che indicano la dimensione -->
+    <?php echo sizeSelector($dimension->getSize())?>
     <a href="size.php?size=<?php echo $dimension->getSize()?>">Guida alle taglie</a>
 
     <form action="add_cart.php" method="post">
@@ -26,17 +28,6 @@ $dimension = $db->products()->getDimensionById($dim_id);
         <button type="submit">Aggiungi al carrello</button>
     </form>
 
-    <div>
-        <img> <!-- icona del calendario -->
-        <p>Consegna entro 7 giorni lavorativi</p>
-        <img> <!-- icona del furgone -->
-        <p>Spedizione gratuita</p>
-        <img> <!-- icona dello scudo -->
-        <p>24 mesi di garanzia</p>
-        <img> <!-- icona del box -->
-        <p>Reso gratuito entro 60 giorni</p>
-        <img> <!-- icona dell'ambiente -->
-        <p>Plastica 100% riciclata</p>
-    </div>
+    <?php echo shippingInfo() ?>
 
 </article>

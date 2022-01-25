@@ -1,5 +1,5 @@
 <?php
-require_once "model/category.php";
+require_once  __DIR__."/../model/category.php";
 class CategoriesHelper{
 
     private $db;

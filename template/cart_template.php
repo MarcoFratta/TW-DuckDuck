@@ -18,18 +18,15 @@
             echo ("Product does not exits");
             continue;
         }
-        echo cart_product($product, "normal", $normal_cart_products[$product_id]);
-        $sum += ($product->getPrice() / 100) * $normal_cart_products[$product_id];
+        echo cart_product($product, "normal", $normal_cart_products[$product_id]['quantity']);
+        $sum += (productPriceWithDiscount($product)) * $normal_cart_products[$product_id]['quantity'];
     }
 
     foreach (array_keys($custom_cart_products) as $product_id) {
-        $product = $db->products()->getCustomProductById($product_id);
-        if (!$product) {
-            echo ("Product does not exits");
-            continue;
-        }
-        echo cart_product($product, "custom", $custom_cart_products[$product_id]);
-        $sum += ($product->getPrice() / 100) * $custom_cart_products[$product_id];
+        $product = $custom_cart_products[$product_id]["value"];
+        $product->withId($product_id);
+        echo cart_product($product, "custom", $custom_cart_products[$product_id]['quantity']);
+        $sum += (productPriceWithDiscount($product)) * $custom_cart_products[$product_id]['quantity'];
     }
     ?>
 </section>

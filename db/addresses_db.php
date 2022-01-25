@@ -1,5 +1,5 @@
 <?php
-require_once "model/address.php";
+require_once  __DIR__."/../model/address.php";
 class AddressHelper{
 
     private $db;

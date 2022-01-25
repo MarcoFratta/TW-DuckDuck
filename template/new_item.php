@@ -1,6 +1,6 @@
 <?php 
 
-    $layers = 3;
+    $layers = 4;
 
 ?>
 

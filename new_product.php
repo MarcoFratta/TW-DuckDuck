@@ -6,27 +6,50 @@
   require_once "bootstrap.php";
  
 
-  $templateParams['title'] = "Aggiungi Prodotto";
+  
   if (!isset($_GET['type'])){
       die("Errore tipo");
   }
+  $db = DbConnections::mySqlConnection();
+  $type = $_GET['type'];
   if(userIsLogged()){
-    if(isSeller()){
+    if(isSeller()){   
+        if($type == "normal") {
+            $templateParams['title'] = "Aggiungi Prodotto";
+            require "template/common_top_html.php";
+            require "template/header.php";
+            require "template/new_product.php";
+        } elseif ($type == "item"){
+            $templateParams['title'] = "Aggiungi Elemento";
+            require "template/common_top_html.php";
+            require "template/header.php";
+            require "template/new_item.php";
+        }  else {
+            header("Location:login.php?type=client");   
+        }   
+    } elseif(isClient()){
+        if($type == "custom") {
+            $templateParams['title'] = "Crea un prodotto";
+            $templateParams['scripts'] = ['<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>',
+            '<script src="js/create_custom.js"></script>'];
+            require "template/common_top_html.php";
+            require "template/header.php";
+            require "template/create_custom.php";
+        } else {
+            header("Location:login.php?type=seller");
+        }
+    }
+    require "template/common_bottom_html.php";
+} else {
+    if ($type == "custom"){
+        $templateParams['title'] = "Crea un prodotto";
+        $templateParams['scripts'] = ['<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>',
+        '<script src="js/create_custom.js"></script>'];
         require "template/common_top_html.php";
         require "template/header.php";
-        $type = $_GET['type'];
-        $db = DbConnections::mySqlConnection();
-        if($type == "normal"){
-            require "template/new_product.php";
-        } elseif ($type == "custom"){
-
-        } elseif ($type == "item"){
-            require "template/new_item.php";
-        }     
+        require "template/create_custom.php";
         require "template/common_bottom_html.php";
-    } else{
-        die("Accesso negato");
+    } else {
+        header("Location:login.php?type=seller");
     }
-} else {
-    header("Location:login.php?type=seller");
 }

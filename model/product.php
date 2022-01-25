@@ -1,17 +1,17 @@
 <?php
 class Product
 {
-        private $id;
-        private $name;
-        private $description;
-        private $image_path;
-        private $price;
-        private $dimension;
-        private $amount;
-        private $discount;
-        private $seller;
-        private $category;
-        private $addition_date;
+        protected $id;
+        protected $name;
+        protected $description;
+        protected $image_path;
+        protected $price;
+        protected $dimension;
+        protected $amount;
+        protected $discount;
+        protected $seller;
+        protected $category;
+        protected $addition_date;
 
         public function __construct(
                 $id,
@@ -159,10 +159,14 @@ class CustomProduct extends Product
         {
                 return $this->parts;
         }
+
+        public function withId($id){
+                $this->id = $id;
+        }
 }
 
-class CustomItem extends Product
-{
+class CustomItem extends Product implements JsonSerializable {
+        
         private $layer;
         public function __construct($id, $price, $image_path, $seller, $name, $addition_date, $layer)
         {
@@ -173,5 +177,8 @@ class CustomItem extends Product
         public function getLayer()
         {
                 return $this->layer;
+        }
+        public function jsonSerialize() {
+                return (object) get_object_vars($this);
         }
 }

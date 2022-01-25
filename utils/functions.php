@@ -1,5 +1,5 @@
 <?php
-require_once "model/client.php";
+require_once  __DIR__."/../model/client.php";
 function isActive($pagename){
     if(basename($_SERVER['PHP_SELF'])==$pagename){
         echo " class='active' ";
@@ -30,5 +30,28 @@ function registerLoggedUser($user, $type){
     $_SESSION["email"] = $user->getEmail();
     $_SESSION["name"] = $user->getName();
     $_SESSION["type"] = $type;
+}
+function productPriceWithDiscount($product){
+    $price = $product->getPrice() / 100;
+    $discount = $product->getDiscount();
+    if($discount !== null && $discount !== 0){
+        $price = $price - ($price*$discount/100);
+    } 
+    return $price;
+}
+
+function utf8ize($d) {
+    if (is_array($d)) 
+        foreach ($d as $k => $v) 
+            $d[$k] = utf8ize($v);
+
+     else if(is_object($d))
+        foreach ($d as $k => $v) 
+            $d->$k = utf8ize($v);
+
+     else if(is_string($d))
+        return utf8_encode($d);
+
+    return $d;
 }
 ?>

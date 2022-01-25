@@ -1,11 +1,11 @@
 <?php
 
-require_once "products_db.php";
-require_once "categories_db.php";
-require_once "orders_db.php";
-require_once "addresses_db.php";
-require_once "cards_db.php";
-require_once "users_db.php";
+require_once __DIR__."/products_db.php";
+require_once __DIR__."/categories_db.php";
+require_once __DIR__."/orders_db.php";
+require_once __DIR__."/addresses_db.php";
+require_once __DIR__."/cards_db.php";
+require_once __DIR__."/users_db.php";
 class DbHelper{
     private $db;
     private $products;

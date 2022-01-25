@@ -1,5 +1,5 @@
 <?php
-require_once "model/card.php";
+require_once  __DIR__."/../model/card.php";
 class CardHelper{
 
     private $db;
