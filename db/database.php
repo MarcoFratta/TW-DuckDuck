@@ -14,6 +14,7 @@ class DbHelper{
     private $addresses;
     private $cards;
     private $users;
+    private $notifications;
 
     public function __construct($servername, $username, $password, $dbname){
         $this->db = new mysqli($servername, $username, $password, $dbname);
@@ -27,6 +28,7 @@ class DbHelper{
         $this->addresses = new AddressHelper($this->db);
         $this->cards = new CardHelper($this->db);
         $this->users = new UsersHelper($this->db);
+        $this->notifications = new NotificationHelper($this->db);
     }
 
     public function products(){
@@ -50,6 +52,10 @@ class DbHelper{
     public function users()
     {
         return $this->users;
+    }
+    public function notifications()
+    {
+        return $this->notifications;
     }
 }
 ?>
