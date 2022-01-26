@@ -1,7 +1,7 @@
 <?php
 
 $max_size = 5;
-
+// need size_selector.js to work.
 function sizeSelector($size)
 {
     global $max_size;
