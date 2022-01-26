@@ -31,7 +31,8 @@
         if($type == "custom") {
             $templateParams['title'] = "Crea un prodotto";
             $templateParams['scripts'] = ['<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>',
-            '<script src="js/create_custom.js"></script>'];
+            '<script src="js/create_custom.js"></script>',
+            '<script src="js/size_selector.js"></script>'];
             require "template/common_top_html.php";
             require "template/header.php";
             require "template/create_custom.php";
@@ -44,7 +45,8 @@
     if ($type == "custom"){
         $templateParams['title'] = "Crea un prodotto";
         $templateParams['scripts'] = ['<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>',
-        '<script src="js/create_custom.js"></script>'];
+        '<script src="js/create_custom.js"></script>',
+        '<script src="js/size_selector.js"></script>'];
         require "template/common_top_html.php";
         require "template/header.php";
         require "template/create_custom.php";

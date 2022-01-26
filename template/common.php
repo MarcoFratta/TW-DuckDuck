@@ -9,9 +9,9 @@ function sizeSelector($size)
                     <input type="hidden" name="dimension" id="dimension" value="' . $size . '"/>
                     <button type="button" id="decrease">-</button>';
     for ($i = 1; $i <= $max_size; $i++) {
-        $val .= '<img alt="" src="img/dimension-duck.png" id="img' . $i . '">';
+        $val .= '<img alt="" src="img/dimension-duck.png" id="img' . $i . '"/>';
     }
-    $val .= '    <button type="button"id="increase">+</button>
+    $val .= '    <button type="button" id="increase">+</button>
                 </section>';
     return $val;
 }

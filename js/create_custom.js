@@ -2,11 +2,12 @@ var items = ["bottom", "base", "middle", "top"];
 var layers = [];
 var actuals = [];
 var dimensions = [];
-$(document).ready(function () {
+$(function () {
   for (var i = 0; i < 4; i++) {
     loadParts(i);
   }
   addButtonListener();
+  addDimensionListener();
 });
 function loadParts(layer) {
   $.ajax({
@@ -14,12 +15,11 @@ function loadParts(layer) {
     url: "ajax/get_items.php?layer=" + String(layer + 1),
     success: function (result) {
       res = JSON.parse(result);
-      console.log(res);
       fillLayer(res, layer);
     },
   }).fail(function (error) {
     // If there was an error with this request
-    console.log(error);
+    //console.log(error);
   });
 
   $.ajax({
@@ -28,10 +28,11 @@ function loadParts(layer) {
     success: function (result) {
       res = JSON.parse(result);
       dimensions = res;
+      updatePrice();
     },
   }).fail(function (error) {
     // If there was an error with this request
-    console.log(error);
+    //console.log(error);
   });
 }
 
@@ -41,7 +42,6 @@ function fillLayer(data, layer) {
 }
 
 function updateView(index, layer) {
-  console.log("layer > " + layer + ", index > " + index);
   if (index >= 0 && index < layers[layer].length) {
     $("#" + items[layer] + "_img").attr("src", layers[layer][index].image_path);
     $("#" + items[layer] + "_id").attr("value", layers[layer][index].id);
@@ -51,8 +51,6 @@ function updateView(index, layer) {
 }
 
 function addButtonListener() {
-  console.log("adding listeners");
-  console.log(layers);
   items.forEach((item) => {
     $("#" + item + "_left").click(function () {
       var layer = items.indexOf(item);
@@ -70,8 +68,11 @@ function addButtonListener() {
 }
 
 function updatePrice() {
-  var dim = parseInt($("#dimension").text());
+  var dim = parseInt($("#dimension").val());
   var dimprice = 0;
+  if(layers.length < items.length){
+      return;
+  }
   dimensions.forEach((dimension) => {
     if (parseInt(dimension.size) == dim) {
       dimprice = parseInt(dimension.price)/100;
@@ -84,4 +85,11 @@ function updatePrice() {
   }
 
   $("#price").text("$" + price);
+}
+
+function addDimensionListener(){
+  $("#dimension").on("change",function(){
+    updatePrice("changing ");
+    
+  });
 }

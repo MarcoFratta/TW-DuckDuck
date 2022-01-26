@@ -11,7 +11,7 @@ $default_size = 3;
         <?php 
             foreach ($layers as $layer){
                 echo '<div><button type="button" id="'.$layer.'_left"><</button>
-                <img id="'.$layer.'_img" alt="" src=" style="width=300; heigth= 400;"> 
+                <img id="'.$layer.'_img" alt="" src=""  width="400" height="500""> 
                 <button type="button" id="'.$layer.'_right">></button>
                 <input type="hidden" id="'.$layer.'_id" name="'.$layer.'_id" value=""/>
                 </div>';

@@ -18,6 +18,7 @@
             echo ("Product does not exits");
             continue;
         }
+        
         echo cart_product($product, "normal", $normal_cart_products[$product_id]['quantity']);
         $sum += (productPriceWithDiscount($product)) * $normal_cart_products[$product_id]['quantity'];
     }
