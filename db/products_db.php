@@ -70,7 +70,7 @@ class ProductsHelper
         return $this->toProducts($result->fetch_all(MYSQLI_ASSOC));
     }
 
-    public function getLastNormalProducts($n=500)
+    public function getLastNormalProducts($n=50)
     {
         $query = "SELECT * 
                 FROM normal_products 
@@ -82,6 +82,20 @@ class ProductsHelper
         $result = $stmt->get_result();
         return $this->toProducts($result->fetch_all(MYSQLI_ASSOC));
     }
+
+    public function getNormalProductsWithDiscount($n=50)
+    {
+        $query = "SELECT * 
+                FROM normal_products 
+                WHERE discount != 0
+                LIMIT ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $n);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $this->toProducts($result->fetch_all(MYSQLI_ASSOC));
+    }
+
 
     public function getProductsByCategory($id_category)
     {
