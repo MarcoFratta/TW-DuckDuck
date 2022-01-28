@@ -2,13 +2,14 @@
     $addresses = $db->addresses()->getAddresses();
 ?>
 <h1>Indirizzo di consegna</h1>
-<section id="addresses">
-    <?php foreach($addresses as $address): ?>
-        <input type="radio" id="<?php echo $address->getId() ?>" name="address" value="<?php echo $address->getId() ?>" checked>
-        <label for="<?php echo $address->getId() ?>"><?php echo $address->getCity().", ".$address->getStreet().", ".$address->getHousenumber().", ".$address->getDetails() ?></label>
-    <?php endforeach; ?>
-</section>
 
-<button type="button" onclick="document.location='cards.php'">Prosegui</button>
+<form id="addresses" method="POST" action="cards.php">
+    <?php foreach($addresses as $address): ?>
+        <input type="radio" name="address" value="<?php echo $address->getId() ?>" checked>
+        <?php echo $address->getCity().", ".$address->getStreet().", ".$address->getHousenumber().", ".$address->getDetails() ?>
+    <?php endforeach; ?>
+
+    <input type="submit" value="Prosegui">
+</form>
 
 <!-- el: FOOTER -->

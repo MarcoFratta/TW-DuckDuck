@@ -10,8 +10,7 @@
         private $custom_products = [];
 
 
-        function __construct($id, $date, $destination, $status, $id_card, $id_client,
-        $normal_products, $custom_products){
+        function __construct($id, $date, $destination, $status, $id_card, $id_client, $normal_products, $custom_products){
                 $this->id = $id;
                 $this->date = $date;
                 $this->destination = $destination;
@@ -22,12 +21,24 @@
                 $this->custom_products = $custom_products;
         }
 
-        public function addNormalProduct($product, $price){
-                array_push($normal_products, $product);
+        static function newOrder($date, $destination, $status, $id_card, $id_client){
+                return new Self(null, $date, $destination, $status, $id_card, $id_client, [], []);
         }
 
-        public function addCustomProduct($product, $price){
-                array_push($custom_products, $product);
+        public function addNormalProduct($product){
+                if(empty($normal_products)){
+                        $normal_products[0] = $product;
+                } else {
+                        array_push($normal_products, $product);
+                }
+        }
+
+        public function addCustomProduct($product){
+                if(empty($custom_products)){
+                        $custom_products[0] = $product;
+                } else {
+                        array_push($custom_products, $product);
+                }
         }
 
         

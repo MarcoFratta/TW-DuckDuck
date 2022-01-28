@@ -40,7 +40,13 @@
     <h6>Iva (<?php echo $iva * 100 ?> %)</h6>
     <h6>€ <?php echo $sum * $iva ?></h6>
     <h6>Totale</h6>
-    <h6>€ <?php echo $sum + $shipping ?></h6>
+    <h6>
+        € <?php
+            $total = $sum + $shipping;
+            $_SESSION['total'] = $total;
+            echo $total;
+        ?>
+    </h6>
 </section>
 
 <button type="button" onclick="document.location='addresses.php'">Procedi all'acquisto</button>

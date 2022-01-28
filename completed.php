@@ -4,13 +4,19 @@
     if (userIsLogged()) {
         require_once "db/connections.php";
         require_once "db/database.php";
+        require_once "db/users_db.php";
+        require_once "model/client.php";
+        require_once "model/card.php";
+        require_once "model/order.php";
         require_once "model/address.php";
+        require_once "model/product.php";
 
-        $templateParams['title'] = "Indirizzo di consegna";
+        $templateParams['title'] = "Acquisto completato";
         require "template/common_top_html.php";
         require "template/header.php";
         $db = DbConnections::mySqlConnection();
-        require "template/address_template.php";
+        $_SESSION['card'] = $_POST['card'];
+        require "template/completed_template.php";
         require "template/common_bottom_html.php";
     } else {
         header("Location:login.php?type=client");

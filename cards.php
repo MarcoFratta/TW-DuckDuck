@@ -7,12 +7,12 @@
         require_once "db/users_db.php";
         require_once "model/client.php";
         require_once "model/card.php";
-        require_once "utils/functions.php";  
 
         $templateParams['title'] = "Metodo di pagamento";
         require "template/common_top_html.php";
         require "template/header.php";
         $db = DbConnections::mySqlConnection();
+        $_SESSION['address'] = $_POST['address'];
         require "template/cards_template.php";
         require "template/common_bottom_html.php";
     } else {

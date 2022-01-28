@@ -3,17 +3,21 @@
     $cards = $db->cards()->getClientCards($client->getId());
 ?>
 <h1>Metodo di pagamento</h1>
-<section id="cards">
+
+<form id="cards" method="POST" action="completed.php">
     <?php foreach($cards as $card): ?>
-        <input type="radio" id="<?php echo $card->getId() ?>" name="card" value="<?php echo $card->getId() ?>" checked>
-        <label for="<?php echo $card->getId() ?>"><?php echo 
+        <input type="radio" name="card" value="<?php echo $card->getId() ?>" checked>
+        <?php echo 
             "Titolare: ".$client->getName().", "
             ."Numero: ".$card->getNumber().", "
-            ."Data di scadenza: ".$card->getExpire_date().", " ?></label>
+            ."Data di scadenza: ".$card->getExpire_date().", "
+        ?>
     <?php endforeach; ?>
-</section>
+
+    <input type="submit" value="PAGA">
+</form>
 
 <button type="button" onclick="document.location='new_card.php'">Aggiungi carta</button>
-<button type="button">Prosegui</button>
+
 
 <!-- el: FOOTER -->

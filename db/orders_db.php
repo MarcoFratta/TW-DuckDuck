@@ -15,7 +15,7 @@
         $query = "INSERT INTO orders ('creation_date','status','id_address',
         'id_card','id_client') values (?,?,?,?,?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('d',$order->getDate());
+        $stmt->bind_param('i',$order->getDate());
         $stmt->bind_param('i',$order->getStatus());
         $stmt->bind_param('s',$order->getDestination());
         $stmt->bind_param('i',$order->getId_Card());
