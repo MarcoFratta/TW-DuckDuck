@@ -13,7 +13,6 @@ class CardHelper{
         $this->db = $db;
     }
 
-
     public function getClientCards($id_client){
         $query = "SELECT *
         FROM cards WHERE $this->CLIENT_ID=?";

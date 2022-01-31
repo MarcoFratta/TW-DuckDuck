@@ -1,12 +1,13 @@
 <?php 
-    $id = $_SESSION['id'];
-    $date = idate("Y").idate("m").idate("d");
+    $id_client = $_SESSION['id'];
+    $date = idate("Y")."-".idate("m")."-".idate("d");
     $status = 0;
     $id_address = $_SESSION['address'];
     $id_card = $_SESSION['card'];
-    $id_client = $db->users()->getClientById($id);
 
     $order = Order::newOrder($date, $id_address, $status, $id_card, $id_client);
+
+    $db->orders()->addNewOrder($order);
 
     $normal_cart_products = isset($_SESSION['cart_normal']) ? $_SESSION['cart_normal'] : [];
     if ($normal_cart_products != []) {
@@ -14,10 +15,10 @@
             $product = $db->products()->getNormalProductById($product_id);
             if ($product != null) {
                 $order->addNormalProduct($product);
+                $db->orders()->addNormalProductToOrder($product, $order);
             }
         }
     }
-    
 
     $custom_cart_products = isset($_SESSION['cart_custom']) ? $_SESSION['cart_custom'] : [];
     if ($custom_cart_products != []) {
@@ -25,11 +26,11 @@
             $product = $db->products()->getCustomProductById($product_id);
             if ($product != null) {
                 $order->addCustomProduct($product);
+                $db->orders()->addCustomProductToOrder($product, $order);
             }
         }
     }
-
-    $db->orders()->addNewOrder($order);
+    
 ?>
 
 <h1>Acquisto completato</h1>

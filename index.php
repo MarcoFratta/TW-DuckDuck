@@ -13,4 +13,5 @@
   $new_products = $db->products()->getLastNormalProducts();
   $discount_products = $db->products()->getNormalProductsWithDiscount();
   require "template/home.php";
+  require "template/footer.php";
   require "template/common_bottom_html.php";

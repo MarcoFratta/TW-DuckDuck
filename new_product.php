@@ -40,6 +40,7 @@
             header("Location:login.php?type=seller");
         }
     }
+    require "template/footer.php";
     require "template/common_bottom_html.php";
 } else {
     if ($type == "custom"){
@@ -50,6 +51,7 @@
         require "template/common_top_html.php";
         require "template/header.php";
         require "template/create_custom.php";
+        require "template/footer.php";
         require "template/common_bottom_html.php";
     } else {
         header("Location:login.php?type=seller");

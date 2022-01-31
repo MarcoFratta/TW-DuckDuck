@@ -11,4 +11,5 @@
   require "template/header.php";
   $db = DbConnections::mySqlConnection();
   require "template/vertical_categories.php";
+  require "template/footer.php";
   require "template/common_bottom_html.php";

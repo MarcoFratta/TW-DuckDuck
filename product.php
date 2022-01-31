@@ -15,4 +15,5 @@ if(!$product){
     die("Prodotto non trovato");
 }
 require "template/product_big.php";
+require "template/footer.php";
 require "template/common_bottom_html.php";?>

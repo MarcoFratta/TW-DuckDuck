@@ -9,6 +9,6 @@
     require "template/header.php";
     $db = DbConnections::mySqlConnection();
     require "template/new_card_template.php";
-        #footer
+    require "template/footer.php";
     require "template/common_bottom_html.php"
 ?>

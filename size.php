@@ -17,5 +17,5 @@
     $db = DbConnections::mySqlConnection();
     $dimension = $db->products()->getDimensionBySize($size);
     require "template/size_template.php";
-        // footer
+    require "template/footer.php";
     require "template/common_bottom_html.php";

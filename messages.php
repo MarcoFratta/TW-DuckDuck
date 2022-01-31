@@ -12,6 +12,7 @@
         require "template/header.php";
         $db = DbConnections::mySqlConnection();
         require "template/notifications_template.php";
+        require "template/footer.php";
         require "template/common_bottom_html.php";
     } else {
         header("Location:login.php?type=client");
