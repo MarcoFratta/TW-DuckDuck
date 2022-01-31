@@ -17,6 +17,7 @@
         $db = DbConnections::mySqlConnection();
         $_SESSION['card'] = $_POST['card'];
         require "template/completed_template.php";
+        require "template/footer.php";
         require "template/common_bottom_html.php";
     } else {
         header("Location:login.php?type=client");

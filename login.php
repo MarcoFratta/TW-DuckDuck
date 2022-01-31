@@ -21,6 +21,6 @@
             if($_GET['type'] == "client")
                 $out .= '<h6>Sei un fornitore?</h6><a href="login.php?type=seller">Area privata</a>';
             echo $out;
-            #footer
+        require "template/footer.php";
         require "template/common_bottom_html.php"
 ?>

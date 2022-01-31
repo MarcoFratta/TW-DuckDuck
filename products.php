@@ -11,6 +11,7 @@ if (userIsLogged()) {
         $db = DbConnections::mySqlConnection();
         $seller_id = $_SESSION['id'];
         require "template/seller_products.php";
+        require "template/footer.php";
         require "template/common_bottom_html.php";
     } else {
         die("Accesso negato");

@@ -9,5 +9,5 @@
     require "template/header.php";
     $db = DbConnections::mySqlConnection();
     require "template/cart_template.php";
-        // footer
+    require "template/footer.php";
     require "template/common_bottom_html.php";
