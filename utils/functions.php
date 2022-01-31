@@ -40,6 +40,14 @@ function productPriceWithDiscount($product){
     return $price;
 }
 
+function toArray($value){
+    $arr = [];
+    foreach($value as $v){
+        array_push($arr,$v);
+    }
+    return $arr;
+}
+
 function utf8ize($d) {
     if (is_array($d)) 
         foreach ($d as $k => $v) 
@@ -54,4 +62,50 @@ function utf8ize($d) {
 
     return $d;
 }
-?>
+
+function deleteImage($img){
+    unlink("../".$img);
+}
+function uploadImage()
+{
+    $prefix = "../";
+    $target_dir = "uploads/";
+    $target_file = $prefix.$target_dir . basename($_FILES["img"]["name"]);
+    $return_dir =  $target_dir . basename($_FILES["img"]["name"]);
+    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+    // Check if image file is a actual image or fake image
+    if (isset($_POST["submit"])) {
+        $check = getimagesize($_FILES["img"]["tmp_name"]);
+        if ($check == false) {
+            echo "Error, file is not an image.";
+            return false;
+        }
+    }
+
+    // Check if file already exists
+    if (file_exists($target_file)) {
+        echo "File gia esistente";
+        return false;
+    }
+
+    // Check file size
+    if ($_FILES["img"]["size"] > 5000000) {
+        echo "Dimensione del file troppo grande";
+        return false;
+    }
+
+    // Allow certain file formats
+    if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+        && $imageFileType != "gif"
+    ) {
+        echo "Solo JPG, JPEG, PNG ammessi.";
+        return false;
+    }
+
+    if (move_uploaded_file($_FILES["img"]["tmp_name"], $target_file)) {
+        return $return_dir;
+    } else {
+        echo "Errore caricamento file";
+    }
+}

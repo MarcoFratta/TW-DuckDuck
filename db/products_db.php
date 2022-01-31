@@ -96,6 +96,31 @@ class ProductsHelper
         return $this->toProducts($result->fetch_all(MYSQLI_ASSOC));
     }
 
+    public function updateNormalProduct($product){
+        $query = 'UPDATE normal_products SET ' . $this->NAME . '=?,' . $this->DESC . '=?,  
+        ' . $this->IMG_PATH . '=?,' . $this->AMOUNT . '=?,' . $this->DISCOUNT . '=?,  
+        ' . $this->PRICE . '=?,' . $this->DIMENSION . '=?,  
+        ' . $this->CATEGORY . '=? WHERE '.$this->NORMAL_ID.'=?';
+        if ($stmt = $this->db->prepare($query)) {
+            $n = $product->getName();
+            $d = $product->getDescription();
+            $i = $product->getImagePath() !== null ?$product->getImagePath(): "NULL" ;
+            $a = $product->getAmount();
+            $di = $product->getDiscount();
+            $p = $product->getPrice();
+            $dim = $product->getDimension();
+            $c = $product->getCategory();
+            $id = $product->getId();
+            $stmt->bind_param('sssiiiiii', $n, $d, $i, $a, $di, $p, $dim, $c,$id);
+            $stmt->execute();
+            return true;
+    } else {
+        $error = $this->db->errno . ' ' . $this->db->error;
+        echo $error; // 1054 Unknown column 'foo' in 'field list'
+        return false;
+    }
+}
+
 
     public function getProductsByCategory($id_category)
     {

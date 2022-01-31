@@ -2,17 +2,20 @@
 
 $max_size = 5;
 // need size_selector.js to work.
-function sizeSelector($size)
+function sizeSelector($size, $id = null)
 {
     global $max_size;
-    $val =  '<section id="size_selector">
-                    <input type="hidden" name="dimension" id="dimension" value="' . $size . '"/>
-                    <button type="button" id="decrease">-</button>';
+    $val =  '<section id="size_selector'.($id !== null ? ("_".$id) : "").'">
+        <input type="hidden" name="dimension" id="dimension'.($id !== null ? ("_".$id) : "").'" value="' . $size . '"/>
+        <button type="button" id="decrease'.($id !== null ? ("_".$id) : "").'">-</button>';
+    $val .= "\r\n";
     for ($i = 1; $i <= $max_size; $i++) {
-        $val .= '<img alt="" src="img/dimension-duck.png" id="img' . $i . '"/>';
+         $val .= "\t\t";
+        $val .= '<img alt="" src="img/dimension-duck.png" id="'.($id !== null ? ($id."_") : "").'selector_img' . $i . '"/>';
+        $val .= "\r\n";
     }
-    $val .= '    <button type="button" id="increase">+</button>
-                </section>';
+    $val .= "\t\t". '<button type="button" id="increase'.($id !== null ? ("_".$id) : "").'">+</button>
+    </section>';
     return $val;
 }
 
