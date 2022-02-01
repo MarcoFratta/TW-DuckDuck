@@ -40,13 +40,25 @@ $client = $db->users()->getClientById($_SESSION['id']);
     <div>
         <i>Busta</i>
         <h4>Ordini</h4>
-        <button type="button">'>'</button>
+        <a href="orders.php">
+            <button type="button">'>'</button>
+        </a>
+    </div>
+
+    <div>
+        <i>Lettera</i>
+        <h4>Messaggi</h4>
+        <a href="messages.php">
+            <button type="button">'>'</button>
+        </a>
     </div>
 
     <div>
         <i>Carta</i>
         <h4>Metodi di pagamento</h4>
-        <button type="button">'>'</button>
+        <a href="cards.php">
+            <button type="button">'>'</button>
+        </a>
     </div>
 
     <button type="button">Salva</button>

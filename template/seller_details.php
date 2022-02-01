@@ -24,6 +24,15 @@ $seller = $db->users()->getSellerById($_SESSION['id']);
             <input type="submit" value=">" />
         </form>
     </div>
+
+    <div>
+        <i>Lettera</i>
+        <h4>Messaggi</h4>
+        <a href="messages.php">
+            <button type="button">'>'</button>
+        </a>
+    </div>
+    
     <div>
         <form action="logout.php">
             <input type="submit" value="Esci" />
