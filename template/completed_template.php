@@ -43,6 +43,16 @@
         unset($_SESSION['cart_custom']);
     }
     
+    $db->notifications()->insertClientNotification(Notification::newNotification($id_client,
+    "Il tuo ordine è stato completato. Per dettagli sulla spedizione controlla nell'area dedicata." , $date, 0));
+
+    if (!empty($normal_cart_products)) {
+        foreach (array_keys($normal_cart_products) as $product_id) {
+            $db->notifications()->insertSellerNotification(Notification::newNotification($db->products()->getSeller($product_id),
+            "Il cliente " . $id_client . " ha acquistato il tuo prodotto con id " . $product_id . "." , $date, 0));
+        }
+    }
+
 ?>
 
 <h1>Acquisto completato</h1>
