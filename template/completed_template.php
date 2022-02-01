@@ -1,7 +1,7 @@
 <?php 
     $id_client = $_SESSION['id'];
     $date = idate("Y")."-".idate("m")."-".idate("d");
-    $status = 0;
+    $status = "In consegna";
     $id_address = $_SESSION['address'];
     $id_card = $_SESSION['card'];
 
@@ -10,25 +10,40 @@
     $db->orders()->addNewOrder($order);
 
     $normal_cart_products = isset($_SESSION['cart_normal']) ? $_SESSION['cart_normal'] : [];
-    if ($normal_cart_products != []) {
+    if (!empty($normal_cart_products)) {
         foreach (array_keys($normal_cart_products) as $product_id) {
             $product = $db->products()->getNormalProductById($product_id);
-            if ($product != null) {
+            $quantity = $normal_cart_products[$product_id]['quantity'];
+            # aggiungere prodotto all'ordine
+            $db->orders()->addNormalProductToOrder($product, $order, $quantity);
+            for ($i=0; $i < $quantity; $i++) { 
                 $order->addNormalProduct($product);
-                $db->orders()->addNormalProductToOrder($product, $order);
+                # rimuovere prodotto dal carrello
+                $_SESSION['cart_normal'][$product_id]['quantity'] -= 1;
             }
         }
+        unset($_SESSION['cart_normal']);
     }
 
     $custom_cart_products = isset($_SESSION['cart_custom']) ? $_SESSION['cart_custom'] : [];
-    if ($custom_cart_products != []) {
+    if (!empty($custom_cart_products)) {
         foreach (array_keys($custom_cart_products) as $product_id) {
-            $product = $db->products()->getCustomProductById($product_id);
-            if ($product != null) {
+            # aggiungere prodotto custom al db, verificando non esista già
+            $product = $custom_cart_products[$product_id]["value"];
+            $product->withId($product_id);
+            if ($db->products()->getCustomProductById($product_id) != null) {
+                $db->products()->insertCustomProduct($product);
+            }
+            # aggiungere prodotto all'ordine
+            $quantity = $custom_cart_products[$product_id]['quantity'];
+            $db->orders()->addCustomProductToOrder($product, $order, $quantity);
+            for ($i=0; $i < $quantity; $i++) { 
                 $order->addCustomProduct($product);
-                $db->orders()->addCustomProductToOrder($product, $order);
+                # rimuovere prodotto dal carrello
+                $_SESSION['cart_custom'][$product_id]['quantity'] -= 1;
             }
         }
+        unset($_SESSION['cart_custom']);
     }
     
 ?>

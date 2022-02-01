@@ -15,3 +15,4 @@
   require "template/home.php";
   require "template/footer.php";
   require "template/common_bottom_html.php";
+  

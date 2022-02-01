@@ -1,5 +1,6 @@
 <?php
     require_once  __DIR__."/../model/order.php";
+    require_once  __DIR__."/../model/product.php";
     class OrderHelper{
     private $db;
     private $ID = "id_order";
@@ -11,6 +12,8 @@
     private $PRICE = "price";
     private $ID_NORMAL_PRODUCT = "id_normal_product";
     private $ID_CUSTOM_PRODUCT = "id_custom_product";
+    private $QUANTITY = "quantity";
+    
     public function __construct($db){
         $this->db = $db;
     }
@@ -23,32 +26,31 @@
         $dest = $order->getDestination();
         $id_card = $order->getId_Card();
         $id_client = $order->getId_Client();
-        $stmt->bind_param('siiii', $date, $status, $dest, $id_card, $id_client);
+        $stmt->bind_param('ssiii', $date, $status, $dest, $id_card, $id_client);
         $stmt->execute();
         $result = $stmt->insert_id;
         return $result;
     }
 
-    public function addNormalProductToOrder($product, $order){
-        $query = 'INSERT INTO normal_order_products('.$this->PRICE.','.$this->ID_NORMAL_PRODUCT.','.$this->ID.') values (?,?,?)';
+    public function addNormalProductToOrder($product, $order, $quantity){
+        $query = 'INSERT INTO normal_order_products ('.$this->PRICE.','.$this->ID_NORMAL_PRODUCT.','.$this->ID.','.$this->QUANTITY.') values (?,?,?,?)';
         $stmt = $this->db->prepare($query);
-        $price = $product->getDiscount()== 0 ? $product->getPrice() : $product->getPrice() - ($product->getPrice()*100/$product->getDiscount());
+        $price = 7;#$product->getDiscount()== 0 ? $product->getPrice() : $product->getPrice() - ($product->getPrice()*100/$product->getDiscount());
         $id_product = $product->getId();
         $id_order = $order->getId();
-        $stmt->bind_param('iii', $price, $id_product, $id_order);
+        $stmt->bind_param('iiii', $price, $id_product, $id_order, $quantity);
         $stmt->execute();
         $result = $stmt->insert_id;
         return $result;
     }
 
-    public function addCustomProductToOrder($product, $order){
-        $query = 'INSERT INTO custom_order_products('.$this->PRICE.','.$this->ID_CUSTOM_PRODUCT.',
-        '.$this->ID.') values (?,?,?)';
+    public function addCustomProductToOrder($product, $order, $quantity){
+        $query = 'INSERT INTO custom_order_products ('.$this->PRICE.','.$this->ID_CUSTOM_PRODUCT.','.$this->ID.','.$this->QUANTITY.') values (?,?,?,?)';
         $stmt = $this->db->prepare($query);
         $price = $product->getPrice();
         $id_product = $product->getId();
         $id_order = $order->getId();
-        $stmt->bind_param('iii', $price, $id_product, $id_order);
+        $stmt->bind_param('iiii', $price, $id_product, $id_order, $quantity);
         $stmt->execute();
         $result = $stmt->insert_id;
         return $result;

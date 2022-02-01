@@ -24,6 +24,5 @@ require "template/horizontal_products.php";
     </section>
     <a href="size.php?size=3"><article>
         <h1>Dimensioni</h1>
-    </article>
+    </article></a>
 </main>
-</body>
