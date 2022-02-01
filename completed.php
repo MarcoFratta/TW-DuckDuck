@@ -10,6 +10,7 @@
         require_once "model/order.php";
         require_once "model/address.php";
         require_once "model/product.php";
+        require_once "model/notification.php";
 
         $templateParams['title'] = "Acquisto completato";
         require "template/common_top_html.php";
