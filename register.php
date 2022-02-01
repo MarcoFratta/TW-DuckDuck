@@ -20,11 +20,11 @@
      if ($_POST['type'] == "client"){
           $id = $db->users()->insertUser($user);
           $db->notifications()->insertClientNotification(Notification::newNotification($id,
-          "Ciao " . $_POST['name'] ."! Grazie per esserti iscritto al nostro sito!" , null, 0));
+          "Ciao " . $_POST['name'] ."! Grazie per esserti iscritto al nostro sito!" , 0));
      } else {
           $id = $db->users()->insertSeller($user);
           $db->notifications()->insertSellerNotification(Notification::newNotification($id,
-          "Ciao " . $_POST['name'] ."! Grazie per esserti iscritto al nostro sito!" , null, 0));
+          "Ciao " . $_POST['name'] ."! Grazie per esserti iscritto al nostro sito!" , 0));
      }
      header('location:index.php');
 ?>

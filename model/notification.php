@@ -14,8 +14,8 @@ class Notification{
         $this->status = $status;
     }
 
-    static function newNotification($user, $message, $date, $status){
-        return new Self(null, $user, $message, $date, $status);
+    static function newNotification($user, $message, $status){
+        return new Self(null, $user, $message, null, $status);
     }
 
     public function getId()
