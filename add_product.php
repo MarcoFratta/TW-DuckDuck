@@ -45,7 +45,7 @@ if ($_GET['type'] == "normal" && isSeller()) {
     if (!$res) {
         echo "errore inserimento nel db";
         if($img_path!== null)
-            unlink($img_path);
+            deleteImage($img_path);
     } else {
         header("Location:new_product.php?type=normal");
     }
@@ -65,54 +65,9 @@ if ($_GET['type'] == "normal" && isSeller()) {
     $item = new CustomItem(null,$_POST['price'] * 100,$img,$_SESSION['id'],$_POST['name'],null,$_POST['layer']);
     $res = $db->products()->insertCustomItem($item);
     if (!$res) {
-        unlink($img);
+        deleteImage($img);
         echo "errore inserimento nel db";
      } else {
         header("Location:new_product.php?type=item");
      }
-}
-
-
-
-
-function uploadImage()
-{
-    $target_dir = "uploads/";
-    $target_file = $target_dir . basename($_FILES["img"]["name"]);
-    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
-    // Check if image file is a actual image or fake image
-    if (isset($_POST["submit"])) {
-        $check = getimagesize($_FILES["img"]["tmp_name"]);
-        if ($check == false) {
-            echo "Error, file is not an image.";
-            return false;
-        }
-    }
-
-    // Check if file already exists
-    if (file_exists($target_file)) {
-        echo "File gia esistente";
-        return false;
-    }
-
-    // Check file size
-    if ($_FILES["img"]["size"] > 5000000) {
-        echo "Dimensione del file troppo grande";
-        return false;
-    }
-
-    // Allow certain file formats
-    if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-        && $imageFileType != "gif"
-    ) {
-        echo "Solo JPG, JPEG, PNG ammessi.";
-        return false;
-    }
-
-    if (move_uploaded_file($_FILES["img"]["tmp_name"], $target_file)) {
-        return $target_file;
-    } else {
-        echo "Errore caricamento file";
-    }
 }
