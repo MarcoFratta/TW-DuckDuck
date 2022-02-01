@@ -19,7 +19,7 @@ $price = productPriceWithDiscount($product);
     <h1>€ <?php echo $price?></h1>
     <h3>IVA inclusa</h3>
 
-    <?php echo sizeSelector($dimension->getSize())?>
+    <?php echo displaySize($dimension->getSize())?>
     <a href="size.php?size=<?php echo $dimension->getSize()?>">Guida alle taglie</a>
 
     <form action="add_cart.php" method="post">

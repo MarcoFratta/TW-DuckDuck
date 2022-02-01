@@ -45,7 +45,7 @@ class ProductsHelper
     public function getCustomProductById($id_product)
     {
         $query = "SELECT *
-        FROM custom_products WHERE $this->NORMAL_ID=?";
+        FROM custom_products WHERE $this->CUSTOM_ID=?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i', $id_product);
         $stmt->execute();
@@ -163,7 +163,7 @@ class ProductsHelper
                 $query = 'INSERT INTO custom_products_custom_items(' . $this->CUSTOM_ID . ',' . $this->ITEM_ID . ') 
                 values (?,?)';
                 if ($stmt = $this->db->prepare($query)) {
-                    $p = $part->getId();
+                    $p = $part;
                     $stmt->bind_param('ii', $result, $p);
                     $stmt->execute();
                 }else {

@@ -22,9 +22,8 @@
         echo cart_product($product, "normal", $normal_cart_products[$product_id]['quantity']);
         $sum += (productPriceWithDiscount($product)) * $normal_cart_products[$product_id]['quantity'];
     }
-
     foreach (array_keys($custom_cart_products) as $product_id) {
-        $product = $custom_cart_products[$product_id]["value"];
+        $product = unserialize($custom_cart_products[$product_id]["value"]);
         $product->withId($product_id);
         echo cart_product($product, "custom", $custom_cart_products[$product_id]['quantity']);
         $sum += (productPriceWithDiscount($product)) * $custom_cart_products[$product_id]['quantity'];

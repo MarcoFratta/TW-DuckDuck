@@ -1,6 +1,20 @@
 <?php
 
 $max_size = 5;
+
+function displaySize($size, $id = null){
+    global $max_size;
+    $val =  '<section id="size_selector'.($id !== null ? ("_".$id) : "").'">
+        <input type="hidden" name="dimension" id="dimension'.($id !== null ? ("_".$id) : "").'" value="' . $size . '"/>';
+    $val .= "\r\n";
+    for ($i = 1; $i <= $max_size; $i++) {
+         $val .= "\t\t";
+        $val .= '<img alt="" src="img/dimension-duck.png" id="'.($id !== null ? ($id."_") : "").'selector_img' . $i . '"/>';
+        $val .= "\r\n";
+    }
+    $val .= '</section>';
+    return $val;
+}
 // need size_selector.js to work.
 function sizeSelector($size, $id = null)
 {

@@ -2,7 +2,9 @@
 require_once "db/connections.php";
 require_once "db/database.php";
 require_once "utils/functions.php";
-require_once "bootstrap.php";
+include_once "model/product.php";
+
+session_start();
 
 
 $allowed_parts = ['bottom','base','middle','top'];
@@ -49,8 +51,8 @@ if (isset($_POST['type'])) {
             $price += $dimension->getPrice();
             echo "adding d>".$dimension->getPrice();
             echo "sum >".$price;
-            $product = new CustomProduct(null, $price, $dim_id, null, $parts);
-            $hash = md5(serialize($product));
+            $product = serialize(new CustomProduct(null, $price, $dim_id, null, $parts));
+            $hash = md5($product);
             $product_id = $hash;
             $cart_name = "cart_custom";
             $value = $product;
