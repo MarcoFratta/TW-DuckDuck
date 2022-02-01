@@ -35,7 +35,7 @@
     public function addNormalProductToOrder($product, $order, $quantity){
         $query = 'INSERT INTO normal_order_products ('.$this->PRICE.','.$this->ID_NORMAL_PRODUCT.','.$this->ID.','.$this->QUANTITY.') values (?,?,?,?)';
         $stmt = $this->db->prepare($query);
-        $price = 7;#$product->getDiscount()== 0 ? $product->getPrice() : $product->getPrice() - ($product->getPrice()*100/$product->getDiscount());
+        $price = $product->getDiscount()== 0 ? $product->getPrice() : $product->getPrice() - ($product->getPrice()*100/$product->getDiscount());
         $id_product = $product->getId();
         $id_order = $order->getId();
         $stmt->bind_param('iiii', $price, $id_product, $id_order, $quantity);
