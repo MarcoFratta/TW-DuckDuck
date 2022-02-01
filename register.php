@@ -17,15 +17,14 @@
      $db = DbConnections::mySqlConnection();
      $secure_pass = password_hash($_POST['password'], PASSWORD_BCRYPT);
      $user = Client::newUser($_POST['name'], $_POST['email'], $secure_pass);
-     $date = idate("Y")."-".idate("m")."-".idate("d");
      if ($_POST['type'] == "client"){
           $id = $db->users()->insertUser($user);
           $db->notifications()->insertClientNotification(Notification::newNotification($id,
-          "Ciao " . $_POST['name'] ."! Grazie per esserti iscritto al nostro sito!" , $date, 0));
+          "Ciao " . $_POST['name'] ."! Grazie per esserti iscritto al nostro sito!" , null, 0));
      } else {
           $id = $db->users()->insertSeller($user);
           $db->notifications()->insertSellerNotification(Notification::newNotification($id,
-          "Ciao " . $_POST['name'] ."! Grazie per esserti iscritto al nostro sito!" , $date, 0));
+          "Ciao " . $_POST['name'] ."! Grazie per esserti iscritto al nostro sito!" , null, 0));
      }
      header('location:index.php');
 ?>

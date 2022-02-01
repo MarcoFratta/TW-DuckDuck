@@ -31,26 +31,26 @@
     }
 
     public function insertClientNotification($notification){
-        $query = "INSERT INTO client_notification($this->USER, $this->MESSAGE, $this->DATE, $this->STATUS) values (?,?,?,?)";
+        $query = "INSERT INTO client_notification($this->USER, $this->MESSAGE, $this->DATE, $this->STATUS) 
+        values (?,?,CURDATE(),?)";
         $stmt = $this->db->prepare($query);
         $user = $notification->getUser();
         $message = $notification->getMessage();
-        $date = $notification->getDate();
         $status = $notification->getStatus();
-        $stmt->bind_param('isii',$user, $message, $date, $status);
+        $stmt->bind_param('isi',$user, $message, $status);
         $stmt->execute();
         $result = $stmt->insert_id;
         return $result;
     }
 
     public function insertSellerNotification($notification){
-        $query = "INSERT INTO seller_notification($this->USER, $this->MESSAGE, $this->DATE, $this->STATUS) values (?,?,?,?)";
+        $query = "INSERT INTO seller_notification($this->USER, $this->MESSAGE,
+         $this->DATE, $this->STATUS) values (?,?,CURDATE(),?)";
         $stmt = $this->db->prepare($query);
         $user = $notification->getUser();
         $message = $notification->getMessage();
-        $date = $notification->getDate();
         $status = $notification->getStatus();
-        $stmt->bind_param('isii',$user, $message, $date, $status);
+        $stmt->bind_param('isi',$user, $message, $status);
         $stmt->execute();
         $result = $stmt->insert_id;
         return $result;
