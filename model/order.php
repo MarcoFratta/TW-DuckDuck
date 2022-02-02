@@ -41,6 +41,14 @@
                 }
         }
 
+        public function getNormalProducts(){
+                return $this->normal_products;
+        }
+
+        public function getCustomProducts(){
+                return $this->custom_products;
+        }
+        
         
 
         /**

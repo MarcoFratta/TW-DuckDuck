@@ -46,8 +46,7 @@ class OrderHelper
         $query = 'INSERT INTO normal_order_products (' . $this->PRICE . ',
         ' . $this->ID_NORMAL_PRODUCT . ',' . $this->ID . ',' . $this->QUANTITY . ') values (?,?,?,?)';
         $stmt = $this->db->prepare($query);
-        echo $query;
-        $price = productPriceWithDiscount($product);
+        $price = productPriceWithDiscount($product) * $quantity;
         $id_product = $product->getId();
         $id_order = $order->getId();
         if ($stmt->bind_param('iiii', $price, $id_product, $id_order, $quantity)) {
@@ -129,10 +128,9 @@ class OrderHelper
         }
     }
 
-    private function getOrderNormalProduct($id_order)
+    public function getOrderNormalProduct($id_order)
     {
-        $query = "SELECT id_normal_product, price
-        FROM orders WHERE id_order=?";
+        $query = "SELECT * FROM normal_order_products WHERE id_order=?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i', $id_order);
         $stmt->execute();
@@ -140,10 +138,9 @@ class OrderHelper
         return $result;
     }
 
-    private function getOrderCustomProduct($id_order)
+    public function getOrderCustomProduct($id_order)
     {
-        $query = "SELECT id_custom_product, price
-        FROM orders WHERE id_order=?";
+        $query = "SELECT * FROM custom_order_products WHERE id_order=?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i', $id_order);
         $stmt->execute();

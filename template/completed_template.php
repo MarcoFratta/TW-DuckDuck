@@ -27,6 +27,7 @@
             $db->orders()->addNormalProductToOrder($product, $order, $quantity);
         }
         unset($_SESSION['cart_normal']);
+        unset($_SESSION['total']);
     }
 
     $custom_cart_products = isset($_SESSION['cart_custom']) ? $_SESSION['cart_custom'] : [];

@@ -13,7 +13,6 @@ class AddressHelper{
         $this->db = $db;
     }
 
-
     public function getAddresses(){
         $query = "SELECT * FROM addresses";
         $stmt = $this->db->prepare($query);

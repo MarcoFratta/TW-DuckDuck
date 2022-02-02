@@ -1,6 +1,8 @@
 <?php
     $client = $db->users()->getClientById($_SESSION['id']);
-    $total = $_SESSION['total'];
+    if (isset($_SESSION['total'])) {
+        $total = $_SESSION['total'];
+    }
     $cards = $db->cards()->getClientCards($client->getId());
 ?>
 <h1>Metodo di pagamento</h1>
@@ -15,10 +17,11 @@
         ?>
     <?php endforeach; ?>
 
-    <input type="submit" value="PAGA €<?php echo $total?>">
+    <input type="submit" <?php if(!isset($_SESSION['total'])) {?> style="display: none" <?php } ?> value="PAGA €<?php echo $total?>">
 </form>
 
 <button type="button" onclick="document.location='new_card.php'">Aggiungi carta</button>
+<button type="button" onclick="history.back()">Indietro</button>
 
 
 <!-- el: FOOTER -->

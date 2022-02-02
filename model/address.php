@@ -53,6 +53,11 @@ class Address{
     {
         return $this->details;
     }
+
+    public function toPrint()
+    {
+        return $this->city.", ".$this->street."n.".$this->housenumber.", ".$this->details;
+    }
 }
 
 ?>

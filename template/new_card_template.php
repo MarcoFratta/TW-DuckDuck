@@ -15,4 +15,6 @@
   <input type="submit" value="Aggiungi carta">
 </form>
 
+<button type="button" onclick="history.back()">Indietro</button>
+
 <!-- el: FOOTER -->
