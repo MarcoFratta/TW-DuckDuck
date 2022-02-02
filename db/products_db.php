@@ -25,7 +25,17 @@ class ProductsHelper
         $this->db = $db;
     }
 
-
+    public function getSellerById($id_product)
+    {
+        $query = "SELECT id_seller FROM `normal_products`
+        WHERE id_normal_product = $id_product";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $result = $result->fetch_array();
+        $quantity = intval($result[0]);
+        return $quantity;
+    }
 
     public function getNormalProductById($id_product)
     {
@@ -294,6 +304,7 @@ class ProductsHelper
             return false;
         }
     }
+
     public function getCustomItemByLayer($layer)
     {
         $query = "SELECT *
