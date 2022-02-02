@@ -7,6 +7,7 @@ require_once "model/card.php";
 require_once "model/order.php";
 require_once "model/address.php";
 require_once "model/product.php";
+require_once "model/notification.php";
 if (userIsLogged() && isClient()) {
     $templateParams['title'] = "Acquisto completato";
     require "template/common_top_html.php";
