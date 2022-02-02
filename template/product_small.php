@@ -1,23 +1,40 @@
 <?php
 require_once "model/product.php";
 require_once "model/dimension.php";
-function smallProductCard($product)
+require_once "template/common.php";
+function smallProductCard($product,$dimensions,$type=null)
 {
-    return '<article> 
-                <a href="product.php?id_product=' . $product->getId() . '">' . $product->getName() . '</a>          
-            </article>';
+    $dim = getProductSize($product,$dimensions);
+    $real_price = $product->getPrice();
+    $actual_price = productPriceWithDiscount($product);
+    return '<article>
+                <header>'
+                .($type==null ? '' :("<h6>$type</h6>")).
+            '<img> 
+                </header>
+            <main>
+                <img alt="" src="'.$product->getImagePath().'">
+            </main>
+            <footer>
+                <h3>'.$product->getName().
+                '</h3>'.($real_price!==$actual_price ? 
+                ("<h2>$real_price</h2>"):'').
+                '<h2>'.$actual_price.'</h2>'.displaySize($dim,$product->getId()).' 
+                <form action="add_cart.php" method="POST">
+                    <input type="hidden" name="type" value="normal"/>
+                    <input type="hidden" name="product_id" value="'.$product->getId().'"/>
+                    <button type="submit">+</button>
+                </form>           
+            </footer>
+        </article>';
 }
+
+
 
 
 function sellerProductCard($product, $categories, $dimensions)
 {
-    $dim = 3;
-    foreach ($dimensions as $dimension) {
-        if ($product->getDimension() == $dimension->getId()) {
-            $dim = $dimension->getSize();
-            break;
-        }
-    }
+    $dim = getProductSize($product,$dimensions);
 
     $var =  '<article id="' . $product->getId() . '">
     <form enctype="multipart/form-data">

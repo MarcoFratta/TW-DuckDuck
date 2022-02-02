@@ -1,24 +1,23 @@
   <?php
     require_once "template/product_small.php";
     require_once "db/products_db.php";
+    require_once "model/types.php";
+    $dimensions = toArray($db->products()->getDimensions());
 
     function newProductScroll($products)
     {
-        echo "<section>
-                <h3>Nuovi arrivi</h3>
-                ";
+        global $dimensions;
+        $type = Type::NEW_PRODUCT;
         foreach ($products as $product) :
-            echo smallProductCard($product);
+            echo smallProductCard($product,$dimensions,$type);
         endforeach;
-        echo "</section>";
     }
     function discountedProductScroll($products)
     {
-        echo "<section>
-                <h3>In sconto</h3>";
+        global $dimensions;
+        $type = Type::DISCOUNT;
         foreach ($products as $product) :
-            echo smallProductCard($product);
+            echo smallProductCard($product,$dimensions,$type);
         endforeach;
-        echo "</section>";
     }
     ?>

@@ -27,7 +27,7 @@ class CategoriesHelper{
         $stmt->bind_param('i', $idcategory);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $this->toCategory($result->fetch_all(MYSQLI_ASSOC));
+        return $this->toCategory($result->fetch_all(MYSQLI_ASSOC))->current();
     }
 
     
