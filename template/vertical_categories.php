@@ -5,7 +5,7 @@
         $categories = $db->categories()->getCategories();
         foreach($categories as $category){
             echo "<article>
-                    <h1> {$category->getName()}</h1>
+                    ".('<a href="category.php?category='.$category->getId().'">'.$category->getName().'</a>')."
                     <p>Amount -> 
                     {$db->categories()->getCategoryProductsNumber($category->getId())}</p>
                 </article>";

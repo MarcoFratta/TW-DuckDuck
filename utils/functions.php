@@ -40,6 +40,17 @@ function productPriceWithDiscount($product){
     return $price;
 }
 
+function getProductSize($product, $dimensions){
+    $dim = 3;
+    foreach ($dimensions as $dimension) {
+        if ($product->getDimension() == $dimension->getId()) {
+            $dim = $dimension->getSize();
+            break;
+        }
+    }
+    return $dim;
+}
+
 function toArray($value){
     $arr = [];
     foreach($value as $v){
