@@ -106,5 +106,16 @@
         {
                 return $this->custom_products;
         }
+
+        /**
+         * Set the value of id
+         *
+         * @return  self
+         */ 
+        public function withId($id)
+        {
+                $this->id = $id;
+                return $this;
+        }
 }
 ?>

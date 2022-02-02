@@ -26,5 +26,6 @@
           $db->notifications()->insertSellerNotification(Notification::newNotification($id,
           "Ciao " . $_POST['name'] ."! Grazie per esserti iscritto al nostro sito!" , 0));
      }
+     session_destroy();
      header('location:index.php');
 ?>

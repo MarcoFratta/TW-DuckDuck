@@ -171,8 +171,7 @@ class ProductsHelper
                         echo $error; // 1054 Unknown column 'foo' in 'field list'
                         return false;
                 }   
-            }
-        $result = $stmt->insert_id;      
+            }     
         return $result;
         } else {
             $error = $this->db->errno . ' ' . $this->db->error;

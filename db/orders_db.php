@@ -43,8 +43,10 @@ class OrderHelper
 
     public function addNormalProductToOrder($product, $order, $quantity)
     {
-        $query = 'INSERT INTO normal_order_products (' . $this->PRICE . ',' . $this->ID_NORMAL_PRODUCT . ',' . $this->ID . ',' . $this->QUANTITY . ') values (?,?,?,?)';
+        $query = 'INSERT INTO normal_order_products (' . $this->PRICE . ',
+        ' . $this->ID_NORMAL_PRODUCT . ',' . $this->ID . ',' . $this->QUANTITY . ') values (?,?,?,?)';
         $stmt = $this->db->prepare($query);
+        echo $query;
         $price = productPriceWithDiscount($product);
         $id_product = $product->getId();
         $id_order = $order->getId();
@@ -73,7 +75,7 @@ class OrderHelper
         } else {
             $error = $this->db->errno . ' ' . $this->db->error;
             echo $error; // 1054 Unknown column 'foo' in 'field list'
-            return false;
+            return $error;
         }
     }
 
