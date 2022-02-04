@@ -16,7 +16,7 @@
                     <h4><?php echo $product->getName() ?></h5>
                     <p>Dimensione: <?php echo $product->getDimension() ?></p>
                     <p>Quantità:<?php echo $normal_product['quantity'] ?></p>
-                    <p>Prezzo cad.: &euro;<?php echo $normal_product['price']/$normal_product['quantity'] ?></p>
+                    <p>Prezzo cad.: &euro;<?php echo number_format((float)($normal_product['price']/$normal_product['quantity']), 2, '.', '') ?></p>
                 </section>
         <?php endforeach; }?>
 
@@ -30,7 +30,7 @@
                     <h4><?php echo $product->getName() ?></h5>
                     <p>Dimensione: <?php echo $product->getDimension() ?></p>
                     <p>Quantità:<?php echo $custom_product['quantity'] ?></p>
-                    <p>Prezzo cad.: &euro;<?php echo $custom_product['price']/$custom_product['quantity'] ?></p>
+                    <p>Prezzo cad.: &euro;<?php echo number_format((float)($custom_product['price']/$ncustom_product['quantity']), 2, '.', '') ?></p>
                 </section>
         <?php endforeach; }?>
 

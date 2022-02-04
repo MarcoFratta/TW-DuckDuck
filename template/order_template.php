@@ -39,7 +39,7 @@
                         $amount += $product['price'];
                     }
                 }
-                echo "&euro;".$amount;
+                echo "&euro;".number_format((float)$amount, 2, '.', '');
             ?>
         </h5>
 
