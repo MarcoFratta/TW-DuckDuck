@@ -61,7 +61,7 @@ class ProductsHelper
         $stmt->execute();
         $result = $stmt->get_result();
         try {
-            return $this->toProducts($result->fetch_all(MYSQLI_ASSOC))->current();
+            return $this->toCustomProducts($result->fetch_all(MYSQLI_ASSOC))->current();
         } catch (Exception $e) {
             return false;
         }
@@ -364,6 +364,25 @@ class ProductsHelper
                 $product[$this->DISCOUNT],
                 $product[$this->SELLER],
                 $product[$this->CATEGORY],
+                $product[$this->DATE]
+            );
+        endforeach;
+    }
+
+    private function toCustomProducts($result)
+    {
+        foreach ($result as $product) :
+            yield new Product(
+                $product[$this->CUSTOM_ID],
+                null,
+                null,
+                null,
+                $product[$this->PRICE],
+                $product[$this->DIMENSION],
+                null,
+                null,
+                null,
+                null,
                 $product[$this->DATE]
             );
         endforeach;

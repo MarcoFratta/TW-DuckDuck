@@ -56,7 +56,7 @@ class Address{
 
     public function toPrint()
     {
-        return $this->city.", ".$this->street."n.".$this->housenumber.", ".$this->details;
+        return $this->city.", ".$this->street." n.".$this->housenumber.", ".$this->details;
     }
 }
 
