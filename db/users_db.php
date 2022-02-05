@@ -127,5 +127,35 @@
         }
         return false;
     }
+
+    public function editGender($id, $gender){
+        $query = "UPDATE `clients` SET `sex` = ? WHERE `clients`.`id_client` = ?;";
+         if($stmt = $this->db->prepare($query)) { 
+            $stmt->bind_param('si',$gender, $id);
+            $stmt->execute();
+        } else {
+            $error = $this->db->errno . ' ' . $this->db->error;
+            echo $error; 
+            return false;
+        }
+
+        $stmt->close();
+        return;
+    }
+
+    public function editPhone($id, $phone){
+        $query = "UPDATE `clients` SET `phone` = ? WHERE `clients`.`id_client` = ?;";
+         if($stmt = $this->db->prepare($query)) { 
+            $stmt->bind_param('si',$phone, $id);
+            $stmt->execute();
+        } else {
+            $error = $this->db->errno . ' ' . $this->db->error;
+            echo $error; 
+            return false;
+        }
+
+        $stmt->close();
+        return;
+    }
  }
 ?>

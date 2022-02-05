@@ -28,8 +28,9 @@ class ProductsHelper
     public function getSellerById($id_product)
     {
         $query = "SELECT id_seller FROM `normal_products`
-        WHERE id_normal_product = $id_product";
+        WHERE id_normal_product = ?";
         $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $id_product);
         $stmt->execute();
         $result = $stmt->get_result();
         $result = $result->fetch_array();

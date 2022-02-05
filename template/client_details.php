@@ -9,17 +9,21 @@ $client = $db->users()->getClientById($_SESSION['id']);
         <h4><?php echo $client->getEmail() ?></h4>
     </div>
 
-    <div>
-        <i>Sesso</i>
-        <h4>Sesso</h4>
-        <input type="text" placeholder="<?php echo $client->getSex() !== null ? $client->getSex() : 'non specificato' ?>" name="gender">
-    </div>
+    <form action="./edit_details.php" method="get">
+        <div>
+            <i>Sesso</i>
+            <h4>Sesso</h4>
+            <input type="text" name="gender" placeholder="<?php echo $client->getSex() !== null ? $client->getSex() : 'non specificato' ?>" name="gender">
+        </div>
 
-    <div>
-        <i>Cellulare</i>
-        <h4>Cellulare</h4>
-        <input type="text" placeholder="<?php echo $client->getPhone() !== null ? $client->getPhone() : 'non specificato' ?>" name="cel">
-    </div>
+        <div>
+            <i>Cellulare</i>
+            <h4>Cellulare</h4>
+            <input type="text" name="phone" placeholder="<?php echo $client->getPhone() !== null ? $client->getPhone() : 'non specificato' ?>" name="cel">
+        </div>
+        <input type="submit" name="Salva" value="Salva"/>
+    </form>
+    
 
     <div>
         <button id="logout">Esci</button>
