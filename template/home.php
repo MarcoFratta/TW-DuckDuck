@@ -5,8 +5,8 @@ require "template/horizontal_products.php";
 <main>
     <img src="logo.png" alt="">
     <ul>
-        <li><button type="button">Esplora</button></li>
-        <li><button type="button">Crea</button></li>
+        <li><button onclick="document.location='category.php?new_products=1'" type="button">Esplora</button></li>
+        <li><button  onclick="document.location='new_product.php?type=custom'" type="button">Crea</button></li>
     </ul>
     <a href="categories.php"><article>
         <h1>Categorie</h1>

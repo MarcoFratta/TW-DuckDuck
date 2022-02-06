@@ -7,14 +7,14 @@ $(function () {
     var parent = this;
     dimension = parseInt($(this).children('[id*="dimension"]').val());
     console.log(dimension);
-    $(this).children('button[id*="decrease"]').on("click", function(){
+    $(this).find('button[id*="decrease"]').on("click", function(){
       console.log(dimension);
         if(dimension !== 1){
             dimension -= 1;
             updateDimension($(parent),dimension);
         }
       });
-      $(this).children('button[id*="increase"]').on("click", function(){
+      $(this).find('button[id*="increase"]').on("click", function(){
         console.log(dimension);
         if(dimension !== max_dim){
             dimension += 1;

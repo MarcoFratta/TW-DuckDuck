@@ -26,13 +26,7 @@ $client = $db->users()->getClientById($_SESSION['id']);
     
 
     <div>
-        <button id="logout">Esci</button>
-        <script>
-            var btn = document.getElementById('logout');
-            btn.addEventListener('click', function() {
-                document.location.href = "logout.php";
-            });
-        </script>
+        <button onClick="location.href='logout.php'" id="logout">Esci</button>
     </div>
 
     <div>

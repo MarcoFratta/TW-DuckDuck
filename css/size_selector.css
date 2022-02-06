@@ -1,0 +1,43 @@
+#size_selector {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  #size_selector div {
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 5px;
+    border: 1px solid #e4d3fa;
+    background: rgba(158, 144, 255, 0.1);
+  }
+  #size_selector button {
+    font-size: 1.5rem;
+    width: 3%;
+    font-weight: normal;
+    text-align: center;
+    margin: 0;
+    flex-grow: 1.5;
+    border-left: 1px solid #e4d3fa;
+    background-color: #f6f6f6;
+    border-radius: 5px;
+  }
+
+  #size_selector button:first-child {
+    border-left: none;
+    border-right: 1px solid #ccacf5;
+  }
+
+  #size_selector img {
+    margin: 1% 1.5% 1% 1.5%;
+    width: 10%;
+    height: auto;
+  }
+
+  @media only screen and (max-width: 1100px) {
+    #size_selector div {
+      width: 72%;
+    }
+  }

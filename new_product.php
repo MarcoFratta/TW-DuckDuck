@@ -30,6 +30,10 @@
     } elseif(isClient()){
         if($type == "custom") {
             $templateParams['title'] = "Crea un prodotto";
+            $templateParams['header_title'] = "Crea";
+            $templateParams['styles'] = ['<link rel="stylesheet" type="text/css" href="./css/create.css?'.time().'" />',
+            '<link rel="stylesheet" type="text/css" href="./css/size_selector.css?'.time().'" />',
+            '<link rel="stylesheet" type="text/css" href="./css/shipping_info.css?'.time().'" />'];
             $templateParams['scripts'] = ['<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>',
             '<script src="js/create_custom.js"></script>',
             '<script src="js/size_selector.js"></script>'];
@@ -45,6 +49,10 @@
 } else {
     if ($type == "custom"){
         $templateParams['title'] = "Crea un prodotto";
+        $templateParams['header_title'] = "Crea";
+        $templateParams['styles'] = ['<link rel="stylesheet" type="text/css" href="./css/create.css?'.time().'" />',
+            '<link rel="stylesheet" type="text/css" href="./css/size_selector.css?'.time().'" />',
+            '<link rel="stylesheet" type="text/css" href="./css/shipping_info.css?'.time().'" />'];
         $templateParams['scripts'] = ['<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>',
         '<script src="js/create_custom.js"></script>',
         '<script src="js/size_selector.js"></script>'];
