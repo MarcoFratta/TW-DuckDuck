@@ -10,6 +10,7 @@
   $templateParams['scripts'] = [
   '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>',
   '<script src="js/size_selector.js"></script>'];
+  $templateParams['styles'] = ['<link rel="stylesheet" type="text/css" href="./css/small_products.css?'.time().'" />'];
   require "template/common_top_html.php";
   require "template/header.php";
   $db = DbConnections::mySqlConnection();

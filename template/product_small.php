@@ -7,7 +7,7 @@ function smallProductCard($product,$dimensions,$type=null)
     $dim = getProductSize($product,$dimensions);
     $real_price = $product->getPrice() /100;
     $actual_price = productPriceWithDiscount($product);
-    return '<article>
+    return '<article class="small_product">
                 <header>'
                 .($type==null ? '' :('<h4 class="'.($type == Type::DISCOUNT ? "sconto" : $type).'">'.$type.'</h4>')).
             '<img alt="heart" src="../img/mix/empty_heart.png"> 

@@ -8,7 +8,8 @@ require_once "bootstrap.php";
 
 $db = DbConnections::mySqlConnection();
 
-$templateParams['styles'] = ['<link rel="stylesheet" type="text/css" href="./css/vertical_products.css?'.time().'" />'];
+$templateParams['styles'] = ['<link rel="stylesheet" type="text/css" href="./css/vertical_products.css?'.time().'" />',
+'<link rel="stylesheet" type="text/css" href="./css/small_products.css?'.time().'" />'];
 $templateParams['scripts'] = [
     '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>',
     '<script src="js/size_selector.js"></script>',
