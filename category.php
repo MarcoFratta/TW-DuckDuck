@@ -7,16 +7,18 @@ require_once "utils/functions.php";
 require_once "bootstrap.php";
 
 $db = DbConnections::mySqlConnection();
+
+$templateParams['styles'] = ['<link rel="stylesheet" type="text/css" href="./css/vertical_products.css?'.time().'" />'];
 $templateParams['scripts'] = [
     '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>',
-    '<script src="js/size_selector.js"></script>'];
+    '<script src="js/size_selector.js"></script>',
+    '<script src="js/common.js"></script>'];
 
 if(isset($_GET['category'])){
     $category = $db->categories()->getCategoryById($_GET['category']);
     if(!$category){
         die("categoria non trovata");
     }
-    $templateParams['title'] = $category->getName();
     $products = $db->products()->getProductsByCategory($category->getId());
     $title = $category->getName();
 } elseif(isset($_GET['new_products'])){
@@ -29,8 +31,8 @@ if(isset($_GET['category'])){
     die("non trovato");
 }
 
-
-
+$templateParams['title'] = $title;
+$templateParams['header_title'] = $title;
 
 require "template/common_top_html.php";
 require "template/header.php";

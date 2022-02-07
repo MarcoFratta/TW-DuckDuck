@@ -67,8 +67,8 @@ body > h2 {
 }
 
 #main {
-  margin-top: 1.5%;
-  padding-top: 1.5%;
+  padding-top: 3%;
+  background: transparent;
 }
 
 /* The side navigation menu */

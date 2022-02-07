@@ -5,26 +5,30 @@ require_once "template/common.php";
 function smallProductCard($product,$dimensions,$type=null)
 {
     $dim = getProductSize($product,$dimensions);
-    $real_price = $product->getPrice();
+    $real_price = $product->getPrice() /100;
     $actual_price = productPriceWithDiscount($product);
     return '<article>
                 <header>'
-                .($type==null ? '' :("<h6>$type</h6>")).
-            '<img> 
+                .($type==null ? '' :('<h4 class="'.($type == Type::DISCOUNT ? "sconto" : $type).'">'.$type.'</h4>')).
+            '<img alt="heart" src="../img/mix/empty_heart.png"> 
                 </header>
             <main>
                 <img alt="" src="'.$product->getImagePath().'">
             </main>
             <footer>
-                <h3>'.$product->getName().
-                '</h3>'.($real_price!==$actual_price ? 
-                ("<h2>$real_price</h2>"):'').
-                '<h2>'.$actual_price.'</h2>'.displaySize($dim,$product->getId()).' 
+                <h3>'.$product->getName().'</h3>
+                <div><div>'.($real_price!==$actual_price ? 
+                ('<h2 class="real_price">'.$real_price.'</h2>'):'').
+                '<h2 '.($real_price!==$actual_price ? 'class="actual_price"' : '').'>'.$actual_price.'
+                </h2></div><div>'.displaySize($dim,$product->getId()).'             
                 <form action="add_cart.php" method="POST">
                     <input type="hidden" name="type" value="normal"/>
                     <input type="hidden" name="product_id" value="'.$product->getId().'"/>
                     <button type="submit">+</button>
-                </form>           
+                </form>
+                </div>
+                </div>
+                           
             </footer>
         </article>';
 }
