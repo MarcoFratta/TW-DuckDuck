@@ -4,12 +4,7 @@
     background-color: white;
     border-radius: 10px;
   }
-  .small_product:nth-child(odd) {
-    margin-right: 1.5%;
-  }
-  .small_product:nth-child(even) {
-    margin-left: 1.5%;
-  }
+  
   
   .small_product * {
     margin-top: 2%;
