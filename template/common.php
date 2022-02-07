@@ -10,7 +10,7 @@ function displaySize($size, $id = null)
     $val .= "\r\n";
     for ($i = 1; $i <= $max_size; $i++) {
         $val .= "\t\t";
-        $val .= '<img alt="" src="img/dimension-duck.png" id="' . ($id !== null ? ($id . "_") : "") . 'selector_img' . $i . '"/>';
+        $val .= '<img alt="" src="../img/dimension-duck.png" id="' . ($id !== null ? ($id . "_") : "") . 'selector_img' . $i . '"/>';
         $val .= "\r\n";
     }
     $val .= '</section>';

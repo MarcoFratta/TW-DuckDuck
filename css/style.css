@@ -63,6 +63,7 @@ body > h2 {
   width: 100%;
   margin: 0 auto;
   text-align: center;
+  padding-bottom: 5%;
 }
 
 #main {
@@ -77,9 +78,8 @@ body > h2 {
   position: fixed; /* Stay in place */
   z-index: 99; /* Stay on top */
   left: 0;
-  background-color: white; /* Black*/
+  background-color: white;
   overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
 
@@ -94,6 +94,28 @@ body > h2 {
   text-decoration: none;
   padding: 1% 0 1% 8%;
   font-size: 1.3rem;
+}
+.sidenav > div {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.sidenav > div > h4{
+  background: #B8EBCC;
+  border-radius: 7.5px;
+  font-family: Roboto;
+  font-style: normal;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 0.3px;
+  color: #4f4f4f;
+  display: block;
+  transition: 0.1s;
+  text-decoration: none;
+  padding: 0.3% 0.8%;
+  margin-left: 2%;
+  font-size: 0.6rem;
 }
 
 /* When you mouse over the navigation links, change their color */
@@ -127,9 +149,20 @@ body > h2 {
   #header div:nth-child(2) {
     padding-bottom: 2%;
   }
+  .sidenav {
+    background: white center/cover url(../img/mix/svg/drawer_circles.svg) no-repeat;
+  }
+
+  .sidenav > div > h4{
+    letter-spacing: 0.3px;
+    padding: 0.7% 2%;
+    margin-top: 1%;
+    margin-left: 5%;
+    font-size: 0.6rem;
+  }
 
   .sidenav a {
-    padding: 2.5% 0 2.5% 5%;
+    padding: 3% 0 3% 7%;
     font-weight: bold;
     font-size: 1.5rem;
     transition: 0.3s;

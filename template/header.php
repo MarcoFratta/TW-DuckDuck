@@ -16,12 +16,15 @@
     </header>
     <nav id="sideNav" class="sidenav">
             <a <?php isActive("index.php");?> href="index.php">Home</a>
-            <a <?php isActive("categorie.php");?> href="categories.php">Categorie</a>
             <a <?php isActive("account.php");?> href="details.php">Account</a>
-            <a <?php isActive("crea.php");?> href="new_product.php?type=custom">Crea</a>
-            <a <?php isActive("login.php");?> href="login.php?type=seller">Accesso venditore</a>
-            <a <?php isActive("login.php");?> href="login.php?type=client">Accesso cliente</a>
-            <a <?php isActive("register.php");?> href="register.html">Registrati</a>
+            <a <?php isActive("categorie.php");?> href="categories.php">Categorie</a>   
+            <a href="category.php?new_products=1">Nuovi arrivi</a>
+            <a href="category.php?discounted=1">Saldi</a>    
+            <div>
+                <a <?php isActive("crea.php");?> href="new_product.php?type=custom">Crea</a>
+                <h4>nuovo</h4>
+            </div>
+            
     </nav>
     <div id="main">
 
