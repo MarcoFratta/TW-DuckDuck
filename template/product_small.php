@@ -11,10 +11,10 @@ function smallProductCard($product,$dimensions,$type=null)
                 <header>'
                 .($type==null ? '' :('<h4 class="'.($type == Type::DISCOUNT ? "sconto" : $type).
                 '">'.($type == Type::DISCOUNT ? ($product->getDiscount()."% off") : $type).'</h4>')).
-            '<img alt="heart" src="../img/mix/empty_heart.png"> 
+            '<img alt="heart" src="../img/mix/empty_heart.png"/> 
                 </header>
             <main>
-                <img alt="" src="'.$product->getImagePath().'">
+                <img alt="" onClick="location.href ='.("'product.php?id_product=".$product->getId()."'").'" src="'.$product->getImagePath().'"/>
             </main>
             <footer>
                 <h3>'.$product->getName().'</h3>

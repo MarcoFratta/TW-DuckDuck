@@ -5,6 +5,7 @@ body {
   background: #f6f6f6;
 }
 
+
 #header {
   background-color: white;
   position: sticky;
@@ -31,7 +32,7 @@ h2 {
   font-weight: bold;
   color: #4f4f4f;
 }
-svg {
+header svg {
   stroke: #4f4f4f;
   stroke-width: 2;
 }
@@ -67,7 +68,11 @@ body > h2 {
 #main > section {
   background: #f6f6f6;
   border-radius: 35px;
-  width: 70%;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 0 auto;
   text-align: center;
   padding-bottom: 5%;

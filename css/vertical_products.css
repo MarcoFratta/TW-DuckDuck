@@ -11,6 +11,7 @@ body {
   width: 50%;
   display: flex;
   justify-content: center;
+  flex-flow: column;
   flex-wrap: wrap;
   background: #f6f6f6;
 }

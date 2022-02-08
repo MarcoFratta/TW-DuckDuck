@@ -1,0 +1,190 @@
+#main > section {
+  width: 25%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  display: block;
+}
+
+#main > section > div:first-child img {
+  margin-top: 5%;
+  width: 30%;
+}
+#main > section > form input:focus {
+    outline: none !important;
+    border:none;
+    box-shadow: none;
+  }
+#main > section > div:first-child h3 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 150%;
+  /* identical to box height, or 24px */
+
+  text-align: center;
+  letter-spacing: 0.5px;
+
+  /* Neutral/Dark */
+
+  color: #4f4f4f;
+}
+#main > section > div:first-child h5 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 0.8rem;
+  line-height: 180%;
+
+  text-align: center;
+  letter-spacing: 0.5px;
+
+  color: #979797;
+}
+
+#main > section > form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#main > section > form svg {
+  stroke: #979797;
+}
+#main > section > form > div {
+  border: 1px solid #ebf0ff;
+  box-sizing: border-box;
+  border-radius: 5px;
+
+  background: #ffffff;
+  width: 80%;
+  padding: 3%;
+  margin-top: 2%;
+  display: flex;
+}
+#main > section > form > div > input {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: lighter;
+  font-size: 0.9rem;
+  line-height: 180%;
+  margin-left: 5%;
+  width: 100%;
+  letter-spacing: 0.5px;
+  color: #979797;
+}
+#main > section > form > button {
+  width: 80%;
+  background: #9e90ff;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  margin-top: 5%;
+  padding: 4.5%;
+}
+#main > section > div:nth-child(3) {
+  display: flex;
+  flex-direction: row;
+  margin-top: 3%;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+#main > section > div:nth-child(3) > svg {
+  margin: 0 auto;
+}
+#main > section > div:nth-child(3) > h3 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 0.8rem;
+  /* identical to box height, or 21px */
+
+  text-align: center;
+  letter-spacing: 0.005em;
+
+  color: #979797;
+}
+#main > section > div:nth-child(4) {
+  margin-top: 4%;
+
+}
+#main > section > div:nth-child(4) div {
+  margin-top: 2%;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  border: 1px solid #ebf0ff;
+  box-sizing: border-box;
+  border-radius: 5px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 4%;
+}
+#main > section > div:nth-child(4) div h3 {
+  width: 80%;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-align: center;
+  letter-spacing: 0.5px;
+
+  color: #979797;
+}
+#main > section > div:nth-child(4) div svg {
+  margin-left: 5%;
+}
+
+#main > section > div:nth-child(5) a {
+
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 0.8rem;
+
+text-align: center;
+letter-spacing: 0.5px;
+ text-decoration: none;
+color: #9E90FF;
+}
+#main > section > div:nth-child(5){
+    margin-top: 2%;
+}
+#main > section > div:nth-child(5) div {
+  margin-top: 2%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#main > section > div:nth-child(5) div  a{
+
+    margin-left: 2%;
+   
+}
+
+#main > section > div:nth-child(5) div h6 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 0.8rem;
+  text-align: center;
+  letter-spacing: 0.5px;
+
+  color: #979797;
+}
+
+@media only screen and (max-width: 1100px) {
+
+    #main > section{
+    width:100%;
+ }
+}
