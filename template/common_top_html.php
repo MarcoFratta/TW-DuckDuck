@@ -20,12 +20,14 @@
                 }
             }       
         ?>      
-        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">       
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-       
-        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="js/common.js"></script>
+        <script src="https://unpkg.com/feather-icons"></script>
         <?php 
             if(isset($templateParams["scripts"])){
                 if(is_array($templateParams["scripts"])){
@@ -39,8 +41,8 @@
                 }
             }       
         ?>
-        <script src="js/common.js"></script>
-        <script src="https://unpkg.com/feather-icons"></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        
+        
+    
     </head>
     <body>

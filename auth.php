@@ -20,7 +20,7 @@
         $email = $_POST['email'];
         if (password_verify($_POST['password'], $res['password'])) {
             registerLoggedUser(Client::createForSession($id, $email, $name),$_GET['type']);
-            echo 'Welcome ' . $_SESSION['name'] . '!';
+            //echo 'Welcome ' . $_SESSION['name'] . '!';
             header("Location:index.php");
         } else {
             // Incorrect password

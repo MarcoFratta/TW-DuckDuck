@@ -31,15 +31,15 @@
                 $amount = 0;
                 foreach ($db->orders()->getOrderNormalProduct($order->getId()) as $product) {
                     if ($product != null) {
-                        $amount += $product['price'];
+                        $amount += ($product['price']*$product['quantity'])/100;
                     }
                 }
                 foreach ($db->orders()->getOrderCustomProduct($order->getId()) as $product) {
                     if ($product != null) {
-                        $amount += $product['price'];
+                        $amount += ($product['price']*$product['quantity'])/100;
                     }
                 }
-                echo "&euro;".number_format((float)$amount, 2, '.', '');
+                echo "&euro;".number_format((float)$amount, 2, ',', '');
             ?>
         </h5>
 

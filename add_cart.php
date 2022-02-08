@@ -41,7 +41,6 @@ if (isset($_POST['type'])) {
                     die("item not existing");
                 }
                 $price += $item->getPrice();
-                echo "adding i>".$item->getPrice();
             }
             $dim_id = $_POST['dimension'];
             $dimension = $db->products()->getDimensionBySize($dim_id);
@@ -49,8 +48,6 @@ if (isset($_POST['type'])) {
                 die('dimension not existing');
             }
             $price += $dimension->getPrice();
-            echo "adding d>".$dimension->getPrice();
-            echo "sum >".$price;
             $product = serialize(new CustomProduct(null, $price, $dim_id, null, $parts));
             $hash = md5($product);
             $product_id = $hash;

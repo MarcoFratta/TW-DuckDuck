@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__."\..\model\product.php";
-require_once __DIR__."\..\model\dimension.php";
+require_once __DIR__."/../model/product.php";
+require_once __DIR__."/../model/dimension.php";
 class ProductsHelper
 {
     private $db;

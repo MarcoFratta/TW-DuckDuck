@@ -14,6 +14,7 @@ body {
 #header > div:first-child {
   width: 100%;
   display: flex;
+  padding: 1% 0;
   justify-content: center;
   align-items: center;
 }
@@ -36,17 +37,23 @@ svg {
 }
 
 /* main logo */
-#header div > img {
+#header > div > img {
   width: 5%;
   height: auto;
-  margin: 1.5% auto 0 auto;
+  margin: 0 auto ;
 }
 #header div > svg:first-child {
   margin-left: 5%;
 }
 
-#header div > svg:last-child {
+#header div > div {
   margin-right: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+#header div > div > img{
+  width: 30%;
 }
 #header div > h2 {
   margin-left: 2%;
@@ -138,10 +145,18 @@ body > h2 {
 }
 
 @media only screen and (max-width: 1100px) {
+
+  #header > div:first-child {
+    padding: 2.5% 0;
+  }
   /* main logo */
-  #header div > img {
-    width: 20%;
-    margin-top: 3%;
+  #header > div > img {
+    width: 15%;
+  }
+  #header div > div > img{
+    width: 30%;
+    height:auto;
+  
   }
   #main {
     padding-top: 7%;

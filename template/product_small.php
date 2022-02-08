@@ -9,7 +9,8 @@ function smallProductCard($product,$dimensions,$type=null)
     $actual_price = productPriceWithDiscount($product);
     return '<article class="small_product">
                 <header>'
-                .($type==null ? '' :('<h4 class="'.($type == Type::DISCOUNT ? "sconto" : $type).'">'.$type.'</h4>')).
+                .($type==null ? '' :('<h4 class="'.($type == Type::DISCOUNT ? "sconto" : $type).
+                '">'.($type == Type::DISCOUNT ? ($product->getDiscount()."% off") : $type).'</h4>')).
             '<img alt="heart" src="../img/mix/empty_heart.png"> 
                 </header>
             <main>
@@ -17,10 +18,10 @@ function smallProductCard($product,$dimensions,$type=null)
             </main>
             <footer>
                 <h3>'.$product->getName().'</h3>
-                <div><div>'.($real_price!==$actual_price ? 
-                ('<h2 class="real_price">'.$real_price.'</h2>'):'').
+                <div><div>'.
                 '<h2 '.($real_price!==$actual_price ? 'class="actual_price"' : '').'>'.$actual_price.'
-                </h2></div><div>'.displaySize($dim,$product->getId()).'             
+                </h2>'.($real_price!==$actual_price ? 
+                ('<h2 class="real_price">'.$real_price.'</h2>'):'').'</div><div>'.displaySize($dim,$product->getId()).'             
                 <form action="add_cart.php" method="POST">
                     <input type="hidden" name="type" value="normal"/>
                     <input type="hidden" name="product_id" value="'.$product->getId().'"/>

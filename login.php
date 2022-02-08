@@ -17,7 +17,7 @@
             </form>
             <h3>OPPURE</h3>
             <a>Password dimenticata?</a>
-            <h6>Non hai un account?</h6><a>Registrati</a>';
+            <h6>Non hai un account?</h6><a href="register.html">Registrati</a>';
             if($_GET['type'] == "client")
                 $out .= '<h6>Sei un fornitore?</h6><a href="login.php?type=seller">Area privata</a>';
             echo $out;

@@ -53,7 +53,7 @@ if ($_GET['type'] == "normal" && isSeller()) {
     if (!isset(
         $_POST['name'],
         $_POST['price'],
-        $_POST['layer'],
+        $_POST['layer']
     )) {
         var_dump($_POST);
         die("errore inserimento");

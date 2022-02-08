@@ -75,11 +75,11 @@ function utf8ize($d) {
 }
 
 function deleteImage($img){
-    unlink("../".$img);
+    unlink( __DIR__."/../".$img);
 }
 function uploadImage()
 {
-    $prefix = "../";
+    $prefix =  __DIR__."/../";
     $target_dir = "uploads/";
     $target_file = $prefix.$target_dir . basename($_FILES["img"]["name"]);
     $return_dir =  $target_dir . basename($_FILES["img"]["name"]);

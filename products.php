@@ -6,7 +6,7 @@ require_once "bootstrap.php";
 if (userIsLogged()) {
     if (isSeller()) {
         $templateParams['title'] = "Prodotti";
-        $templateParams['scripts'] = ['<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>',
+        $templateParams['scripts'] = [
         '<script src="js/edit_products.js"></script>',
         '<script src="js/size_selector.js"></script>'];
         require "template/common_top_html.php";

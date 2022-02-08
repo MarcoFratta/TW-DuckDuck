@@ -1,8 +1,15 @@
     <header id="header">
             <div>
                 <i  id="menu_icon" onclick="changeNav()" data-feather="menu"></i>
-                <img onClick="location.href='index.php'" alt="Site Logo" src="img/logo.png"/>
-                <i onClick="location.href='cart.php'" data-feather="shopping-cart"></i>
+                <img onClick="location.href='index.php'" alt="Site Logo" src="img/mix/svg/logo.svg"/>
+                <div>
+                <?php
+                    if(isset($_SESSION['cart_normal']) || isset($_SESSION['cart_custom'])){
+                        echo ' <img alt="" src="../img/mix/svg/cart_tick.svg"/>';
+                    } ?>
+                  <i onClick="location.href='cart.php'" data-feather="shopping-cart"></i>
+                </div>
+               
             </div>
             <?php
                 if(isset($templateParams['header_title'])){
