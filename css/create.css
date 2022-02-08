@@ -1,6 +1,11 @@
 
   
 
+#main > section{
+width:100%;
+background-color: white;
+}
+
   
   
   #main section > h2 {
@@ -20,6 +25,7 @@
 
   form > div:nth-child(-n + 4) {
     display: flex;
+    margin: 0 auto;
     flex-direction: row;
     justify-content: center;
     align-items: center;

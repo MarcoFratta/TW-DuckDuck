@@ -33,6 +33,6 @@
             </div>
             
     </nav>
-    <div id="main">
+    <main id="main">
 
 

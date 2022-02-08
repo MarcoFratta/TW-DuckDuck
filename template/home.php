@@ -1,8 +1,6 @@
 <?php
 require "template/horizontal_products.php";
 ?>
-
-<main>
     <img src="logo.png" alt="">
     <ul>
         <li><button onclick="document.location='category.php?new_products=1'" type="button">Esplora</button></li>
@@ -25,4 +23,3 @@ require "template/horizontal_products.php";
     <a href="size.php?size=3"><article>
         <h1>Dimensioni</h1>
     </article></a>
-</main>

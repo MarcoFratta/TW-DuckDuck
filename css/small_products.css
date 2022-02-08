@@ -2,7 +2,7 @@
     width:22%;
     height:fit-content;
     margin: 4% 3%;
-    padding: 1% 3% ;
+    padding: 20px 3% ;
     background-color: white;
     border-radius: 10px;
   }
@@ -10,6 +10,7 @@
   
   .small_product * {
     margin-top: 2%;
+    display: block;
   }
   
   .small_product > header {
@@ -24,8 +25,6 @@
     align-self: end;
   }
   
-  .small_product > footer {
-  }
   
   .small_product > footer > h3 {
     font-family: Roboto;
@@ -38,17 +37,19 @@
     margin-top: 5%;
   }
   .small_product > footer > div > div > h2 {
-    margin-top:0;
+    display: inline; 
+    margin:0;
+    box-sizing: border-box;
   }
   .small_product > footer > div > h2 {
     font-family: Roboto;
     font-style: normal;
-    display: inline;
     font-weight: bold;
     font-size: 1.5rem;
     line-height: 16px;
     color: #4f4f4f;
     margin-top: 0%;
+    margin-bottom: 0%;
     text-align: start;
   }
   
@@ -62,8 +63,10 @@
   .small_product > footer > div > div {
     display: flex;
     align-items: flex-end;
-    flex-wrap: wrap;
+    justify-content: start;
+    flex-wrap:wrap;
     height: fit-content;
+    box-sizing: border-box;
     overflow:visible;
     flex-direction: row;
     margin-top: 0;
@@ -83,10 +86,13 @@
     width: 80%;
   }
   .small_product > footer > div section {
-    width: 80%;
+    width: 60%;
+    text-align: left;
+    margin-top: 0;
   }
   .small_product > footer img {
     width: 16%;
+    display: inline-block;
   }
   .small_product > footer form {
     width: 30%;
@@ -101,8 +107,9 @@
     margin-left: auto;
     display:block;
     align-self: center;
-    width: 50%;
-    height: 50%;
+    text-align: center;
+    width: 40%;
+    height: 40%;
     padding: 0;
     margin-top: 0;
     color: white;
@@ -145,7 +152,12 @@
     color: #d66565;
   }
   .real_price {
-    margin-left: 5%;
+    margin: 0;
+    display:inline;
+    width: auto;
+    height: auto;
+    padding:0;
+    padding-left: 5%;
     text-decoration-line: line-through;
     color: #979797;
     font-size: 0.8rem;
@@ -158,6 +170,9 @@
    
   .small_product {
     padding: 2% 3% ;
+  }
+  .small_product > footer > div > div {
+    margin-top: -1%;
   }
   .small_product > footer form {
     width: 30%;
@@ -178,10 +193,21 @@
       width: 65%;
       height: 65%;
     }
+    .small_product > footer > div > div {
+      margin-top: -1%;
+    }
   }
-    @media only screen and (max-width: 1500px) {
+  @media only screen and (max-width: 1500px) {
+    .small_product > footer button {
+      width: 65%;
+      height: 65%;
+    }
+  }
+
+    @media only screen and (max-width: 2000px) {
       .small_product > footer button {
-        width: 65%;
-        height: 65%;
+        width: 60%;
+        height: 60%;
       }
+
   }
