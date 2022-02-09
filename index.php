@@ -8,7 +8,9 @@
 
   $templateParams['title'] = "Home";
   $templateParams['scripts'] = ['<script src="js/size_selector.js"></script>'];
-  $templateParams['styles'] = ['<link rel="stylesheet" type="text/css" href="./css/small_products.css?'.time().'" />'];
+  $templateParams['styles'] = [
+    '<link rel="stylesheet" type="text/css" href="./css/small_products.css?'.time().'" />
+    <link rel="stylesheet" type="text/css" href="./css/home.css?'.time().'" />'];
   require "template/common_top_html.php";
   require "template/header.php";
   $db = DbConnections::mySqlConnection();

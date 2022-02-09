@@ -107,7 +107,8 @@ class ProductsHelper
         return $this->toProducts($result->fetch_all(MYSQLI_ASSOC));
     }
 
-    public function updateNormalProduct($product){
+    public function updateNormalProduct($product)
+    {
         $query = 'UPDATE normal_products SET ' . $this->NAME . '=?,' . $this->DESC . '=?,  
         ' . $this->IMG_PATH . '=?,' . $this->AMOUNT . '=?,' . $this->DISCOUNT . '=?,  
         ' . $this->PRICE . '=?,' . $this->DIMENSION . '=?,  
@@ -125,12 +126,12 @@ class ProductsHelper
             $stmt->bind_param('sssiiiiii', $n, $d, $i, $a, $di, $p, $dim, $c,$id);
             $stmt->execute();
             return true;
-    } else {
-        $error = $this->db->errno . ' ' . $this->db->error;
-        echo $error; // 1054 Unknown column 'foo' in 'field list'
-        return false;
+        } else {
+            $error = $this->db->errno . ' ' . $this->db->error;
+            echo $error; // 1054 Unknown column 'foo' in 'field list'
+            return false;
+        }
     }
-}
 
 
     public function getProductsByCategory($id_category)
@@ -317,6 +318,20 @@ class ProductsHelper
         try {
             return $this->toItems($result->fetch_all(MYSQLI_ASSOC));
         } catch (Exception $e) {
+            return false;
+        }
+    }
+
+    public function updateAmountProduct($id_product, $amount)
+    {
+        $query = 'UPDATE normal_products SET amount=? WHERE id_normal_product=?';
+        if ($stmt = $this->db->prepare($query)) {
+            $stmt->bind_param('ii', $amount, $id_product);
+            $stmt->execute();
+            return true;
+        } else {
+            $error = $this->db->errno . ' ' . $this->db->error;
+            echo $error; // 1054 Unknown column 'foo' in 'field list'
             return false;
         }
     }

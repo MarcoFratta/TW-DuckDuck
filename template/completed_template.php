@@ -23,6 +23,8 @@
                 continue;
             }
             $quantity = $normal_cart_products[$product_id]['quantity'];
+            $amount = $product->getAmount();
+            $db->products()->updateAmountProduct($product_id, $amount - $quantity);
             # aggiungere prodotto all'ordine
             $db->orders()->addNormalProductToOrder($product, $order, $quantity);
         }
