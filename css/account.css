@@ -1,0 +1,70 @@
+#main > section {
+    background: #ffffff;
+    width: 100%;
+    display: block;
+}
+
+.container, .container_buttons{
+    display: flex;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 1.5%;
+    justify-content: center;
+}
+
+.first{
+    padding-top: 10%;
+}
+
+i{
+    order: 1;
+    margin: 1.5% auto 0 auto;
+    color: #9E90FF;
+}
+
+h4{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    color: #4f4f4f;
+    margin: 1.5% auto 0 auto;
+}
+
+.container h4{
+    order: 2;
+    flex-grow: 4;
+    text-align: left;
+    margin-left: 7%;
+}
+
+.container a, input, select{
+    order: 3;
+    margin: 1.5% auto 0 auto;
+    text-align: right;
+}
+
+.container input, select{
+    max-width: 40%;
+}
+
+.container button{
+    background-color: white;
+}
+
+.container_buttons *{
+    flex-grow: 1;
+    padding: 2%;
+    margin: 5%;
+    text-align: center;
+    background: #9E90FF;
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
+    margin-top: 10%;
+}
+
+img {
+    margin-top: 10%;
+    max-width: 20%;
+    height: auto;
+  }

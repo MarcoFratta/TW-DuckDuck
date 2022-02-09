@@ -9,6 +9,7 @@ require_once "bootstrap.php";
 if(userIsLogged()){
     if(isClient()){
         $templateParams['title'] = "Dettagli account";
+        $templateParams['styles'] = ['<link rel="stylesheet" type="text/css" href="./css/account.css?'.time().'" />'];
         require "template/common_top_html.php";
         require "template/header.php";
         $db = DbConnections::mySqlConnection();
