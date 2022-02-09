@@ -12,7 +12,8 @@
 
     public function getClientNotifications($id_client){
         $query = "SELECT *
-        FROM client_notification WHERE $this->USER=?";
+        FROM client_notification WHERE $this->USER=?
+        ORDER BY id DESC";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i',$id_client);
         $stmt->execute();
@@ -54,6 +55,24 @@
         $stmt->execute();
         $result = $stmt->insert_id;
         return $result;
+    }
+
+    public function seeClientNotification($notification){
+        $query = "UPDATE `client_notification` SET `status` = '0' WHERE `client_notification`.`id` = ?;";
+        $stmt = $this->db->prepare($query);
+        $notification_id = $notification->getId();
+        $stmt->bind_param('i',$notification_id);
+        $stmt->execute();
+        return;
+    }
+
+    public function seeSellerNotification($notification){
+        $query = "UPDATE `seller_notification` SET `status` = '0' WHERE `seller_notification`.`id` = ?;";
+        $stmt = $this->db->prepare($query);
+        $notification_id = $notification->getId();
+        $stmt->bind_param('i',$notification_id);
+        $stmt->execute();
+        return;
     }
 
     private function toNotifications($notifications){
