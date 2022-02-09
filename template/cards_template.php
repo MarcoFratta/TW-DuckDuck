@@ -5,23 +5,24 @@
     }
     $cards = $db->cards()->getClientCards($client->getId());
 ?>
-<h1>Metodo di pagamento</h1>
 
-<form id="cards" method="POST" action="completed.php">
-    <?php foreach($cards as $card): ?>
-        <input type="radio" name="card" value="<?php echo $card->getId() ?>" checked>
-        <?php echo 
-            "Titolare: ".$client->getName().", "
-            ."Numero: ".$card->getNumber().", "
-            ."Data di scadenza: ".$card->getExpire_date()."; "
-        ?>
-    <?php endforeach; ?>
+<section>
 
-    <input type="submit" <?php if(!isset($_SESSION['total'])) {?> style="display: none" <?php } ?> value="PAGA €<?php echo $total?>">
-</form>
+    <form id="cards" method="POST" action="completed.php">
+        <?php foreach($cards as $card): ?>
+            <div class="card">
+                <input type="radio" name="card" value="<?php echo $card->getId() ?>" checked>
+                <?php echo 
+                    "<h4>" . $card->getNumber() . "</h4>"
+                    . '<div class="container">
+                    <img><img src="./img/mix/svg/mastercard.svg"><h5>' . $card->getExpire_date()
+                    . '</h5></div>';
+                ?>
+            </div>
+        <?php endforeach; ?>
 
-<button type="button" onclick="document.location='new_card.php'">Aggiungi carta</button>
-<button type="button" onclick="history.back()">Indietro</button>
+        <button type="button" onclick="document.location='new_card.php'">Aggiungi carta</button>
+        <input type="submit" <?php if(!isset($_SESSION['total'])) {?> style="display: none" <?php } ?> value="Paga €<?php echo $total?>">
+    </form>
 
-
-<!-- el: FOOTER -->
+</section>

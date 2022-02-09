@@ -9,6 +9,8 @@
         require_once "model/card.php";
 
         $templateParams['title'] = "Metodo di pagamento";
+        $templateParams['header_title'] = "Carte";
+        $templateParams['styles'] = ['<link rel="stylesheet" type="text/css" href="./css/cards.css?'.time().'" />'];        
         require "template/common_top_html.php";
         require "template/header.php";
         $db = DbConnections::mySqlConnection();
