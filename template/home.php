@@ -1,25 +1,28 @@
 <?php
 require "template/horizontal_products.php";
 ?>
-    <img src="logo.png" alt="">
-    <ul>
-        <li><button onclick="document.location='category.php?new_products=1'" type="button">Esplora</button></li>
-        <li><button  onclick="document.location='new_product.php?type=custom'" type="button">Crea</button></li>
-    </ul>
-    <a href="categories.php"><article>
-        <h1>Categorie</h1>
-    </article></a>
+    <div class="cover">
+        <img src="img/logo.png" alt="Cover Logo">
+        <ul>
+            <li><button onclick="document.location='category.php?new_products=1'" type="button">ESPLORA</button></li>
+            <li><button  onclick="document.location='new_product.php?type=custom'" type="button">CREA</button></li>
+        </ul>
+    </div>
+
+    <button onclick="document.location='categories.php'" type="button">Categorie</button>
+    
     <section>
-        <a href="category.php?new_products=1">Nuovi arrivi</a>
+        <button onclick="document.location='category.php?new_products=1'" type="button">Nuovi arrivi</button>
         <?php echo newProductScroll($new_products)?>
     </section>
-    <a href="new_product.php?type=custom"><article>
-        <h1>Crea</h1>
-    </article></a>
+
+    <button onclick="document.location='new_product.php?type=custom'" type="button">Crea</button>
+
     <section>
-        <a href="category.php?discounted=1">Saldi</a>
+        <button onclick="document.location='category.php?discounted=1'" type="button">Saldi</button>
         <?php echo discountedProductScroll($discount_products)?>      
     </section>
-    <a href="size.php?size=3"><article>
-        <h1>Dimensioni</h1>
-    </article></a>
+
+    <button onclick="document.location='size.php?size=3'" type="button">Dimensioni</button>
+
+    
