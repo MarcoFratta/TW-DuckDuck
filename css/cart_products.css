@@ -1,0 +1,152 @@
+#main > section {
+  width: 25%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  display: block;
+  padding-top: 5%;
+}
+#main > section {
+  font-family: Roboto;
+}
+#main > section > article {
+  width: 90%;
+  display: flex;
+  margin: 2.5% auto;
+  padding: 3% 5%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  background: white;
+  border: 1px solid #ebf0ff;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+#main > section > article > img {
+  width: 20%;
+  padding: 3% 4%;
+  background: linear-gradient(0deg, #f6f6f6, #f6f6f6);
+  border-radius: 5px;
+}
+
+#main > section > article > div:nth-child(2) {
+
+  justify-content: flex-start;
+  align-items: flex-start;
+	text-align: start;
+	padding-left: 5%;
+	margin-top: 3%;
+}
+#main > section > article > div:nth-child(2) > h4 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #9e90ff;
+	margin-top: 2%;
+	text-align: start;
+}
+#main > section > article > div:nth-child(3) {
+	width: 40%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: flex-end;
+	margin-top: 3%;
+	height: 100%;
+}
+#main > section > article > div:nth-child(2) > section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  display: block;
+  margin-top: 27%;
+}
+#main > section > article > div:nth-child(2) > section > img {
+  width: 12%;
+	height: 12%;
+}
+
+#main > section > article > div:nth-child(2) > h3 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  color: #4f4f4f;
+}
+
+#main > section > article > div:nth-child(3) > img {
+  width: 12%;
+}
+#main > section > article > div:nth-child(3) > div {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #EBF0FF;
+	border-radius: 25px;
+	box-sizing: border-box;
+	text-align: center;
+	margin: 30% 0 0 0;
+	width: 90%;
+}
+
+#main > section > article > div:nth-child(3) > div > h3 {
+  font-size: 0.7rem;
+	background: #EBF0FF;
+	padding: 5% 0;
+	text-align: center;
+	align-self: stretch;
+	vertical-align: middle;
+	color: #4F4F4F;
+	width: 33%;
+}
+
+#main > section > article > div:nth-child(3) > div form {
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	width: 32%;
+
+}
+#main > section > article > div:nth-child(3) > div button {
+	width: 100%;
+  font-size: 0.7rem;
+	background: white;
+	padding-top:0;
+	text-align: center;
+	align-self: center;
+	padding-bottom:0;
+	cursor: pointer;
+	color: #979797
+}
+
+@media only screen and (max-width: 1100px) {
+  #main > section {
+    width: 100%;
+  }
+	#main > section > article > div:nth-child(2) {
+		width: 42%;
+	}
+	#main > section > article > div:nth-child(3) {
+		width: 30%;
+	}
+	#main > section > article > div:nth-child(3) > img {
+		width: 20%;
+	}
+	#main > section > article > div:nth-child(3) > div {
+		margin-top: 35%;
+	}
+	#main > section > article > div:nth-child(2) > section {
+		margin-top: 8%;
+	}
+}
+@media only screen and (max-width: 1800px) {
+	#main > section > article > div:nth-child(3) > div {
+		margin-top: 30%;
+	}
+	#main > section > article > div:nth-child(2) > section {
+		margin-top: 10%;
+	}
+}

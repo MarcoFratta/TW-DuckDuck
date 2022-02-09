@@ -1,4 +1,4 @@
-<h1>Il tuo carrello</h1>
+
 <section id="cart_products">
     <?php
     include_once "template/cart_product.php";
@@ -7,6 +7,7 @@
         echo "Carrello vuoto";
         return;
     }
+    $dimensions = toArray($db->products()->getDimensions());
     $normal_cart_products = isset($_SESSION['cart_normal']) ? $_SESSION['cart_normal'] : [];
     $custom_cart_products = isset($_SESSION['cart_custom']) ? $_SESSION['cart_custom'] : [];
     $sum = 0;
@@ -19,19 +20,17 @@
             continue;
         }
         
-        echo cart_product($product, "normal", $normal_cart_products[$product_id]['quantity']);
+        echo cart_product($product, "normal", $normal_cart_products[$product_id]['quantity'],$dimensions);
         $sum += (productPriceWithDiscount($product)) * $normal_cart_products[$product_id]['quantity'];
     }
     foreach (array_keys($custom_cart_products) as $product_id) {
         $product = unserialize($custom_cart_products[$product_id]["value"]);
         $product->withId($product_id);
-        echo cart_product($product, "custom", $custom_cart_products[$product_id]['quantity']);
+        echo cart_product($product, "custom", $custom_cart_products[$product_id]['quantity'],$dimensions);
         $sum += (productPriceWithDiscount($product)) * $custom_cart_products[$product_id]['quantity'];
     }
     ?>
-</section>
-
-<section>
+    <section>
     <h6>Imponibile (senza IVA)</h6>
     <h6>€ <?php echo $sum - ($sum * $iva) ?></h6>
     <h6>Spedizione</h6>
@@ -47,7 +46,7 @@
         ?>
     </h6>
 </section>
-
+</section>
 <button type="button" onclick="document.location='addresses.php'">Procedi all'acquisto</button>
 
 <!-- el: FOOTER -->
