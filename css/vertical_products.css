@@ -12,6 +12,7 @@ body {
   display: flex;
   justify-content: center;
   flex-flow: column;
+  flex-direction: row;
   flex-wrap: wrap;
   background: #f6f6f6;
 }

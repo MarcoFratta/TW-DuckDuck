@@ -43,12 +43,12 @@
                         $amount = 0;
                         foreach ($db->orders()->getOrderNormalProduct($order->getId()) as $product) {
                             if ($product != null) {
-                                $amount += ($product['price']*$product['quantity'])/100;
+                                $amount += ($product['price']/100)*$product['quantity'];
                             }
                         }
                         foreach ($db->orders()->getOrderCustomProduct($order->getId()) as $product) {
                             if ($product != null) {
-                                $amount += ($product['price']*$product['quantity'])/100;
+                                $amount += ($product['price']/100)*$product['quantity'];
                             }
                         }
                         echo "&euro;".number_format((float)$amount, 2, ',', '');
