@@ -29,7 +29,7 @@ $(function () {
 
   function updateDimension(parent, dimension){  
     parent.find('img').slice(1, dimension+1).css('opacity','1');
-    parent.find('img').slice(dimension,max_dim+1).css('opacity','0.5');
+    parent.find('img').slice(dimension,max_dim+1).css('opacity','0.1');
     parent.find('[id*="dimension"]').attr('value', String(dimension));
     parent.find('[id*="dimension"]').trigger('change');
   }
