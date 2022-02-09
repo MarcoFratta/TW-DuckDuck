@@ -6,15 +6,33 @@
         $notifications = $db->notifications()->getSellerNotifications($id);
     }
 ?>
-<h1>Messaggi</h1>
-<section id="notifications">
+
+<section>
     <?php foreach($notifications as $notification): ?>
 
-        <h3><?php echo $notification->getId() ?></h3>
-        <h5>Data: <?php echo $notification->getDate() ?></h5>
-        <h5>Messaggio: <?php echo $notification->getMessage() ?></h5>
+    <?php
+        if ($notification->getStatus() == 0){
+            echo '<div class="box">';
+        } else {
+            echo '<div class="box new">';
+        }
+    ?>
+        <div class="container">
+            <h4><?php echo $notification->getDate() ?></h4>
+        </div>
+        <div class="container">
+            <h3><?php echo $notification->getMessage() ?></h3>
+        </div>
+    </div>
+
+    <?php
+        if ($_SESSION['type'] == "client") {
+            $db->notifications()->seeClientNotification($notification);
+        } else {
+            $db->notifications()->seeSellerNotification($notification);
+        }
+    ?>
 
     <?php endforeach; ?>
+    
 </section>
-
-<!-- el: FOOTER -->

@@ -49,12 +49,12 @@
     }
     
     $db->notifications()->insertClientNotification(Notification::newNotification($id_client,
-    "Il tuo ordine è stato completato. Per dettagli sulla spedizione controlla nell'area dedicata.", 0));
+    "Il tuo ordine n. " . $order_id . " è stato completato. Per dettagli sulla spedizione controlla nell'area dedicata.", 1));
 
     if (!empty($normal_cart_products)) {
         foreach (array_keys($normal_cart_products) as $product_id) {
             $db->notifications()->insertSellerNotification(Notification::newNotification($db->products()->getSellerById($product_id),
-            "Il cliente " . $id_client . " ha acquistato il tuo prodotto con id " . $product_id . "." , 0));
+            "Il cliente " . $id_client . " ha acquistato il tuo prodotto con id " . $product_id . "." , 1));
         }
     }
 

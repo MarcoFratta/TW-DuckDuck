@@ -8,6 +8,8 @@
         require_once "utils/functions.php";
 
         $templateParams['title'] = "Messaggi";
+        $templateParams['header_title'] = "Notifiche";
+        $templateParams['styles'] = ['<link rel="stylesheet" type="text/css" href="./css/order.css?'.time().'" />'];
         require "template/common_top_html.php";
         require "template/header.php";
         $db = DbConnections::mySqlConnection();
