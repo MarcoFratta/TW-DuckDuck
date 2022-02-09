@@ -7,6 +7,7 @@ require_once "bootstrap.php";
     require_once "model/client.php";
     require_once "utils/functions.php";
 if(userIsLogged()){
+    $templateParams['header_title'] = "Dettagli";
     if(isClient()){
         $templateParams['title'] = "Dettagli account";
         $templateParams['styles'] = ['<link rel="stylesheet" type="text/css" href="./css/account.css?'.time().'" />'];

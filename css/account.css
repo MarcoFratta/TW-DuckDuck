@@ -1,71 +1,162 @@
 #main > section {
-    background: #ffffff;
+  background: #ffffff;
+  width: 25%;
+  display: block;
+  font-family: Roboto;
+}
+#main > section > div:first-child {
+  display: flex;
+  justify-content: start;
+  margin-left: 10%;
+}
+#main > section > div:first-child img {
+  width: 20%;
+}
+#main > section > div:first-child div {
+  margin-top: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  text-align: left;
+  margin-left: 4%;
+}
+#main > section > div:first-child div > * {
+  text-align: left;
+  margin: 0;
+}
+#main > section > div:first-child div > p {
+  text-align: left;
+  margin: 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 0.8rem;
+  margin-top: 5%;
+  letter-spacing: 0.5px;
+
+  color: #979797;
+}
+#main > section > div:first-child div > h4 {
+  color: #4f4f4f;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+#main .container,
+#main .container_buttons {
+  display: flex;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 1.5%;
+  justify-content: center;
+  align-items: center;
+}
+#main > section > p {
+  color: #979797;
+  margin-top: 2%;
+}
+
+#main .first {
+  padding-top: 10%;
+}
+
+#main svg {
+  order: 1;
+  margin-right: 0;
+  margin-left: 0;
+  color: #9e90ff;
+}
+
+#main h4 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  color: #4f4f4f;
+  margin: 1.5% auto 0 auto;
+}
+
+#main .container h4,
+#main .container_first h4 {
+  order: 2;
+  margin-left: 7%;
+  margin-right: 0;
+  text-align: left;
+}
+#main .container,
+#main .container_first {
+  justify-content: start;
+  flex-direction: row;
+  margin-top:5%;
+}
+#main .container button,
+#main .container_first button {
+  order: 3;
+  margin-right: 0;
+  margin-left: auto;
+  text-align: end;
+}
+
+#main.container a,
+#main input,
+#main select {
+  order: 3;
+  margin: 1.5% 0 0 auto;
+  text-align: right;
+}
+
+#main .container input,
+#main select {
+  max-width: 40%;
+}
+
+#main .container button {
+  background-color: white;
+  background: #9e90ff;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+}
+#main .container_buttons {
+  justify-content: start;
+}
+#main .container_buttons > * {
+  flex-grow: 1;
+  padding: 4% 2%;
+  margin: 5%;
+  text-align: center;
+  background: #9e90ff;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+  margin-top: 10%;
+  margin-left: 0;
+  text-decoration: none;
+}
+#main .container_buttons > a {
+  font-size: 1rem;
+  width: 17%;
+  font-weight: bold;
+  color: white;
+}
+#main .container_buttons > input {
+  font-weight: bold;
+  color: white;
+  font-size: 0.9rem;
+  margin-right: 0;
+  width: 20%;
+}
+#main .container_buttons > *:hover {
+  cursor: pointer;
+}
+
+#main img {
+  margin-top: 10%;
+  width: 25%;
+  height: auto;
+}
+
+@media only screen and (max-width: 1400px) {
+  #main > section {
     width: 100%;
-    display: block;
-}
-
-.container, .container_buttons{
-    display: flex;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 1.5%;
-    justify-content: center;
-}
-
-.first{
-    padding-top: 10%;
-}
-
-i{
-    order: 1;
-    margin: 1.5% auto 0 auto;
-    color: #9E90FF;
-}
-
-h4{
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: bold;
-    color: #4f4f4f;
-    margin: 1.5% auto 0 auto;
-}
-
-.container h4{
-    order: 2;
-    flex-grow: 4;
-    text-align: left;
-    margin-left: 7%;
-}
-
-.container a, input, select{
-    order: 3;
-    margin: 1.5% auto 0 auto;
-    text-align: right;
-}
-
-.container input, select{
-    max-width: 40%;
-}
-
-.container button{
-    background-color: white;
-}
-
-.container_buttons *{
-    flex-grow: 1;
-    padding: 2%;
-    margin: 5%;
-    text-align: center;
-    background: #9E90FF;
-    border-radius: 5px;
-    font-weight: bold;
-    color: white;
-    margin-top: 10%;
-    max-width: 40%;
-}
-
-img {
-    margin-top: 10%;
-    max-width: 20%;
-    height: auto;
   }
+}
