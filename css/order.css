@@ -1,0 +1,58 @@
+#main > section {
+    display: block;
+}
+
+.container{
+    display: flex;
+    margin: 0 5% 0 5%;
+    padding-bottom: 4%;
+    justify-content: center;
+}
+
+.box{
+    margin: 5%;
+    background: #ffffff;
+    border-radius: 20px;
+    border-style: dashed;
+    text-align: left;
+}
+
+.new {
+    border-style: solid;
+    border-width: 3px;
+    border-color: #9E90FF;
+}
+
+h4{
+    order: 1;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: large;
+    color: #4f4f4f;
+    padding: 7% 5% 2% 0%;
+    flex-grow: 2;
+}
+
+h3{
+    order: 1;
+    flex-grow: 2;
+    font-family: Roboto;
+    font-style: normal;
+    opacity: 0.7;
+}
+
+h5{
+    text-align: right;
+    order: 2;
+    flex-grow: 2;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+}
+
+button{
+    background-color: white;
+    order: 2;
+}
+
