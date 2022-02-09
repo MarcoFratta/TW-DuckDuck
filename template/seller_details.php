@@ -4,39 +4,30 @@ $seller = $db->users()->getSellerById($_SESSION['id']);
 
 <section>
 
-    <div>
-        <!-- info alte -->
-        <img> <!-- papera -->
-        <h3><?php echo $seller->getName() ?></h3>
-        <h4><?php echo $seller->getEmail() ?></h4>
-    </div>
+    <img src="./img/front_duck.png" >
+    <h4><?php echo $seller->getName() ?></h4>
+    <p><?php echo $seller->getEmail() ?></p>
 
-    <div>
-        <i>Lock</i>
-        <h4>Modifica Password</h4>
-        <button type="button">'>'</button>
-    </div>
-
-    <div>
-        <i>Busta</i>
+    <div class="container first">
+        <i data-feather="shopping-bag">Busta della spesa</i>
         <h4>Prodotti</h4>
-        <form action="products.php">
-            <input type="submit" value=">" />
-        </form>
-    </div>
-
-    <div>
-        <i>Lettera</i>
-        <h4>Messaggi</h4>
-        <a href="messages.php">
-            <button type="button">'>'</button>
+        <a href="products.php">
+            <button type="button">></button>
         </a>
     </div>
-    
-    <div>
-        <form action="logout.php">
-            <input type="submit" value="Esci" />
-        </form>
+
+    <div class="container">
+        <i data-feather="inbox">Lettera</i>
+        <h4>Messaggi</h4>
+        <a href="messages.php">
+            <button type="button">></button>
+        </a>
+    </div>
+
+    <div class="container_buttons">
+        <a href="logout.php">
+            <button type="button">Esci</button>
+        </a>
     </div>
 
 </section>

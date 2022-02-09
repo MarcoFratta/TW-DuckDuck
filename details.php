@@ -17,6 +17,7 @@ if(userIsLogged()){
         require "template/common_bottom_html.php";
     }elseif(isSeller()){
         $templateParams['title'] = "Dettagli venditore";
+        $templateParams['styles'] = ['<link rel="stylesheet" type="text/css" href="./css/account.css?'.time().'" />'];
         require "template/common_top_html.php";
         require "template/header.php";
         $db = DbConnections::mySqlConnection();
