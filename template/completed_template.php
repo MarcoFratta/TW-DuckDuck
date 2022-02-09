@@ -66,5 +66,3 @@
 </section>
 
 <button type="button" onclick="document.location='orders.php'">Vai ai tuoi ordini</button>
-
-<!-- el: FOOTER -->

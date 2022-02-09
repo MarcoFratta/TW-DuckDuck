@@ -4,7 +4,7 @@
 ?>
 
 <h1>Dettagli ordine</h1>
-<section id="notifications">
+<section id="order_details">
     <h2>Stato dell'ordine: <?php echo $order->getStatus() ?></h2>
     <?php
         if(mysqli_num_rows($db->orders()->getOrderNormalProduct($id_order)) != 0){
