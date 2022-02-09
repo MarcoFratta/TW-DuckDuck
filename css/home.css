@@ -4,6 +4,8 @@
 
 .cover {
     background-color: #ffffff;
+    background-image: url(../img/bubbles.png);
+    background-size: auto 100%;
     text-align: center;
     padding-bottom: 30px;
 }
