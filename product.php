@@ -3,6 +3,7 @@ require_once "db/connections.php";
 require_once "utils/functions.php";
 
 $templateParams['title'] = "Prodotto";
+$templateParams['header_title'] = "Prodotto";
 require "template/common_top_html.php";
 require "template/header.php";
 if(!isset($_GET['id_product'])){

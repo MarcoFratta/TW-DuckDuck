@@ -15,6 +15,7 @@ if(userIsLogged()){
         require "template/header.php";
         $db = DbConnections::mySqlConnection();
         require "template/client_details.php";
+        require "template/footer.php";
         require "template/common_bottom_html.php";
     }elseif(isSeller()){
         $templateParams['title'] = "Dettagli venditore";

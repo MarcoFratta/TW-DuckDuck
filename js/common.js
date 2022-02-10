@@ -12,9 +12,6 @@ function changeNav(){
 }
 
 
-
-
-
 function openNav() {
     document.getElementById("sideNav").style.marginTop = $("#header > div:first-child").height();
     document.getElementById("sideNav").style.width = "100%";

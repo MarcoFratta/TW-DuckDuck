@@ -1,104 +1,191 @@
 #main {
-    padding-top: 0%;
+  padding-top: 0%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-
+#main > img {
+  margin: 2% auto;
+  text-align: center;
+  align-self:center;
+  display: block;
+}
 .cover {
-    background-color: #ffffff;
-    background-image: url(../img/bubbles.png);
-    background-size: auto 100%;
-    text-align: center;
-    padding-bottom: 30px;
+  background-color: #ffffff;
+  width: 100%;
+  height: 68vh;
+  padding-top: auto;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  text-align: center;
+  padding: 4% 0;
+  border-radius: 0 0 35px 35px;
 }
 
 .cover > img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: auto;
+  display: block;
+  margin: 0 auto 0 auto;
+  width: 1%;
+}
+.cover ul {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 30%;
+  margin: 0 auto;
+  margin-top: 5%;
 }
 
 .cover > ul > li {
-    display: inline-block;
-    width: 35%;
-    height: 55px;
-    margin: 10px 0 0;
-    text-align: center;
-    border-radius: 10px;
+  display: inline-block;
+  width: 50%;
+  text-align: start;
+  border-radius: 10px;
 }
 
-.cover > ul > li:nth-child(1) {
-    margin-right: 10%;
+.cover > ul > li:nth-child(2) {
+  text-align: end;
 }
-
 .cover > ul > li > button {
-    display: inline-block;
-    width:100%;
-    height: 100%;
-    padding: 5px 0;
-    font-family: Roboto;
-    font-style: normal;
-    font-size: 24px;
-    font-weight: 900;
-    text-decoration: none;
-    border-radius: 10px;
-    cursor: pointer;
+  display: inline-block;
+  font-family: Roboto;
+  width: 80%;
+  padding: 5%;
+  font-style: normal;
+  font-size: 1.3rem;
+  font-weight: 900;
+  text-decoration: none;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .cover > ul > li:nth-child(1) > button {
-    color: #4F4F4F;
-    background-color: #E4E4E4;
+  color: #4f4f4f;
+  background-color: #e4e4e4;
 }
 
 .cover > ul > li:nth-child(2) > button {
-    color: #E4E4E4;
-    background-color: #4F4F4F;
+  color: #e4e4e4;
+  background-color: #4f4f4f;
 }
 
 #main > button {
-    display: block;
-    background-size: cover;
-    background-color: transparent;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    cursor: pointer;
-    height: 300px;
-    width: 80%;
-    border-radius: 10px;
-    color: #FFF;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 36px;
-    text-align: left;
-    padding-left: 30px;
-    padding-bottom: 220px;
-    margin: 30px auto;
+  display: block;
+  background-size: cover;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+  width: 80%;
+  background-size:cover;
+  border-radius: 10px;
+  color: #fff;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  text-align: left;
+  padding: 5% 0 35% 5%;
+  margin: 5% auto;
 }
 
-#main > button:nth-child(2) {
-    background-image: url(../img/mix/categories.jpg);
+#main > button:nth-child(3) {
+  background-image: url(../img/mix/categories.jpg);
 }
 
-#main > button:nth-child(4) {
-    background-image: url(../img/mix/create.jpg);
+#main > button:nth-child(5) {
+  background-image: url(../img/mix/svg/yellow_home.svg);
 }
 
-#main > button:nth-child(6) {
-    background-image: url(../img/mix/dimensions.png);
+#main > button:nth-child(7) {
+  background-image: url(../img/mix/dimensions.png);
+}
+#main > section  {
+  display: flex;
+  margin-left: 10%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width:95%;
+  padding-bottom: 0;
+}
+#main > section .small_product{
+  width: 13%;
 }
 
+#main > section > div{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    flex-direction: row;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+
+#main > section > div article {
+  flex: 0 0 auto;
+}
+#main > section > div article:first-child {
+  margin-left: 0;
+}
 #main > section > button {
-    background: #FFFFFF;
-    border-radius: 10px;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 34px;
-    text-align: center;
-    color: #4F4F4F;
-    cursor: pointer;
-    width: 145px;
-    height: 35px;
+  background: #ffffff;
+  border-radius: 10px;
+  font-family: Roboto;
+  font-style: normal;
+  padding: 1% 3%;
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: center;
+  color: #4f4f4f;
+  cursor: pointer;
+}
+@media only screen and (max-width: 1900px) {
+  .cover > img {
+    width: 40%;
+    margin: auto;
+  }
+  .cover {
+    height: 70vh;
+  }
+  #main > section > div::-webkit-scrollbar {
+    display: none;
+  } 
+  #main > button {
+    padding: 2% 0 40% 25;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .cover {
+    background-image: url(../img/mix/svg/home_cirlcles.svg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 100%;
+    padding: 0 0 10% 0;
+    height: 80vh;
+  }
+  .cover > img {
+    width: 90%;
+    display: block;
+    margin: auto;
+  }
+  .cover ul {
+    width: 80%;
+    margin-top: 20%;
+  }
+  .cover > ul > li > button {
+    width: 85%;
+    padding: 10% 10%;
+    font-size: 1.3rem;
+  }
+  #main > img {
+    margin: 5% auto;
+  }
+  #main > section .small_product{
+    width: 45%;
+  }
+  
 }

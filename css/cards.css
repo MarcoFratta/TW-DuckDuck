@@ -1,6 +1,6 @@
 #main > section {
     background: #ffffff;
-    width: 100%;
+    width: 25%;
     display: block;
     font-family: Roboto;
     color: white;
@@ -97,3 +97,9 @@ form > button {
 
     color: #ffffff;
   }
+  @media only screen and (max-width: 1100px) {
+
+    #main > section{
+    width:100%;
+ }
+}
