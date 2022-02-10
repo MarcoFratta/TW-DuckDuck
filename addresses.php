@@ -7,6 +7,8 @@
         require_once "model/address.php";
 
         $templateParams['title'] = "Indirizzo di consegna";
+        $templateParams['header_title'] = "Indirizzo";
+        $templateParams['styles'] = ['<link rel="stylesheet" type="text/css" href="./css/addresses.css?'.time().'" />'];
         require "template/common_top_html.php";
         require "template/header.php";
         $db = DbConnections::mySqlConnection();

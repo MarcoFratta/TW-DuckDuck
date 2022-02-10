@@ -1,11 +1,10 @@
 #main > section {
-    background: #ffffff;
-    width: 100%;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
     display: block;
-    font-family: Roboto;
-    color: white;
-    overflow:auto;
-    padding-top: 3%;
+    padding-top: 5%;
 }
 
 h2 {
@@ -18,11 +17,11 @@ h2 {
     color: #4F4F4F;
 }
 
-h3 {
+p {
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
-    font-size: 16px;
+    font-size: 12px;
     line-height: 180%;
     text-align: center;
     color: #4F4F4F;
@@ -30,22 +29,18 @@ h3 {
 }
 
 button {
-    display: inline-block;
-    text-align: center;
-    width: 80%;
-    border-radius: 5px;
-    background-color: #9e90ff;
-    font-family: Roboto;
-    font-style: normal;
+    margin-top: 5%;
+    padding: 5%;
+    width: 90%;
     font-weight: bold;
-    font-size: 20px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #9e90ff;
-    padding-top: 3%;
-    padding-bottom: 3%;
-    text-align: center;
-    letter-spacing: 0.5px;
-    margin-top: 30px;
-    color: #ffffff;
+    font-size: 1rem;
+    background: #9e90ff;
+    color: white;
+    border-radius: 5px;
+}
+
+@media only screen and (max-width: 1100px) {
+    #main > section {
+      width: 100%;
+    }
 }
