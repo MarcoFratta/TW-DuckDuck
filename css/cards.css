@@ -17,6 +17,10 @@
     margin-bottom: 5%;
 }
 
+#main .card:nth-child(even){
+    background: #5C61F4;
+}
+
 #main .container {
     display: flex;
     margin: 20% 5% 0 5%;

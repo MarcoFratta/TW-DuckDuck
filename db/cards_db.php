@@ -30,7 +30,7 @@ class CardHelper{
         $date = $card->getExpire_date();
         $cvv = $card->getCvv();
         $client = $card->getClientId();
-        $stmt->bind_param('isii',$number, $date, $cvv, $client);
+        $stmt->bind_param('sssi',$number, $date, $cvv, $client);
         $stmt->execute();
         $result = $stmt->insert_id;
         return $result;
