@@ -23,7 +23,8 @@
 
     public function getSellerNotifications($id_seller){
         $query = "SELECT *
-        FROM seller_notification WHERE $this->USER=?";
+        FROM seller_notification WHERE $this->USER=?
+        ORDER BY id DESC";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i',$id_seller);
         $stmt->execute();
