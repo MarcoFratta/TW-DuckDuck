@@ -14,7 +14,7 @@
         require "template/common_top_html.php";
         require "template/header.php";
         $db = DbConnections::mySqlConnection();
-        if ((!isset($_SESSION['address']) || (isset($_POST['address'])))) {
+        if ((!isset($_SESSION['address']) && (isset($_POST['address'])))) {
             $_SESSION['address'] = $_POST['address'];
         }
         require "template/cards_template.php";

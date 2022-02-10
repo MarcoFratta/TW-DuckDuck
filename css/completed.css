@@ -1,0 +1,51 @@
+#main > section {
+    background: #ffffff;
+    width: 100%;
+    display: block;
+    font-family: Roboto;
+    color: white;
+    overflow:auto;
+    padding-top: 3%;
+}
+
+h2 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 150%;
+    text-align: center;
+    color: #4F4F4F;
+}
+
+h3 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 180%;
+    text-align: center;
+    color: #4F4F4F;
+    opacity: 0.5;
+}
+
+button {
+    display: inline-block;
+    text-align: center;
+    width: 80%;
+    border-radius: 5px;
+    background-color: #9e90ff;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #9e90ff;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    text-align: center;
+    letter-spacing: 0.5px;
+    margin-top: 30px;
+    color: #ffffff;
+}
