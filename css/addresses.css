@@ -7,7 +7,7 @@
     justify-content: start;
     align-items: flex-start;
     
-    height: 60vh;
+    min-height: 60vh;
 }
 
 #main h2 {
@@ -106,12 +106,12 @@ form > input {
 @media only screen and (max-width: 1800px) {
     #main > section {
       width: 40%;
-      height: 70vh;
+      min-height: 70vh;
     }
 }
   @media only screen and (max-width: 880px) {
     #main > section {
       width: 100%;
-      height: 60vh;
+      min-height: 60vh;
     }
 }

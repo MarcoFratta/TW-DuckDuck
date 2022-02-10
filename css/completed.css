@@ -7,7 +7,7 @@
     justify-content: start;
     align-items: center;
     padding-top: 5%;
-    height: 59vh;
+    min-height: 60vh;
 }
 
 #completed h2 {
@@ -42,8 +42,15 @@ button {
     border-radius: 5px;
 }
 
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1800px) {
+    #main > section {
+      width: 40%;
+      min-height: 70vh;
+    }
+  }
+  @media only screen and (max-width: 880px) {
     #main > section {
       width: 100%;
+      min-height: 60vh;
     }
-}
+  }
