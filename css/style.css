@@ -150,6 +150,92 @@ body > h2 {
   transition: margin-left 0.5s;
 }
 
+
+#footer {
+  background-color: #E4E4E4;
+  border-radius: 35px;
+  text-align: center;
+  width: 100%;
+}
+
+#footer > * {
+  display: block;
+  text-align: center;
+}
+
+#footer > div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#footer > div > * {
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+#footer > section > img {
+  cursor: pointer;
+  padding-left: 30px;
+}
+
+#footer > section > img:nth-child(1) {
+  padding-left: 0px;
+}
+
+#footer > img {
+  display: block;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#footer span {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  text-align: center;
+  color: #979797;
+  width: auto;
+}
+
+#footer > div > img {
+  width: 7%;
+  height: auto;
+  margin: 30px auto;
+}
+
+#footer > div:first-child > img:nth-child(2) {
+  width: 10%;
+}
+
+#footer > div > img:nth-child(1) {
+  margin-left: 5%;
+}
+
+#footer > div > img:last-child {
+  margin-right: 5%;
+}
+
+#footer > div:first-child > img:first-child {
+  transform: rotate(28.99deg);
+}
+
+#footer > div:first-child > img:last-child {
+  transform: matrix(-0.87, 0.48, 0.48, 0.87, 0, 0);
+}
+
+#footer > div:last-child > img:first-child {
+  transform: rotate(-25.23deg);
+}
+
+#footer > div:last-child > img:last-child {
+  transform: matrix(-0.87, -0.5, -0.5, 0.87, 0, 0);
+}
+
+
 @media only screen and (max-width: 1100px) {
 
   #header > div:first-child {
@@ -164,12 +250,13 @@ body > h2 {
     height:auto;
   
   }
-  #main {
-    padding-top: 7%;
-  }
   #header div:nth-child(2) {
     padding-bottom: 2%;
   }
+  #main {
+    padding-top: 7%;
+  }
+  
   .sidenav {
     background: white center/cover url(../img/mix/svg/drawer_circles.svg) no-repeat;
   }
@@ -189,22 +276,18 @@ body > h2 {
     transition: 0.3s;
   }
 
-}
+  #footer > div {
+    padding: 2.5% 0;
+  }
 
-#footer {
-  background-color: #E4E4E4;
-  border-radius: 35px;
-  text-align: center;
-  width: 100%;
-  display: block;
-}
+  #footer > div > img {
+    width: 12%;
+    height: auto;
+    margin: 30px auto;
+  }
+  
+  #footer > div:first-child > img:nth-child(2) {
+    width: 20%;
+  }
 
-#footer > div {
-  display: inline-block;
-}
-
-#footer > div > img {
-  width: 80px;
-  margin-top: 30px;
-  margin-bottom: 30px;
 }
