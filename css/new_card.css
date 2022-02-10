@@ -1,54 +1,92 @@
 #main > section {
     background: #ffffff;
-    width: 100%;
+    width: 25%;
+    height: 60vh;
     display: block;
     font-family: Roboto;
     color: #4f4f4f;
     overflow:auto;
 }
+#main > section > form{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
 
 .container {
     display: flex;
+    margin: 0 auto;
+    width: 90%;
 }
 
 .container label {
     font-weight: bold;
     text-align: left;
-    margin: 10% 0 0 10%;
+    margin: 10% 0 0 0;
     flex-grow: 2;
     width: 40%;
 }
-
+.container label:last-child {
+    margin-right: auto;
+}
+#main section > form > div:nth-child(3) label:nth-child(2) , 
+#main > section > form div:nth-child(4) input:nth-child(2){
+    margin-left: 5%;
+}
 .container input{
     display: block;
-    border:solid 2px #f6f6f6;
-    margin: 5% 10% 5% 10%;
+    margin: 5% 0 5% 0;
     flex-grow: 2;
-    width: 40%;
+    align-self: center;
+    width: 30%;
+    border: 2px solid #EBF0FF;
+    padding: 5%;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+.container input:focus{
+    border: 2px solid #9e90ff;
+    outline: none !important;
 }
 
 form > input:last-child {
     display: inline-block;
     text-align: center;
-    width: 80%;
-    border-radius: 5px;
     background-color: #9e90ff;
-    font-family: roboto;
+    font-family: Roboto;
     font-style: normal;
     font-weight: bold;
-    line-height: 180%;
     border-style: solid;
     border-width: 1px;
     border-color: #9e90ff;
     /* or 25px */
-    padding-top: 3%;
-    padding-bottom: 3%;
-    text-align: center;
-    letter-spacing: 0.5px;
-    margin-top: 10%;
-    margin-bottom: 5%;
+    padding: 5%;
+    width: 90%;
+    font-size: 1rem;
+    border-radius: 5px;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
 
     /* Background/White */
 
     color: #ffffff;
   }
+ 
+@media only screen and (max-width: 1800px) {
+    #main > section {
+      width: 40%;
+      height: 70vh;
+    }
+}
+  @media only screen and (max-width: 880px) {
+    #main > section {
+      width: 100%;
+      height: 60vh;
+    }
+}

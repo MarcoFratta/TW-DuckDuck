@@ -158,6 +158,7 @@
     padding: 2% 0 40% 25;
   }
 }
+
 @media only screen and (max-width: 900px) {
   .cover {
     background-image: url(../img/mix/svg/home_cirlcles.svg);

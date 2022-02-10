@@ -1,13 +1,16 @@
 #main > section {
-    width: 80%;
+    width: 25%;
     margin-left: auto;
     margin-right: auto;
     background-color: white;
-    display: block;
+    display: flex;
+    justify-content: start;
+    align-items: center;
     padding-top: 5%;
+    height: 59vh;
 }
 
-h2 {
+#completed h2 {
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
