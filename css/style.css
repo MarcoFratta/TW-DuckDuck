@@ -188,7 +188,23 @@ body > h2 {
     font-size: 1.5rem;
     transition: 0.3s;
   }
-  #main > section {
-    width: 100%;
-  }
+
+}
+
+#footer {
+  background-color: #E4E4E4;
+  border-radius: 35px;
+  text-align: center;
+  width: 100%;
+  display: block;
+}
+
+#footer > div {
+  display: inline-block;
+}
+
+#footer > div > img {
+  width: 80px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
