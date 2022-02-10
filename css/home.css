@@ -121,15 +121,20 @@
     flex-wrap: nowrap;
     overflow-x: auto;
     flex-direction: row;
-    width: 100%;
+    width: 90%;
     -webkit-overflow-scrolling: touch;
 }
 
+
 #main > section > div article {
   flex: 0 0 auto;
+  margin-right: 5%;
 }
 #main > section > div article:first-child {
   margin-left: 0;
+}
+#main > section > div article:last-child {
+  margin-right: 0;
 }
 #main > section > button {
   background: #ffffff;
