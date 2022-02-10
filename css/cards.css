@@ -4,7 +4,7 @@
     display: block;
     font-family: Roboto;
     color: white;
-    overflow:auto
+    overflow:auto;
 }
   
 #main .card{
@@ -13,7 +13,7 @@
     border-radius: 8px;
     text-align: right;
     padding: 5%;
-    margin: 10% 10% 10% 10%;
+    margin: 10%;
     margin-bottom: 5%;
 }
 
@@ -23,7 +23,7 @@
 
 #main .container {
     display: flex;
-    margin: 20% 5% 0 5%;
+    margin: 30% 5% 0 5%;
     padding-bottom: 4%;
 }
 
