@@ -28,7 +28,7 @@
     padding-bottom: 4%;
 }
 #main > section > form{
-    height: 100%;
+    min-height: inherit;
     display: flex;
     flex-direction: column;
     justify-content: center;

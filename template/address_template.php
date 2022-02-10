@@ -2,8 +2,8 @@
     $addresses = $db->addresses()->getAddresses();
 ?>
 <section>
-    <h2>Seleziona il punto di consegna</h2>
     <form id="addresses" method="POST" action="cards.php">
+    <h2>Seleziona il punto di consegna</h2>
         <?php foreach($addresses as $address): ?>
             <div class="address">
                 <div><label for="<?php echo $address->getId() ?>">
