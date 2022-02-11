@@ -1,0 +1,120 @@
+#main > article > form {
+    background: #ffffff;
+    display: block;
+    font-family: Roboto;
+    border-radius: 40px;
+    overflow:auto;
+    width: 25%;
+    min-height: 60vh;
+}
+
+article > form .box {
+    width: 80%;
+    margin: 10%;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #f6f6f6;
+    border-radius: 10px;
+    text-align: left;
+    overflow:auto;
+  }
+
+#main >article > form .container{
+    display: flex;
+    margin-top: 5%;
+    align-items: center;
+    text-align: left;
+}
+
+#main >article > form .box > * {
+    margin: 2% 5% 2% 5%;
+}
+
+#main >article > form .box > .container > .center {
+    display: flex;
+    justify-content: center;
+    width: 65%;
+    margin-right: 5%;
+}
+
+#main >article > form .box > .center {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    margin-bottom: 5%;
+}
+
+#main >article > form .box > .container > .center > img {
+    width: 100%;
+}
+
+#main >article > form .box > .container > div > input{
+    width: 95%;
+}
+
+#main >article > form .box > .container > div > div > h3,
+#main >article > form .box > .container > label{
+    width: 40%;
+}
+
+#main >article > form .box > .container > div > div > input,
+#main >article > form .box > .container > select{
+    width: 55%;
+}
+
+#main >article > form .container input, select, textarea {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #4f4f4f;
+    border-radius: 5px;
+}
+
+#main >article > form .container label, h3 {
+    font-size: small;
+    margin-right: 5%;
+}
+
+#main >article > form .box > .container > button{
+    flex-grow: 2;
+    background: #9e90ff;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #9e90ff;
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
+    margin: 5%;
+    padding: 3%;
+}
+
+#main >article > form .box > .container > button:first-child{
+    background: white;
+    color: #9e90ff;
+}
+
+#main >article > form > section > form > input {
+    background: #9e90ff;
+    width: 80%;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #9e90ff;
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
+    margin-top: 5%;
+    padding: 3%;
+}
+
+
+@media only screen and (max-width: 1800px) {
+    #main > article > form  {
+      width: 40%;
+      min-height: 70vh;
+    }
+}
+  @media only screen and (max-width: 880px) {
+    #main > article > form  {
+      width: 100%;
+      min-height: 70vh;
+    }
+}

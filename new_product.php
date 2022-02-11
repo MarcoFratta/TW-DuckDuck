@@ -15,12 +15,16 @@
   if(userIsLogged()){
     if(isSeller()){   
         if($type == "normal") {
-            $templateParams['title'] = "Aggiungi Prodotto";
+            $templateParams['title'] = "Aggiungi prodotto";
+            $templateParams['header_title'] = "Aggiungi Prodotto";
+            $templateParams['styles'] = ['<link rel="stylesheet" type="text/css" href="./css/new_element.css?'.time().'" />'];
             require "template/common_top_html.php";
             require "template/header.php";
             require "template/new_product.php";
         } elseif ($type == "item"){
-            $templateParams['title'] = "Aggiungi Elemento";
+            $templateParams['title'] = "Aggiungi pezzo";
+            $templateParams['header_title'] = "Aggiungi Elemento";
+            $templateParams['styles'] = ['<link rel="stylesheet" type="text/css" href="./css/new_element.css?'.time().'" />'];
             require "template/common_top_html.php";
             require "template/header.php";
             require "template/new_item.php";

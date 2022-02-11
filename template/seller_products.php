@@ -1,12 +1,12 @@
 <section id="edit_products">
     <section>
         <form method="GET" action="new_product.php">
-            <input type="hidden" name="type" value="item" />
-            <input type="submit" value="Aggiungi un pezzo" />
-        </form>
-        <form method="GET" action="new_product.php">
             <input type="hidden" name="type" value="normal" />
             <input type="submit" value="Aggiungi un prodotto" />
+        </form>
+        <form method="GET" action="new_product.php">
+            <input type="hidden" name="type" value="item" />
+            <input type="submit" value="Aggiungi un pezzo" />
         </form>
     </section>
     <?php

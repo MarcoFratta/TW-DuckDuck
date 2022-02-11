@@ -85,7 +85,7 @@ function sellerProductCard($product, $categories, $dimensions)
                 </div>
                 <h3>Descrizione</h3>
                 <div class="container">
-                    <textarea id="description_' . $product->getId() . '" name="description" placeholder="' . $product->getDescription() . '" cols="80" rows="5"></textarea>
+                    <textarea id="description_' . $product->getId() . '" name="description" cols="80" rows="5">' . $product->getDescription() . '</textarea>
                 </div>
                 <div class="container">
                     <button type="submit "id="delete_' . $product->getId() . '">Elimina</button>
