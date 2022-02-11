@@ -19,6 +19,12 @@ $seller = $db->users()->getSellerById($_SESSION['id']);
     </div>
 
     <div class="container">
+        <i data-feather="database">Busta della spesa</i>
+        <h4>I miei pezzi</h4>
+        <button onClick="location.href='pieces.php'" type="button">></button>
+    </div>
+
+    <div class="container">
         <i data-feather="inbox">Lettera</i>
         <h4>Messaggi</h4>
         <button onClick="location.href='messages.php'" type="button">></button>

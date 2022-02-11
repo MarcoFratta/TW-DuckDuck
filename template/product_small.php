@@ -95,3 +95,44 @@ function sellerProductCard($product, $categories, $dimensions)
     </article>';
     return $var;
 }
+
+function sellerPieceCard($product)
+{
+    $layers = 4;
+    $var = '
+    <article id="' . $product->getId() . '">
+        <form enctype="multipart/form-data">
+            <input type="hidden" name="id" value="' . $product->getId() . '"/>
+            <div class="box">
+                <div class="container">
+                    <div class="center">
+                        <img alt="" src="' . $product->getImagePath() . '">
+                    </div>
+                    <div>
+                        <input type="text" name="name" id="name_' . $product->getId() . '" value="' . $product->getName() . '">
+                        <div class="container">
+                            <h3>€</h3>
+                            <input type="number" id="price_' . $product->getId() . '" step="0.01" min="0" name="price" value="' . ($product->getPrice()/100) . '">
+                        </div>
+                    </div>
+                </div>
+                <div class="center">
+                    <input type="file" id="loaded_image_' . $product->getId() . '" name="img">
+                </div>
+                <div class="container">
+                    <label for="layer_' . $product->getId() . '">Strato</label>
+                    <select id="layer_' . $product->getId() . '" name="layer">';
+    for($i=1; $i <= $layers ; $i ++){
+        $var .= '<option ' . ($product->getLayer() == $i ? "selected" : "") . ' value="' . $i . '">' . $i . '</option>';
+    }
+    $var .= '
+                </select>
+                </div>
+                <div class="container">
+                    <button type="submit "id="delete_' . $product->getId() . '">Elimina</button>
+                    <button type="submit "id="save_' . $product->getId() . '">Salva</button>
+                </div>
+        </form>
+    </article>';
+    return $var;
+}

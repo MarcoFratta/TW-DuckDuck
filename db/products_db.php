@@ -156,7 +156,16 @@ class ProductsHelper
         return $this->toProducts($result->fetch_all(MYSQLI_ASSOC));
     }
 
-
+    public function getPiecesBySeller($id_seller)
+    {
+        $query = "SELECT *
+         FROM custom_items WHERE $this->SELLER=?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $id_seller);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $this->toItems($result->fetch_all(MYSQLI_ASSOC));
+    }
 
     public function insertCustomProduct($product)
     {
