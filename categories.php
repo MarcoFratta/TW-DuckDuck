@@ -7,6 +7,8 @@
 
 
   $templateParams['title'] = "Categories";
+  $templateParams['header_title'] = "Categorie";
+  $templateParams['styles'] = ['<link rel="stylesheet" type="text/css" href="./css/categories.css?'.time().'" />'];
   require "template/common_top_html.php";
   require "template/header.php";
   $db = DbConnections::mySqlConnection();

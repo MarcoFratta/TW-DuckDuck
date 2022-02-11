@@ -5,6 +5,7 @@ class CategoriesHelper{
     private $db;
     private $ID = "id_category";
     private $NAME = "name";
+    private $IMAGE = "image";
 
     function __construct($db){
         $this->db = $db;
@@ -46,8 +47,11 @@ class CategoriesHelper{
 
     private function toCategory($categories){
         foreach($categories as $category){
-            yield new Category($category[$this->ID], 
-            $category[$this->NAME]);
+            yield new Category(
+                $category[$this->ID],
+                $category[$this->NAME],
+                $category[$this->IMAGE]
+            );
         }
     }
 
