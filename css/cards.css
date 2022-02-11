@@ -105,6 +105,11 @@ form > input {
   margin-top: 20%;
 }
 
+#main .empty_cart {
+  padding: 15%;
+  margin-top: 10%;
+}
+
 @media only screen and (max-width: 1800px) {
   #main > section {
     width: 40%;

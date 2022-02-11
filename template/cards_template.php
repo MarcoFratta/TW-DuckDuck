@@ -8,7 +8,12 @@
 
 <section>
 
-    <?php if (count(iterator_to_array($db->cards()->getClientCards($client->getId()), false)) == 0) echo '<h3>Nessuna carta inserita</h3>'; ?>
+    <?php
+    if (count(iterator_to_array($db->cards()->getClientCards($client->getId()), false)) == 0) {
+        require "template/empty_cards_template.php";
+        return;
+    }
+    ?>
 
     <form id="cards" method="POST" action="completed.php">
         <?php foreach($cards as $card): ?>
