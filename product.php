@@ -5,6 +5,7 @@ require_once "template/common.php";
 
 $templateParams['title'] = "Prodotto";
 $templateParams['header_title'] = "Prodotto";
+$templateParams['styles'] = ['<link rel="stylesheet" type="text/css" href="./css/product.css?'.time().'" />'];
 require "template/common_top_html.php";
 require "template/header.php";
 if(!isset($_GET['id_product'])){
