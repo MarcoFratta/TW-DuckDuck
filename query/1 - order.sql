@@ -1,0 +1,1 @@
+ALTER TABLE `orders` CHANGE `status` `status` INT(1) NOT NULL;

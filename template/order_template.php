@@ -21,7 +21,19 @@
                 </div>
                 <div class="container">
                     <h3>Stato: </h3>
-                    <h5><?php echo $order->getStatus() ?></h5>
+                    <h5><?php switch ($order->getStatus()) {
+                        case 0:
+                          echo "Elaborato";
+                          break;
+                        case 1:
+                            echo "Spedito";
+                          break;
+                        case 2:
+                            echo "Consegnato";
+                          break;
+                        default:
+                            echo "Errore";
+                      } ?></h5>
                 </div>
                 <div class="container">
                     <h3>Numero prodotti: </h3>

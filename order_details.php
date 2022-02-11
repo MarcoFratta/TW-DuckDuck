@@ -7,6 +7,8 @@ require_once "model/product.php";
 require_once "model/address.php";
 if (userIsLogged() && isClient()) {
     $templateParams['title'] = "Dettagli ordine";
+    $templateParams['header_title'] = "Dettaglio ordine";
+    $templateParams['styles'] = ['<link rel="stylesheet" type="text/css" href="./css/cart_products.css?'.time().'" />', '<link rel="stylesheet" type="text/css" href="./css/order_details.css?'.time().'" />'];
     require "template/common_top_html.php";
     require "template/header.php";
     $db = DbConnections::mySqlConnection();

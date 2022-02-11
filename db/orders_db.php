@@ -150,6 +150,7 @@ class OrderHelper
 
     public function getOrdersByClient($id_client)
     {
+        
         $query = "SELECT * FROM orders WHERE id_client=$id_client ORDER BY id_order DESC;";
         $stmt = $this->db->prepare($query);
         $stmt->execute();
