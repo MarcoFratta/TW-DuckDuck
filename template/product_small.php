@@ -41,41 +41,57 @@ function sellerProductCard($product, $categories, $dimensions)
 {
     $dim = getProductSize($product,$dimensions);
 
-    $var =  '<article id="' . $product->getId() . '">
-    <form enctype="multipart/form-data">
-    <input type="hidden" name="id" value="' . $product->getId() . '"/>
-    <h3>Nome</h3>
-    <input type="text" name="name" id="name_' . $product->getId() . '" value="' . $product->getName() . '">
-    
-    <h3>Immagine</h3>
-    <img alt="" src="' . $product->getImagePath() . '">
-    <input type="file" id="loaded_image_' . $product->getId() . '" name="img">
-
-    <label for="dimension_' . $product->getId() . '" >Dimensione</label>
-    ';
+    $var = '
+    <article id="' . $product->getId() . '">
+        <form enctype="multipart/form-data">
+            <input type="hidden" name="id" value="' . $product->getId() . '"/>
+            <div class="box">
+                <div class="container">
+                    <div class="center">
+                        <img alt="" src="' . $product->getImagePath() . '">
+                    </div>
+                    <div>
+                        <input type="text" name="name" id="name_' . $product->getId() . '" value="' . $product->getName() . '">
+                        <div class="container">
+                            <h3>€</h3>
+                            <input type="number" id="price_' . $product->getId() . '" step="0.01" min="0" name="price" value="' . ($product->getPrice()/100) . '">
+                        </div>
+                        <div class="container">
+                            <h3>Sconto %</h3>
+                            <input type="number" id="discount_' . $product->getId() . '" min="0" max="100" name="discount" value="' . $product->getDiscount() . '">
+                        </div>
+                        <div class="container">
+                            <h3>Quantità</h3>
+                            <input type="number" min="0" id="amount_' . $product->getId() . '" step="1" name="amount" value="' . $product->getAmount() . '">
+                        </div>
+                    </div>
+                </div>
+                <div class="center">
+                    <input type="file" id="loaded_image_' . $product->getId() . '" name="img">
+                </div>
+                <div class="center">
+                        ';
     $var .= sizeSelector($dim, $product->getId());
-
     $var .= '
-    <h3>Prezzo</h3>
-    <input type="number" id="price_' . $product->getId() . '" step="0.01" min="0" name="price" value="' . ($product->getPrice()/100) . '">
-
-    <h3>Descrizione</h3>
-    <input type="text" id="description_' . $product->getId() . '" name="description" value="' . $product->getDescription() . '">
-
-    <h3>Sconto</h3>
-    <input type="number" id="discount_' . $product->getId() . '" min="0" max="100" name="discount" value="' . $product->getDiscount() . '">
-
-    <label for="amount_' . $product->getId() . '">Unità disponibili</label>
-    <input type="number" min="0" id="amount_' . $product->getId() . '" name="amount" value="' . $product->getAmount() . '">
-
-    <label for="category_' . $product->getId() . '">Categoria</label>
-        <select id="category_' . $product->getId() . '" name="category">';
+                </div>
+                <div class="container">
+                    <label for="category_' . $product->getId() . '">Categoria</label>
+                    <select id="category_' . $product->getId() . '" name="category">';
     foreach ($categories as $category) {
         $var .= '<option ' . ($product->getCategory() == $category->getId() ? "selected" : "") . ' value="' . $category->getId() . '">' . $category->getName() . '</option>';
     }
-    $var .= '</select>
-    <button type="submit "id="save_' . $product->getId() . '">Modifica</button>
-    </form>
+    $var .= '
+                </select>
+                </div>
+                <h3>Descrizione</h3>
+                <div class="container">
+                    <textarea id="description_' . $product->getId() . '" name="description" placeholder="' . $product->getDescription() . '" cols="80" rows="5"></textarea>
+                </div>
+                <div class="container">
+                    <button type="submit "id="delete_' . $product->getId() . '">Elimina</button>
+                    <button type="submit "id="save_' . $product->getId() . '">Salva</button>
+                </div>
+        </form>
     </article>';
     return $var;
 }

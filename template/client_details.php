@@ -52,7 +52,7 @@ $gender = $client->getSex();
 
 
             <h4>Cellulare</h4>
-            <input type="tel" name="phone" placeholder="<?php echo $client->getPhone() !== null ? $client->getPhone() : '333-3333-3333' ?>" name="cel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+            <input type="tel" name="phone" placeholder="<?php echo $client->getPhone() !== null ? $client->getPhone() : '333-333-3333' ?>" name="cel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
         </div>
 
         <div class="container_buttons">
