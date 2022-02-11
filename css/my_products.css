@@ -1,10 +1,11 @@
 #main #edit_products {
     background: #ffffff;
-    width: 100%;
     display: block;
     font-family: Roboto;
     border-radius: 40px;
     overflow:auto;
+    width: 25%;
+    min-height: 60vh;
 }
 
 #edit_products .box {
@@ -108,17 +109,16 @@
     padding: 3%;
 }
 
-/*
+
 @media only screen and (max-width: 1800px) {
-    #main > section {
+    #main #edit_products  {
       width: 40%;
       min-height: 70vh;
     }
 }
   @media only screen and (max-width: 880px) {
-    #main > section {
+    #main > #edit_products  {
       width: 100%;
-      min-height: 60vh;
+      min-height: 70vh;
     }
 }
-*/

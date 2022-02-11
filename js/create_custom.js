@@ -144,7 +144,7 @@ function adjustPosition(){
 function adjustOtherComponent(val){
   var g = val;
   var f = 0.15;
-  console.log("g",g);
+  //console.log("g",g);
   if($(window).width() > 1100){
     f=-0.0;
     //$("#size_selector").first().css("z-index",(count));

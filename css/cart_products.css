@@ -4,7 +4,6 @@
   margin-right: auto;
   background-color: white;
   display: flex;
-  padding-top: 3%;
   min-height: 60vh;
 }
 #main > section {
@@ -128,7 +127,7 @@
   color: #979797;
 }
 #main > section > section {
-  margin: 10% auto 10% auto;
+  margin: auto auto 0 auto;
   padding: 5%;
   width: 90%;
   display: flex;
@@ -138,6 +137,7 @@
   border: 1px solid #ebf0ff;
   box-sizing: border-box;
   border-radius: 5px;
+  align-self: flex-end;
 }
 #main > section > section div {
   width: 100%;
@@ -175,7 +175,7 @@
 }
 
 #main > section > button {
-  margin-top: auto;
+  margin-top: 5%;
   padding: 5%;
   width: 90%;
   font-weight: bold;
@@ -196,7 +196,7 @@
 @media only screen and (max-width: 880px) {
   #main > section {
     width: 100%;
-    min-height: 60vh;
+    min-height: 70vh;
   }
   #main > section > article > div:nth-child(2) {
     width: 42%;

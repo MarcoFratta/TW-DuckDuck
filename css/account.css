@@ -159,6 +159,7 @@
 }
 
 #main .container_button {
+  margin-top: auto;
   justify-content: start;
 }
 #main .container_button > * {
@@ -198,6 +199,6 @@
 @media only screen and (max-width: 880px) {
   #main > section {
     width: 100%;
-    min-height: 60vh;
+    min-height: 70vh;
   }
 }
