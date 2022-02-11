@@ -3,7 +3,11 @@
     $orders = $db->orders()->getOrdersByClient($id);
 ?>
 <section>
+
+    <?php if (count(iterator_to_array($db->orders()->getOrdersByClient($id), false)) == 0) echo '<h3>Nessun ordine effettuato</h3>'; ?>
+
     <form id="orders" method="POST" action="order_details.php">
+
         <?php foreach($orders as $order): ?>
 
             <div class="box">

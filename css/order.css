@@ -60,6 +60,10 @@
   font-weight: normal;
 }
 
+#main > section > h3 {
+  margin-top: 20%;
+}
+
 #main button {
   background-color: white;
   background: #9e90ff;
