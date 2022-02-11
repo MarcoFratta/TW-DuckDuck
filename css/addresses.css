@@ -31,8 +31,6 @@
 }
 
 
-    
-
 form > .address {
     display: flex;
     justify-content: start;
@@ -72,7 +70,7 @@ form > .address h4 {
     padding-left: 2%;
     padding-bottom: 2%;
 }
-form > .address > div {
+form > .address > label {
     display: flex;
     order: 1;
     width: 80%;
@@ -88,10 +86,6 @@ form > .address > label {
     cursor: pointer;
 }
 
-form > .address > input:checked {
-    background-color: #4f4f4f;
-}
-
 form > input {
     margin: auto auto 0 auto;
     padding: 5%;
@@ -101,6 +95,10 @@ form > input {
     background: #9e90ff;
     color: white;
     border-radius: 5px;
+}
+
+form > .highlight {
+    border: 2px solid #9E90FF;
 }
 
 @media only screen and (max-width: 1800px) {
