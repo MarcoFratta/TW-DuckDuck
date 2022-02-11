@@ -15,7 +15,7 @@
 .category {
     background: #FFFFFF;
     border-radius: 10px;
-    width: 80%;
+    width: 25%;
     margin-bottom: 14px;
     padding: 10px 30px;
     text-decoration: none;
@@ -40,3 +40,9 @@
     float: right;
     margin-left: auto;
 }
+
+@media only screen and (max-width: 1100px) {
+    .category {
+      width: 80%;
+    }
+  }

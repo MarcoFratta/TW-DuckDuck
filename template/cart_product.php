@@ -13,7 +13,7 @@ function cart_product($product, $type, $quantity, $dimensions)
                     <h4>€' . number_format((float)productPriceWithDiscount($product),2,',',''). '</h4>  
                 </div>
                 <div>
-                    <img alt="heart" src="../img/mix/empty_heart.png"/>
+                    <img alt="heart" src="./img/mix/empty_heart.png"/>
                     <div>
                     <form action="update_cart.php?action=sub" method="post">
                         <input type="hidden" name="product_id" value="' . $product->getId() . '">
@@ -37,7 +37,7 @@ function cart_product($product, $type, $quantity, $dimensions)
                 <h4>€' . number_format((float)productPriceWithDiscount($product),2,',','') . '</h4>
         </div>
         <div>
-            <img alt="heart" src="../img/mix/empty_heart.png"/>
+            <img alt="heart" src="./img/mix/empty_heart.png"/>
             <div> <form action="update_cart.php?action=sub" method="post">
                 <input type="hidden" name="product_id" value="' . $product->getId() . '">
                 <input type="hidden" name="type" value="' . $type . '">
