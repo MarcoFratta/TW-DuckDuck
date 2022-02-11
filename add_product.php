@@ -48,7 +48,7 @@ if ($_GET['type'] == "normal" && isSeller()) {
         if($img_path!== null)
             deleteImage($img_path);
     } else {
-        header("Location:new_product.php?type=normal");
+        header("Location:products.php");
     }
 } elseif ($_GET['type'] == "item" && isSeller()) {
     if (!isset(
@@ -69,6 +69,6 @@ if ($_GET['type'] == "normal" && isSeller()) {
         deleteImage($img);
         echo displayError("errore inserimento nel db");
      } else {
-        header("Location:new_product.php?type=item");
+        header("Location:products.php");
      }
 }
