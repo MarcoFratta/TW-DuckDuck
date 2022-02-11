@@ -235,6 +235,33 @@ body > h2 {
 #footer > div:last-child > img:last-child {
   transform: matrix(-0.87, -0.5, -0.5, 0.87, 0, 0);
 }
+#main .empty_cart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#main .empty_cart img {
+  width: 80%;
+}
+#main .empty_cart h3 {
+  font-family: Roboto;
+  font-style: normal;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #4f4f4f;
+  margin-top: 10%;
+}
+#main .empty_cart button {
+  margin-top: 5%;
+  padding: 5%;
+  width: 90%;
+  font-weight: bold;
+  font-size: 1rem;
+  background: #9e90ff;
+  color: white;
+  border-radius: 5px;
+}
 
 
 @media only screen and (max-width: 1100px) {
@@ -296,6 +323,10 @@ body > h2 {
   
   #footer > div:first-child > img:nth-child(2) {
     width: 20%;
+  }
+  #main .empty_cart h3 {
+    font-size: 1.5rem;
+    margin-top: 10%;
   }
 
 }

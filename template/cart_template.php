@@ -2,8 +2,7 @@
     <?php
     include_once "template/cart_product.php";
     if (!isset($_SESSION['cart_normal']) && !isset($_SESSION['cart_custom'])) {
-        //require "template/empty_chart";
-        echo "Carrello vuoto";
+        require "template/empty_cart_template.php";
         return;
     }
     $dimensions = toArray($db->products()->getDimensions());

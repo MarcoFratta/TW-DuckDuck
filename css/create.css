@@ -48,6 +48,7 @@ display: block;
     font-style: normal;
     font-weight: bold;
     padding-right: 0;
+    color: #4f4f4f;
     font-size: 1.4rem;
   }
   .create_div button:nth-child(3) {
@@ -61,6 +62,7 @@ display: block;
     text-align: start;
     font-style: normal;
     font-weight: bold;
+    color: #4f4f4f;
     font-size: 1.4rem;
   }
 

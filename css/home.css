@@ -27,7 +27,7 @@
 .cover > img {
   display: block;
   margin: 0 auto 0 auto;
-  width: 1%;
+  width: 35%;
 }
 .cover ul {
   display: flex;
