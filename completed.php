@@ -20,7 +20,7 @@ if (userIsLogged() && isClient()) {
 
     $id_client = $_SESSION['id'];
     $date = idate("Y")."-".idate("m")."-".idate("d");
-    $status = "In consegna";
+    $status = 0;
     $id_address = $_SESSION['address'];
     $id_card = $_POST['card'];
 
