@@ -81,6 +81,7 @@ body > h2 {
 
 #main {
   padding-top: 3%;
+  padding-bottom: 3%;
   background: transparent;
 }
 
@@ -262,6 +263,36 @@ body > h2 {
   color: white;
   border-radius: 5px;
 }
+#main .error_page {
+  margin: 0 auto;
+  width: 25%;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #54556E;
+  border-radius: 35px;
+  
+}
+#main .error_page section p{
+  
+  color: white;
+  text-align: center;
+  padding-top: 15%;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+}
+#main .error_page section{
+  
+  background: url(../img/mix/error_duck.php.png);
+  background-size:100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  min-height: inherit;
+}
 
 
 @media only screen and (max-width: 1100px) {
@@ -283,6 +314,7 @@ body > h2 {
   }
   #main {
     padding-top: 7%;
+    padding-bottom: 7%;
   }
   #main > section { 
     padding-bottom: 5%;
@@ -327,6 +359,10 @@ body > h2 {
   #main .empty_cart h3 {
     font-size: 1.5rem;
     margin-top: 10%;
+  }
+  #main .error_page {
+    width: 100%;
+    min-height: 70vh;
   }
 
 }

@@ -63,3 +63,11 @@ function shippingInfo()
     </div>
     </section>';
 }
+function displayError($message){
+    return '<div class="error_page">
+                <section>
+                    <p>'.$message.'</p>
+                </section>               
+            </div>';
+}
+

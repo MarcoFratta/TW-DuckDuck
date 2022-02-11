@@ -3,13 +3,14 @@ require_once "db/connections.php";
 require_once "db/database.php";
 require_once "utils/functions.php";
 require_once "model/product.php";
+require_once "template/common.php";
 session_start();
 
 if (!isset($_GET['type'])) {
-    die("Errore tipo");
+    die(displayError("Errore tipo"));
 }
 if (!userIsLogged()) {
-    die("Errore sessione");
+    die(displayError("Errore sessione"));
 }
 $db = DbConnections::mySqlConnection();
 if ($_GET['type'] == "normal" && isSeller()) {
@@ -23,7 +24,7 @@ if ($_GET['type'] == "normal" && isSeller()) {
         $_POST['category']
     )) {
         var_dump($_POST);
-        die("errore inserimento");
+        die(displayError("errore inserimento"));
     }
     $img = uploadImage();
     $img_path = $img == false ? null : $img;
@@ -43,7 +44,7 @@ if ($_GET['type'] == "normal" && isSeller()) {
     );
     $res = $db->products()->insertNormalProduct($product);
     if (!$res) {
-        echo "errore inserimento nel db";
+        echo displayError("errore inserimento nel db");
         if($img_path!== null)
             deleteImage($img_path);
     } else {
@@ -56,17 +57,17 @@ if ($_GET['type'] == "normal" && isSeller()) {
         $_POST['layer']
     )) {
         var_dump($_POST);
-        die("errore inserimento");
+        die(displayError("errore inserimento"));
     }
     $img = uploadImage();
     if(!$img){
-        die("errore immagine non valida");
+        die(displayError("errore immagine non valida"));
     }
     $item = new CustomItem(null,$_POST['price'] * 100,$img,$_SESSION['id'],$_POST['name'],null,$_POST['layer']);
     $res = $db->products()->insertCustomItem($item);
     if (!$res) {
         deleteImage($img);
-        echo "errore inserimento nel db";
+        echo displayError("errore inserimento nel db");
      } else {
         header("Location:new_product.php?type=item");
      }

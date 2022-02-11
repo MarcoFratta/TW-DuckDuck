@@ -8,6 +8,7 @@ require_once "model/order.php";
 require_once "model/address.php";
 require_once "model/product.php";
 require_once "model/notification.php";
+require_once "template/common.php";
 
 if (userIsLogged() && isClient()) {
     $templateParams['title'] = "Acquisto completato";
@@ -27,7 +28,7 @@ if (userIsLogged() && isClient()) {
 
     $order_id = $db->orders()->addNewOrder($order);
     if(!$order_id){
-        die("errore inserimento ordine");
+        die(displayError("errore inserimento ordine"));
     }
 
     $order->withId($order_id);
@@ -37,7 +38,7 @@ if (userIsLogged() && isClient()) {
         foreach (array_keys($normal_cart_products) as $product_id) {
             $product = $db->products()->getNormalProductById($product_id);
             if(!$product){
-                echo "errore inserimento prodotto";
+                echo (displayError("errore inserimento prodotto"));
                 continue;
             }
             $quantity = $normal_cart_products[$product_id]['quantity'];
@@ -57,7 +58,7 @@ if (userIsLogged() && isClient()) {
             $product = unserialize($custom_cart_products[$product_id]["value"]);
             $id = $db->products()->insertCustomProduct($product);
             if(!$id){
-                echo "errore inserimento prodotto custom";
+                echo (displayError("errore inserimento ordine"));
                 continue;
             }
             $product->withId($id);

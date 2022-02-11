@@ -18,5 +18,4 @@
     } else {
         header("Location:login.php?type=client");
     }
-
 ?>

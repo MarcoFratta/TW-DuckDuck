@@ -1,5 +1,9 @@
 <?php
     session_start();
-    session_destroy();
+    require_once "utils/functions.php";
+    if(userIsLogged()){
+        
+        session_destroy();
+    }  
     header('location:index.php');
 ?>

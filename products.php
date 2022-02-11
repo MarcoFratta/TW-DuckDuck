@@ -3,6 +3,7 @@ require_once "db/connections.php";
 require_once "db/database.php";
 require_once "utils/functions.php";
 require_once "bootstrap.php";
+require_once "template/common.php";
 if (userIsLogged()) {
     if (isSeller()) {
         $templateParams['title'] = "Prodotti";
@@ -19,7 +20,7 @@ if (userIsLogged()) {
         require "template/footer.php";
         require "template/common_bottom_html.php";
     } else {
-        die("Accesso negato");
+        die(displayError("Accesso negato"));
     }
 } else {
     header("Location:login.php?type=seller");

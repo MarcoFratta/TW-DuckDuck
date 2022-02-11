@@ -4,6 +4,7 @@ require_once "db/connections.php";
 require_once "db/database.php";
 require_once "model/category.php";
 require_once "utils/functions.php";
+require_once "template/common.php";
 require_once "bootstrap.php";
 
 $db = DbConnections::mySqlConnection();
@@ -18,7 +19,7 @@ $templateParams['scripts'] = [
 if(isset($_GET['category'])){
     $category = $db->categories()->getCategoryById($_GET['category']);
     if(!$category){
-        die("categoria non trovata");
+        die(displayError("categoria non trovata"));
     }
     $products = $db->products()->getProductsByCategory($category->getId());
     $title = $category->getName();
@@ -29,7 +30,7 @@ if(isset($_GET['category'])){
     $products = $db->products()->getNormalProductsWithDiscount();
     $title = "In sconto";
 } else {
-    die("non trovato");
+    die(displayError("non trovato"));
 }
 
 $templateParams['title'] = $title;
@@ -39,11 +40,11 @@ require "template/common_top_html.php";
 require "template/header.php";
 
 if(!$products){
-    echo("nessuno prodotto trovato");
+    echo displayError("nessuno prodotto trovato");
 } else {
     $products = toArray($products);
     if(sizeof($products) == 0){
-        echo("nessuno prodotto trovato");
+        echo displayError("nessuno prodotto trovato");
     }else{
         require "template/vertical_products.php";
     }

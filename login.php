@@ -1,5 +1,6 @@
 <?php
         require_once "utils/functions.php";
+        
 
         if(!isset($_GET['type'])){
             die("error");
@@ -53,7 +54,7 @@
                 <a>Password dimenticata?</a>
                 <div>
                     <h6>Non hai un account?</h6>
-                    <a href="register.html">Registrati</a>
+                    <a href="register.php">Registrati</a>
                 </div>';
             if($_GET['type'] == "client")
                 $out .= '<div>

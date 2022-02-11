@@ -4,6 +4,7 @@
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
         <meta name="HandheldFriendly" content="true"/>
+        <link rel="icon" href="img/front_duck.png">
         <title><?php echo $templateParams["title"]?></title>
         <link rel="stylesheet" type="text/css" href="./css/reset.css?<?php echo time() ?>" />
         <link rel="stylesheet" type="text/css" href="./css/style.css?<?php echo time() ?>" />
