@@ -47,6 +47,7 @@ if (userIsLogged() && isClient()) {
             $db->orders()->addNormalProductToOrder($product, $order, $quantity);
         }
         unset($_SESSION['cart_normal']);
+        unset($_SESSION['address']);
         unset($_SESSION['total']);
     }
 
