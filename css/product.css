@@ -14,22 +14,19 @@
 #main > article > * {
     display: block;
     text-align: left;
-    padding: 15px 30px;
+    padding: 10px 30px;
 }
 
 #main > article > img {
-    width: 300px;
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
     padding-top: 30px;
 }
 
-#main > article > div > img {
-    width: 30px;
-}
-
 .title > img {
     float: right;
+    width: 30px;
 }
 
 .title > h2 {
@@ -42,7 +39,7 @@
     color: #4F4F4F;
 }
 
-.title > h4 {
+.title > h5 {
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
@@ -51,3 +48,90 @@
 
     color: #C4C4C4;
 }
+
+#main > article > p {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 182.19%;
+    color: #4F4F4F;
+}
+
+.quantity > * {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.quantity > img {
+    width: 10px;
+}
+
+.quantity > h4 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 34px;
+    letter-spacing: 0.374px;
+    color: #6FCF97;
+}
+
+.price > * {
+    display: inline-block;
+}
+
+.price > h3 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 42px;
+    color: #4F4F4F;
+}
+
+.price > h4 {
+    font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 34px;
+letter-spacing: 0.374px;
+color: #4F4F4F;
+}
+
+a {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 34px;
+    letter-spacing: 0.374px;
+    text-decoration-line: underline;
+    color: #C4C4C4;
+}
+
+form > button {
+    display: block;
+    width: 80%;
+    background: #9e90ff;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 4.5%;
+}
+
+.shipping > * {
+    width: 80% !important;
+}
+
+@media only screen and (max-width: 1100px) {
+    #main > article {
+      width: 80%;
+    }
+  }
