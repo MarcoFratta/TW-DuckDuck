@@ -17,6 +17,9 @@
         if ((!isset($_SESSION['address']) && (isset($_POST['address'])))) {
             $_SESSION['address'] = $_POST['address'];
         }
+        if (isset($_GET['edit'])) {
+            unset($_SESSION['address']);
+        }
         require "template/cards_template.php";
         require "template/footer.php";
         require "template/common_bottom_html.php";

@@ -22,7 +22,7 @@
         <?php endforeach; ?>
 
         <button type="button" onclick="document.location='new_card.php'">Aggiungi carta</button>
-        <input type="submit" <?php if(!isset($_SESSION['total'])) {?> style="display: none" <?php } ?> value="Paga €<?php echo $total?>">
+        <input type="submit" <?php if(!isset($_SESSION['total']) || !isset($_SESSION['address'])) {?> style="display: none" <?php } ?> value="Paga €<?php echo $total?>">
     </form>
 
 </section>

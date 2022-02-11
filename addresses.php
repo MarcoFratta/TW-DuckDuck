@@ -8,6 +8,7 @@
 
         $templateParams['title'] = "Indirizzo di consegna";
         $templateParams['header_title'] = "Indirizzo";
+        $templateParams['scripts'] = ['<script src="js/address.js"></script>'];
         $templateParams['styles'] = ['<link rel="stylesheet" type="text/css" href="./css/addresses.css?'.time().'" />'];
         require "template/common_top_html.php";
         require "template/header.php";

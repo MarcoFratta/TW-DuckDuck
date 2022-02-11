@@ -26,7 +26,7 @@ $gender = $client->getSex();
     <div class="container">
         <i data-feather="credit-card">Carta di credito</i>
         <h4>Metodi di pagamento</h4>
-        <button onClick="location.href='cards.php'" type="button">></button>
+        <button onClick="location.href='cards.php?edit=true'" type="button">></button>
     </div>
 
     <form action="./edit_details.php" method="get">
