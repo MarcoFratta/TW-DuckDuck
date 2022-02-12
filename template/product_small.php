@@ -5,8 +5,8 @@ require_once "template/common.php";
 function smallProductCard($product,$dimensions,$type=null)
 {
     $dim = getProductSize($product,$dimensions);
-    $real_price = $product->getPrice() /100;
-    $actual_price = productPriceWithDiscount($product);
+    $real_price = formatPrice($product->getPrice() /100);
+    $actual_price = formatPrice(productPriceWithDiscount($product));
     if($product->getAmount() == 0){
         $type = Type::SOLD_OUT;
     }

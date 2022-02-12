@@ -10,7 +10,7 @@ function cart_product($product, $type, $quantity, $dimensions)
                 <div>
                     <h3>' . $product->getName() . '</h3>
                     ' . displaySize($dim,$product->getId()) . '
-                    <h4>€' . number_format((float)productPriceWithDiscount($product),2,',',''). '</h4>  
+                    <h4>€' . formatPrice(productPriceWithDiscount($product)). '</h4>  
                 </div>
                 <div>
                     <img alt="heart" src="./img/mix/empty_heart.png"/>

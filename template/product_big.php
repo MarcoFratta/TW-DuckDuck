@@ -4,13 +4,13 @@ require_once "template/common.php";
 // $product contains the product to show 
 $dim_id = $product->getDimension();
 $dimension = $db->products()->getDimensionById($dim_id);
-$price = productPriceWithDiscount($product);
+$price = formatPrice(productPriceWithDiscount($product));
 $category = $db->categories()->getCategoryById($product->getCategory());
 ?>
 <section>
     <article>
         <img alt="Papera" src="<?php echo $product->getImagePath() ?>">
-        <div>
+        <div class="title">
             <div>
                 <h1><?php echo $product->getName() ?></h1>
                 <h3><?php echo $category->getName() ?></h3>
@@ -40,10 +40,6 @@ $category = $db->categories()->getCategoryById($product->getCategory());
             <input type="hidden" name="product_id" value="<?php echo $product->getId() ?>">
             <button type="submit">Aggiungi al carrello</button>
         </form>
-
-    <div class="shipping">
         <?php echo shippingInfo() ?>
-    </div>
-
     </article>
 </section>

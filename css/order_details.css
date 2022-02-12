@@ -1,0 +1,81 @@
+#main > section {
+    background: #ffffff;
+    width: 25%;
+    min-height: 60vh;
+    display: block;
+    font-family: Roboto;
+    overflow:auto;
+  }
+
+  #main > section > .container {
+    display: flex;
+    margin: 5% 5% 0 5%;
+    padding-bottom: 4%;
+  }
+
+  #main > section > .container > div {
+    width: 50%;
+  }
+
+  #main > section > .container > div > h3 {
+    font-size: small;
+  }
+
+  #main > section > .container > div > img {
+    margin-bottom: 5%;
+    opacity: 30%;
+  }
+
+  #main > section > .box {
+    border-style: solid;
+    border-color: #f6f6f6;
+    border-width: 2px;
+    margin: 5%;
+}
+
+  #main > section > .box > h3 {
+    margin: 5% 0 0 5%;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    color: #4f4f4f;
+    text-align: left;
+}
+
+  #main > section > .box > .container {
+    display: flex;
+    margin: 3% 5% 0 5%;
+  }
+
+  #main > section > .box > .container > h3 {
+    font-size: small;
+    opacity: 60%;
+  }
+
+  #main > section > .box > .container > h4 {
+    font-size: small;
+    text-align: right;
+    flex-grow: 3;
+  }
+
+  #main > section > .box > .container:last-child {
+    margin-bottom: 3%;
+  }
+
+  #main > section > .container > div > #done {
+    opacity: 100%;
+  }
+
+  @media only screen and (max-width: 1800px) {
+    #main > section {
+      width: 40%;
+      min-height: 70vh;
+    }
+  }
+  @media only screen and (max-width: 880px) {
+    #main > section {
+      width: 100%;
+      min-height: 70vh;
+    }
+  }

@@ -1,114 +1,124 @@
 #main > section {
-    background: #ffffff;
-    width: 25%;
-    min-height: 60vh;
-    display: block;
-    font-family: Roboto;
-    color: white;
-    overflow:auto;
+  background: #ffffff;
+  width: 25%;
+  min-height: 60vh;
+  display: block;
+  font-family: Roboto;
+  color: white;
+  overflow:auto;
 }
-  
+
 #main .card{
-    width: 70%;
-    background: #9e90ff;
-    border-radius: 8px;
-    text-align: right;
-    padding: 5%;
-    margin: 10%;
-    margin-bottom: 5%;
+  width: 70%;
+  background: #9e90ff;
+  border-radius: 8px;
+  text-align: right;
+  padding: 5%;
+  margin: 10%;
+  margin-bottom: 5%;
 }
 
 #main .card:nth-child(even){
-    background: #5C61F4;
+  background: #5C61F4;
 }
 
 #main .container {
-    display: flex;
-    margin: 30% 5% 0 5%;
-    padding-bottom: 4%;
+  display: flex;
+  margin: 30% 5% 0 5%;
+  padding-bottom: 4%;
 }
 #main > section > form{
-    min-height: inherit;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  min-height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .card h4{
-    font-weight: bold;
-    text-align: left;
-    font-size: large;
-    margin: 0 5% 0 5%;
+  font-weight: bold;
+  text-align: left;
+  font-size: large;
+  margin: 0 5% 0 5%;
 }
 
 .card h5{
-    order: 2;
-    flex-grow: 2;
-    text-align: right;
+  order: 2;
+  flex-grow: 2;
+  text-align: right;
 }
 
 .card img{
-    order: 1;
-    color-scheme: white;
-    max-width: 20%;
-    height: auto;
+  order: 1;
+  color-scheme: white;
+  max-width: 20%;
+  height: auto;
 }
 
 form > button {
-    display: inline-block;
-    text-align: center;
-    width: 90%;
-    border-radius: 5px;
-    border-style: solid;
-    border-width: 3px;
-    border-color: #9e90ff;
-    background-color: #ffffff;
-    font-family: roboto;
-    font-style: normal;
-    font-weight: bold;
-    /* or 25px */
-    padding: 5%;
-    width: 90%;
-    font-size: 1rem;
-    border-radius: 5px;
-    margin-top: auto;
+  display: inline-block;
+  text-align: center;
+  width: 90%;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #9e90ff;
+  background-color: #ffffff;
+  font-family: roboto;
+  font-style: normal;
+  font-weight: bold;
+  /* or 25px */
+  padding: 5%;
+  width: 90%;
+  font-size: 1rem;
+  border-radius: 5px;
+  margin-top: auto;
 
 
-    /* Background/White */
+  /* Background/White */
 
-    color: #9e90ff;
-  }
-
-  form > input {
-    display: inline-block;
-    text-align: center;
-    background-color: #9e90ff;
-    font-family: roboto;
-    font-style: normal;
-    font-weight: bold;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #9e90ff;
-    /* or 25px */
-    padding: 5%;
-    width: 90%;
-    font-size: 1rem;
-    border-radius: 5px;
-    margin-top: 5%;
-    /* Background/White */
-    color: #ffffff;
-  }
-  
-@media only screen and (max-width: 1800px) {
-    #main > section {
-      width: 40%;
-      min-height: 70vh;
-    }
+  color: #9e90ff;
 }
-  @media only screen and (max-width: 880px) {
-    #main > section {
-      width: 100%;
-      min-height: 70vh;
-    }
+
+form > input {
+  display: inline-block;
+  text-align: center;
+  background-color: #9e90ff;
+  font-family: roboto;
+  font-style: normal;
+  font-weight: bold;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #9e90ff;
+  /* or 25px */
+  padding: 5%;
+  width: 90%;
+  font-size: 1rem;
+  border-radius: 5px;
+  margin-top: 5%;
+  /* Background/White */
+  color: #ffffff;
+}
+
+#main > section > h3 {
+  color: #4f4f4f;
+  margin-top: 20%;
+}
+
+#main .empty_cart {
+  padding: 15%;
+  margin-top: 10%;
+}
+
+@media only screen and (max-width: 1800px) {
+  #main > section {
+    width: 40%;
+    min-height: 70vh;
+  }
+}
+@media only screen and (max-width: 880px) {
+  #main > section {
+    width: 100%;
+    min-height: 70vh;
+  }
 }
