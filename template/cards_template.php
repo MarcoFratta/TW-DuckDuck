@@ -8,6 +8,13 @@
 
 <section>
 
+    <?php
+    if (count(iterator_to_array($db->cards()->getClientCards($client->getId()), false)) == 0) {
+        require "template/empty_cards_template.php";
+        return;
+    }
+    ?>
+
     <form id="cards" method="POST" action="completed.php">
         <?php foreach($cards as $card): ?>
             <div class="card">

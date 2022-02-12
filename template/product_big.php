@@ -41,7 +41,9 @@ $category = $db->categories()->getCategoryById($product->getCategory());
             <button type="submit">Aggiungi al carrello</button>
         </form>
 
+    <div class="shipping">
         <?php echo shippingInfo() ?>
+    </div>
 
     </article>
 </section>
