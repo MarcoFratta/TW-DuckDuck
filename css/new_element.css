@@ -52,12 +52,12 @@ article > form .box {
     width: 95%;
 }
 
-#main >article > form .box > .container > div > div > h3,
+#main >article > form .box > .container > h3,
 #main >article > form .box > .container > label{
     width: 40%;
 }
 
-#main >article > form .box > .container > div > div > input,
+#main >article > form .box > .container > input,
 #main >article > form .box > .container > select{
     width: 55%;
 }
