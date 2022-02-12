@@ -32,7 +32,7 @@
   border-color: #9e90ff;
 }
 
-#main h4 {
+#main > section > #orders > .box > .container > h4 {
   order: 1;
   font-family: Roboto;
   font-style: normal;
@@ -43,7 +43,7 @@
   flex-grow: 2;
 }
 
-#main h3 {
+#main > section > #orders > .box > .container > h3 {
   order: 1;
   flex-grow: 2;
   font-family: Roboto;
@@ -51,7 +51,7 @@
   opacity: 0.7;
 }
 
-#main h5 {
+#main > section > #orders > .box > .container > h5 {
   text-align: right;
   order: 2;
   flex-grow: 2;
@@ -64,7 +64,7 @@
   margin-top: 20%;
 }
 
-#main button {
+#main > section > #orders > .box > .container > button {
   background-color: white;
   background: #9e90ff;
   border-radius: 5px;
@@ -73,9 +73,16 @@
   color: white;
   order: 2;
 }
-#main button h4 {
+#main > section > #orders > .box > .container > button > h4 {
     color: white;
   }
+  #main .empty_cart {
+    padding: 15%;
+    margin-top: 10%;
+  }
+
+
+
   @media only screen and (max-width: 1800px) {
     #main > section {
       width: 40%;

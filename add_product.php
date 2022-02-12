@@ -69,6 +69,6 @@ if ($_GET['type'] == "normal" && isSeller()) {
         deleteImage($img);
         echo displayError("errore inserimento nel db");
      } else {
-        header("Location:products.php");
+        header("Location:pieces.php");
      }
 }

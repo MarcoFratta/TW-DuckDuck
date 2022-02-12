@@ -4,7 +4,12 @@
 ?>
 <section>
 
-    <?php if (count(iterator_to_array($db->orders()->getOrdersByClient($id), false)) == 0) echo '<h3>Nessun ordine effettuato</h3>'; ?>
+    <?php
+        if (count(iterator_to_array($db->orders()->getOrdersByClient($id), false)) == 0) {
+            require "template/empty_orders_template.php";
+            return;
+        }
+    ?>
 
     <form id="orders" method="POST" action="order_details.php">
 
