@@ -5,6 +5,7 @@ body {
   border-radius: 35px;
   z-index: 2;
   background: #f6f6f6;
+  padding-top: 0%;
 }
 
 #main > section {

@@ -16,9 +16,13 @@
                     echo 
                     '<div>
                         <i data-feather="arrow-left" onClick="history.back()"></i>
-                        <h2>'.$templateParams['header_title'].'</h2>
-                    </div>';
+                        <h2>'.$templateParams['header_title'].'</h2>';
                 } 
+                
+                    echo
+                    '<button type="button" id="filters"><img src="./img/mix/svg/filters.svg" /></button>';
+                
+                echo '</div>';
             ?>  
     </header>
     <nav id="sideNav" class="sidenav">

@@ -26,6 +26,24 @@ body {
   padding-bottom: 1%;
   padding-top: 1%;
 }
+#header > div:nth-child(2) > button {
+  width: auto;
+  text-align: right;
+  margin-left: auto;
+  margin-right: 5%;
+  padding: 0;
+  background-color: #fff;
+  vertical-align: middle;
+}
+#header > div:nth-child(2) > button > img {
+  text-align: center;
+  padding: 0 auto;
+  width: 24px;
+  vertical-align: middle;
+}
+#filters {
+  visibility: hidden;
+}
 h2 {
   font-family: Roboto;
   font-style: normal;
@@ -38,7 +56,7 @@ header svg {
 }
 
 /* main logo */
-#header > div > img {
+#header > div:nth-child(1) > img {
   width: 5%;
   height: auto;
   margin: 0 auto ;
