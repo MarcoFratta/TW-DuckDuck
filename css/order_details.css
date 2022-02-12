@@ -31,6 +31,7 @@
     border-color: #f6f6f6;
     border-width: 2px;
     margin: 5%;
+    color:#4f4f4f;
 }
 
   #main > section > .box > h3 {
@@ -39,7 +40,6 @@
     font-weight: bold;
     font-size: 1rem;
     letter-spacing: 0.5px;
-    color: #4f4f4f;
     text-align: left;
 }
 
