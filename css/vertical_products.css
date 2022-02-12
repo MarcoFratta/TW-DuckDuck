@@ -9,6 +9,7 @@ body {
 }
 
 #main > section {
+  min-height: 60vh;
   width: 50%;
   display: flex;
   justify-content: center;
@@ -32,8 +33,15 @@ body {
   text-align: left;
   width: 60%;
 }
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1800px) {
+  #main > section {
+    width: 40%;
+    min-height: 70vh;
+  }
+}
+@media only screen and (max-width: 880px) {
   #main > section {
     width: 100%;
+    min-height: 70vh;
   }
 }

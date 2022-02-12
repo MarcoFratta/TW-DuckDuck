@@ -5,6 +5,10 @@ function isActive($pagename){
         echo " class='active' ";
     }
 }
+# returns the price formatted.
+function formatPrice($price){
+    return number_format((float)$price,2,',',".");
+}
 
 function getIdFromName($name){
     return preg_replace("/[^a-z]/", '', strtolower($name));

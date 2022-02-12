@@ -4,42 +4,42 @@ require_once "template/common.php";
 // $product contains the product to show 
 $dim_id = $product->getDimension();
 $dimension = $db->products()->getDimensionById($dim_id);
-$price = productPriceWithDiscount($product);
-$id_category = $product->getCategory();
-$category = $db->categories()->getCategoryById($id_category);
-$category_name = $category->getName();
+$price = formatPrice(productPriceWithDiscount($product));
+$category = $db->categories()->getCategoryById($product->getCategory());
 ?>
-<article>
-    <img alt="product image" src="<?php echo $product->getImagePath() ?>"/>
-    <div class="title">
-        <h2><?php echo $product->getName() ?></h2>
-        <h5><?php echo $category_name ?></h5>
-        <img alt="heart" src="img/mix/empty_heart.png"/>
-    </div>
+<section>
+    <article>
+        <img alt="Papera" src="<?php echo $product->getImagePath() ?>">
+        <div class="title">
+            <div>
+                <h1><?php echo $product->getName() ?></h1>
+                <h3><?php echo $category->getName() ?></h3>
+            </div>
+            <img alt="heart" src="../img/mix/empty_heart.png" />
+        </div>
 
-    <p><?php echo $product->getDescription() ?></p>
+        <p><?php echo $product->getDescription() ?></p>
+        <?php echo '<div' . ($product->getAmount() == 0 ? ' class="sold_out"' : ' class="available"') . '>' ?>
+        <svg width="10" height="10" viewBox="0 0 10 10"  xmlns="http://www.w3.org/2000/svg">
+            <rect width="10" height="10" rx="5"  />
+        </svg>
 
-    <div class="quantity">
-        <img alt="" src="./img/mix/svg/green-point.svg"/>
-        <h4><?php echo $product->getAmount() ?> disponibili</h4>
-    </div>
+        <h3><?php echo $product->getAmount() ?> disponibili</h3>
+        </div>
+        <div>
+            <h1>€ <?php echo $price ?></h1>
+            <h3>IVA inclusa</h3>
+        </div>
 
-    <div class="price">
-        <h3>€ <?php echo $price?></h1>
-        <h4>IVA inclusa</h4>
-    </div>
-    
-    <?php echo displaySize($dimension->getSize())?>
-    <a href="size.php?size=<?php echo $dimension->getSize()?>">Guida alle taglie</a>
 
-    <form action="add_cart.php" method="post">
-        <input type="hidden" name="type" value="normal">
-        <input type="hidden" name="product_id" value="<?php echo $product->getId() ?>">
-        <button type="submit">Aggiungi al carrello</button>
-    </form>
+        <?php echo displaySize($dimension->getSize()) ?>
+        <a href="size.php?size=<?php echo $dimension->getSize() ?>">Guida alle taglie</a>
 
-    <div class="shipping">
+        <form action="add_cart.php" method="post">
+            <input type="hidden" name="type" value="normal">
+            <input type="hidden" name="product_id" value="<?php echo $product->getId() ?>">
+            <button type="submit">Aggiungi al carrello</button>
+        </form>
         <?php echo shippingInfo() ?>
-    </div>
-
-</article>
+    </article>
+</section>

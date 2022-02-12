@@ -1,5 +1,8 @@
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 var isOpen = false;
+$(function(){
+    $(".sold_out footer button").attr('disabled','disabled');
+})
 function changeNav(){
     if(isOpen){
         closeNav();

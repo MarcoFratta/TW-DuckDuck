@@ -1,0 +1,138 @@
+#main > section {
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  width: 25%;
+  font-family: Roboto;
+  background: #ffffff;
+  min-height: 60vh;
+  overflow: auto;
+}
+#main > section > article {
+  padding: 0 6%;
+}
+
+#main > section > article > img {
+  width: 80%;
+}
+#main > section > article > p {
+  width: 100%;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 0.8rem;
+  line-height: 182.19%;
+  color: #4f4f4f;
+  margin-top: 5%;
+  text-align: start;
+}
+#main > section > article > div:nth-child(2) {
+  margin-top: 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+#main > section > article > div:nth-child(2) > img {
+  width: 9%;
+  margin-left: auto;
+  margin-top: 1%;
+}
+#main > section > article > div:nth-child(2) > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+#main > section > article > div:nth-child(2) > div > h1 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.7rem;
+  letter-spacing: 0.374px;
+  color: #4f4f4f;
+}
+main > section > article > div:nth-child(2) > div > h3 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.2rem;
+  letter-spacing: 0.374px;
+  color: #c4c4c4;
+  margin-top: 2%;
+}
+
+#main > section > article > div:nth-child(4) {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 5%;
+}
+
+#main > section > article > div:nth-child(4) > h3 {
+  font-weight: bold;
+  font-size: 1rem;
+  letter-spacing: 0.374px;
+  margin-left: 2%;
+  text-align: center;
+}
+#main > section > article > div:nth-child(4) > svg {
+  width: 3%;
+}
+#main > section > article > .sold_out > h3{
+    color: #D66565;
+}
+#main > section > article > .available > h3{
+    color: #6fcf97;
+}
+#main > section > article > .sold_out > svg{
+    fill: #D66565;
+}
+#main > section > article > .available > svg{
+    fill: #6fcf97;
+}
+#main > section > article > div:nth-child(5) {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin-top: 5%;
+  padding:0;
+}
+#main > section > article > div:nth-child(5) > h1 {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 2rem;
+  text-align: start;
+  color: #4f4f4f;
+  text-align: start;
+  align-self: flex-end;
+}
+#main > section > article > div:nth-child(5) > h3 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 0.8rem;
+  color: #4f4f4f;
+  text-align: start;
+  align-self: flex-end;
+  margin-left: 5%;
+}
+#main > section > article > div:nth-child(5) > h1::first-letter {
+  font-size: 2rem;
+}
+
+
+@media only screen and (max-width: 1800px) {
+  #main > section {
+    width: 40%;
+    min-height: 70vh;
+  }
+}
+@media only screen and (max-width: 880px) {
+  #main > section {
+    width: 100%;
+    min-height: 70vh;
+  }
+}

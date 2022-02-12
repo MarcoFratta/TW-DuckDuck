@@ -32,6 +32,15 @@ if (isset($_POST['type'])) {
             echo displayError("Prodotto non trovato");
             require "template/footer.php";
             require "template/common_bottom_html.php";
+            return;
+        }
+        if($product->getAmount()==0){
+            require "template/common_top_html.php";
+            require "template/header.php";
+            echo displayError("Prodotto non disponibile");
+            require "template/footer.php";
+            require "template/common_bottom_html.php";
+            return;
         }
         $cart_name = "cart_normal";
         $value = $product;
@@ -46,8 +55,9 @@ if (isset($_POST['type'])) {
                 require "template/common_bottom_html.php";
                 return;
             }
-        } 
             array_push($parts,$_POST[$part.'_id']);
+        } 
+            
         if (isset($_POST['dimension'])) {
             $price = 0;
             foreach ($parts as $part) {
@@ -60,8 +70,9 @@ if (isset($_POST['type'])) {
                     require "template/common_bottom_html.php";
                     return;
                 }
-            }
                 $price += $item->getPrice();
+            }
+                
         }
             $dim_id = $_POST['dimension'];
             $dimension = $db->products()->getDimensionBySize($dim_id);
