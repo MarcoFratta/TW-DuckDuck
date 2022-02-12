@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Feb 11, 2022 alle 18:01
+-- Creato il: Feb 12, 2022 alle 22:43
 -- Versione del server: 10.4.21-MariaDB
 -- Versione PHP: 8.0.12
 
@@ -16,6 +16,9 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
+
+CREATE DATABASE rubber_shop;
+USE rubber_shop;
 
 --
 -- Database: `rubber_shop`
@@ -56,6 +59,13 @@ CREATE TABLE `cards` (
   `expire_date` varchar(5) NOT NULL,
   `id_client` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `cards`
+--
+
+INSERT INTO `cards` (`id_card`, `number`, `cvv`, `expire_date`, `id_client`) VALUES
+(6, '1234 5678 1234 5678', '123', '12/22', 5);
 
 -- --------------------------------------------------------
 
@@ -107,7 +117,8 @@ INSERT INTO `clients` (`id_client`, `name`, `email`, `password`, `phone`, `sex`)
 (1, 'marco', 'frattarola.marco2000@gmail.com', '$2y$10$TXgDvENXgGocoS6t23NRLeHhzjxZ0FaZzVJEOoiUUGpDVmwsHm.Ja', NULL, NULL),
 (2, 'alex', 'alex.siroli@libero.it', '$2y$10$tO6ghAnYvlH/lAI8B3A9..1UmIZacolk.ywFL866qUETZyi0txPIC', NULL, NULL),
 (3, 'of', 'guru@gmail.com', '$2y$10$FqeJ3nMV19xPizu6ZPY5YenI9QMUqJpJsMie13xIq1JCX5Q0DRjkW', NULL, NULL),
-(4, '', 'andrea.zammarchi3@studio.unibo.it', '$2y$10$viHTm52vud3ls5yaYuExXu5eiRZrXVPO2u3K6yIJn7ZIO7RvNr/n2', NULL, 'Uomo');
+(4, '', 'andrea.zammarchi3@studio.unibo.it', '$2y$10$viHTm52vud3ls5yaYuExXu5eiRZrXVPO2u3K6yIJn7ZIO7RvNr/n2', NULL, 'Uomo'),
+(5, 'client1', 'client1@gmail.com', '$2y$10$SbnN9JTOmkfK8.zRwo.s9O5GycD27QFJNUFFDLbwB8tAfwsrnj46a', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -168,7 +179,14 @@ INSERT INTO `client_notification` (`id`, `user_id`, `message`, `date`, `status`)
 (63, 4, 'Il tuo ordine n. 104 è stato completato. Per dettagli sulla spedizione controlla nell\'area dedicata.', '2022-02-11', 1),
 (64, 4, 'Il tuo ordine n. 105 è stato completato. Per dettagli sulla spedizione controlla nell\'area dedicata.', '2022-02-11', 1),
 (65, 4, 'Il tuo ordine n. 106 è stato completato. Per dettagli sulla spedizione controlla nell\'area dedicata.', '2022-02-11', 1),
-(66, 4, 'Il tuo ordine n. 107 è stato completato. Per dettagli sulla spedizione controlla nell\'area dedicata.', '2022-02-11', 1);
+(66, 4, 'Il tuo ordine n. 107 è stato completato. Per dettagli sulla spedizione controlla nell\'area dedicata.', '2022-02-11', 1),
+(67, 5, 'Ciao client1! Grazie per esserti iscritto al nostro sito!', '2022-02-11', 0),
+(68, 5, 'Il tuo ordine n. 108 è stato completato. Per dettagli sulla spedizione controlla nell\'area dedicata.', '2022-02-11', 0),
+(69, 5, 'Il tuo ordine n. 109 è stato completato. Per dettagli sulla spedizione controlla nell\'area dedicata.', '2022-02-11', 0),
+(70, 5, 'Il tuo ordine n. 110 è stato completato. Per dettagli sulla spedizione controlla nell\'area dedicata.', '2022-02-12', 0),
+(71, 5, 'Il tuo ordine n. 111 è stato completato. Per dettagli sulla spedizione controlla nell\'area dedicata.', '2022-02-12', 0),
+(72, 5, 'Il tuo ordine n. 112 è stato completato. Per dettagli sulla spedizione controlla nell\'area dedicata.', '2022-02-12', 0),
+(73, 5, 'Il tuo ordine n. 113 è stato completato. Per dettagli sulla spedizione controlla nell\'area dedicata.', '2022-02-12', 1);
 
 -- --------------------------------------------------------
 
@@ -220,6 +238,14 @@ CREATE TABLE `custom_order_products` (
   `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dump dei dati per la tabella `custom_order_products`
+--
+
+INSERT INTO `custom_order_products` (`id_custom_order_product`, `price`, `id_order`, `id_custom_product`, `quantity`) VALUES
+(3, 185000, 112, 3, 1),
+(4, 145000, 113, 4, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -233,6 +259,14 @@ CREATE TABLE `custom_products` (
   `id_dimension` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dump dei dati per la tabella `custom_products`
+--
+
+INSERT INTO `custom_products` (`id_custom_product`, `price`, `addition_date`, `id_dimension`) VALUES
+(3, 1850, '2022-02-12', 3),
+(4, 1450, '2022-02-12', 3);
+
 -- --------------------------------------------------------
 
 --
@@ -244,6 +278,14 @@ CREATE TABLE `custom_products_custom_items` (
   `id_custom_item` int(11) NOT NULL,
   `id_custom_product_custom_item` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `custom_products_custom_items`
+--
+
+INSERT INTO `custom_products_custom_items` (`id_custom_product`, `id_custom_item`, `id_custom_product_custom_item`) VALUES
+(3, 10, 9),
+(4, 6, 10);
 
 -- --------------------------------------------------------
 
@@ -286,6 +328,13 @@ CREATE TABLE `normal_order_products` (
   `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dump dei dati per la tabella `normal_order_products`
+--
+
+INSERT INTO `normal_order_products` (`id_normal_order_product`, `price`, `id_normal_product`, `id_order`, `quantity`) VALUES
+(45, 270, 10, 111, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -311,9 +360,40 @@ CREATE TABLE `normal_products` (
 --
 
 INSERT INTO `normal_products` (`id_normal_product`, `name`, `description`, `image`, `amount`, `discount`, `price`, `addition_date`, `id_seller`, `id_dimension`, `id_category`) VALUES
-(10, 'Freddie Mercury', 'Cantante. Famoso per la canzone \"Bohemian Quacksody\"', './img/mix/bohemian.png', 5000, 10, 300, '2022-02-11', 10, 4, 7),
-(11, 'Barman', 'Vuoi un cocktail?', './img/mix/barman.png', 5000, 5, 100, '2022-02-11', 10, 1, 11),
-(12, 'Laureato', 'Laureato con 110L in Ingegneria e Scienze informatiche', './img/mix/bachelor.png', 5000, 10, 200, '2022-02-11', 10, 5, 4);
+(10, 'Freddie Mercury', 'Cantante. Famoso per la canzone \"Bohemian Quacksody\"', './img/mix/bohemian.png', 4998, 10, 300, '2022-02-11', 10, 4, 7),
+(11, 'Barman', 'Vuoi un cocktail?', './img/mix/barman.png', 4998, 5, 100, '2022-02-11', 10, 1, 11),
+(12, 'Laureato', 'Laureato con 110L in Ingegneria e Scienze informatiche', './img/mix/bachelor.png', 4999, 10, 200, '2022-02-11', 10, 5, 4),
+(13, 'Coniglietta', 'Direttamente da Las Vegas.', './img/mix/bunny.png', 5000, 0, 300, '2022-02-11', 10, 3, 1),
+(14, 'Business man', 'Investe in azioni DuckDuck.', './img/mix/business-man.png', 5000, 0, 400, '2022-02-11', 10, 4, 11),
+(15, 'Chef', 'Rivale principale di Carlo Cracco.', './img/mix/chef.png', 5000, 0, 200, '2022-02-11', 10, 2, 11),
+(16, 'Clown', 'Fa ridere...', './img/mix/clown.png', 5000, 0, 100, '2022-02-11', 10, 1, 11),
+(17, 'Ciclista', 'Prossimo obiettivo maglia rosa.', './img/mix/biker.png', 5000, 0, 500, '2022-02-11', 10, 5, 11),
+(19, 'Diavolo', 'Odia della diavolessa.', './img/mix/devil-man.png', 5000, 0, 400, '2022-02-11', 10, 4, 4),
+(20, 'Diavolessa', 'Odia il diavolo.', './img/mix/devil-woman.png', 5000, 0, 400, '2022-02-11', 10, 4, 4),
+(21, 'DJ', 'Tunz tunz tunz!', './img/mix/dj.png', 5000, 0, 350, '2022-02-11', 10, 3, 7),
+(23, 'Marinaio', 'Ha solcato tutti i Sette Mari.', './img/mix/sailor.png', 5000, 0, 300, '2022-02-11', 10, 3, 11),
+(24, 'Principessa delle fiabe', 'Risiede stanza più remota, nella torre più alta.', './img/mix/fairy-princess.png', 5000, 0, 200, '2022-02-11', 10, 2, 1),
+(25, 'Contadino', 'Raccoglie il grano per la DuckDuck Company.', './img/mix/farmer.png', 5000, 0, 600, '2022-02-11', 10, 5, 11),
+(26, 'Ballerina', 'Ha la passione per il Flamenco, ma non se la cava male anche nel TipTap.', './img/mix/flamenco.png', 5000, 0, 700, '2022-02-11', 10, 5, 7),
+(27, 'Nonno', 'Ai suoi tempi si stava meglio...', './img/mix/grandpa.png', 5000, 0, 200, '2022-02-11', 10, 2, 1),
+(28, 'Sposo', 'Innamorato della Sposa.', './img/mix/groom.png', 5000, 0, 600, '2022-02-11', 10, 1, 1),
+(29, 'Cavallo', 'Sa andare al trotto, al galoppo fa troppa fatica.', './img/mix/horse.png', 5000, 0, 100, '2022-02-11', 10, 1, 2),
+(30, 'Cacciatore', 'Di solito collabora con la Regina Cattiva', './img/mix/hunter.png', 5000, 0, 450, '2022-02-11', 10, 4, 9),
+(31, 'IronMan', 'Attualmente indossa la Mark III.', './img/mix/ironman.png', 5000, 0, 2500, '2022-02-11', 10, 3, 4),
+(32, 'Luxury', 'Le piace distinguersi dalla folla.', './img/mix/luxury.png', 5000, 0, 5000, '2022-02-11', 10, 4, 5),
+(33, 'Pellerossa', 'Figlia primogenita di Toro Seduto.', './img/mix/native-indian-female.png', 5000, 0, 300, '2022-02-11', 10, 4, 10),
+(34, 'Suora', 'Direttrice degli asili a DuckDuck City.', './img/mix/nun.png', 5000, 0, 200, '2022-02-11', 10, 5, 11),
+(35, 'Arbitro', 'Ha diretto la finale di Champions League nel 2020. Va trattato bene altrimenti si rischia di essere espulsi.', './img/mix/referee.png', 5000, 0, 100, '2022-02-11', 10, 2, 11),
+(36, 'Babbo Natale', 'Sappiamo tutti il suo ruolo. Comportarsi bene di fronte a lui, altrimenti si rischia di finire nella Lista dei Cattivi.', './img/mix/santa-claus.png', 5000, 0, 500, '2022-02-11', 10, 3, 8),
+(37, 'Snorkeler', 'Il suo film preferito è Alla Ricerca Di Nemo.', './img/mix/snorkler.png', 5000, 0, 200, '2022-02-11', 10, 1, 9),
+(38, 'Calciatore', 'Poo Po Po Po Po Poooo Poo!', './img/mix/soccer.png', 5000, 0, 200, '2022-02-11', 10, 3, 11),
+(39, 'Hostess', 'Vi preghiamo di rimanere seduti finchè il segnale delle cinture di sicurezza è attivo, grazie.', './img/mix/hostess.png', 5000, 0, 450, '2022-02-11', 10, 1, 11),
+(40, 'Girasole', 'Gli piace così tanto il sole che potrebbe guardarlo per tutto il giorno.', './img/mix/sunflower.png', 5000, 0, 200, '2022-02-11', 10, 3, 9),
+(41, 'La Regina', 'Segni particolari: immortale.', './img/mix/queen.png', 5000, 0, 200, '2022-02-11', 10, 3, 5),
+(42, 'Unicorno', 'Come i cavalli, ma cavalca gli arcobaleni.', './img/mix/unicorn.png', 5000, 0, 300, '2022-02-11', 10, 4, 4),
+(43, 'Sposa', 'Fatta per essere amata. Innamorata dello Sposo.', './img/mix/wife.png', 5000, 0, 200, '2022-02-11', 10, 3, 1),
+(44, 'Il Re', 'Innamorato della Regina.', './img/mix/king.png', 5000, 0, 400, '2022-02-11', 10, 5, 1),
+(54, 'Dracula', 'Attenzione! Gli piace il sangue umano.', './img/mix/dracula.png', 5000, 0, 100, '2022-02-11', 10, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -324,11 +404,20 @@ INSERT INTO `normal_products` (`id_normal_product`, `name`, `description`, `imag
 CREATE TABLE `orders` (
   `id_order` int(11) NOT NULL,
   `creation_date` varchar(10) NOT NULL,
-  `status` varchar(11) NOT NULL,
+  `status` int(1) NOT NULL,
   `id_card` int(11) NOT NULL,
   `id_client` int(11) NOT NULL,
   `id_address` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dump dei dati per la tabella `orders`
+--
+
+INSERT INTO `orders` (`id_order`, `creation_date`, `status`, `id_card`, `id_client`, `id_address`) VALUES
+(111, '2022-2-12', 0, 6, 5, 1),
+(112, '2022-2-12', 0, 6, 5, 2),
+(113, '2022-2-12', 0, 6, 5, 2);
 
 -- --------------------------------------------------------
 
@@ -371,7 +460,12 @@ CREATE TABLE `seller_notification` (
 --
 
 INSERT INTO `seller_notification` (`id`, `user_id`, `message`, `date`, `status`) VALUES
-(30, 10, 'Ciao Seller1! Grazie per esserti iscritto al nostro sito!', '2022-02-11', 1);
+(30, 10, 'Ciao Seller1! Grazie per esserti iscritto al nostro sito!', '2022-02-11', 0),
+(31, 10, 'Il cliente 5 ha acquistato il tuo prodotto con id 10.', '2022-02-11', 1),
+(32, 10, 'Il cliente 5 ha acquistato il tuo prodotto con id 11.', '2022-02-11', 1),
+(33, 10, 'Il cliente 5 ha acquistato il tuo prodotto con id 12.', '2022-02-12', 1),
+(34, 10, 'Il cliente 5 ha acquistato il tuo prodotto con id 11.', '2022-02-12', 1),
+(35, 10, 'Il cliente 5 ha acquistato il tuo prodotto con id 10.', '2022-02-12', 1);
 
 --
 -- Indici per le tabelle scaricate
@@ -499,7 +593,7 @@ ALTER TABLE `addresses`
 -- AUTO_INCREMENT per la tabella `cards`
 --
 ALTER TABLE `cards`
-  MODIFY `id_card` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_card` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT per la tabella `categories`
@@ -511,13 +605,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT per la tabella `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id_client` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_client` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT per la tabella `client_notification`
 --
 ALTER TABLE `client_notification`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT per la tabella `custom_items`
@@ -529,37 +623,37 @@ ALTER TABLE `custom_items`
 -- AUTO_INCREMENT per la tabella `custom_order_products`
 --
 ALTER TABLE `custom_order_products`
-  MODIFY `id_custom_order_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_custom_order_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT per la tabella `custom_products`
 --
 ALTER TABLE `custom_products`
-  MODIFY `id_custom_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_custom_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT per la tabella `custom_products_custom_items`
 --
 ALTER TABLE `custom_products_custom_items`
-  MODIFY `id_custom_product_custom_item` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_custom_product_custom_item` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT per la tabella `normal_order_products`
 --
 ALTER TABLE `normal_order_products`
-  MODIFY `id_normal_order_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id_normal_order_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT per la tabella `normal_products`
 --
 ALTER TABLE `normal_products`
-  MODIFY `id_normal_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_normal_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT per la tabella `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
+  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
 
 --
 -- AUTO_INCREMENT per la tabella `sellers`
@@ -571,7 +665,7 @@ ALTER TABLE `sellers`
 -- AUTO_INCREMENT per la tabella `seller_notification`
 --
 ALTER TABLE `seller_notification`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- Limiti per le tabelle scaricate
