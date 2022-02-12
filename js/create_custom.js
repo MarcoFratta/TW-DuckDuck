@@ -91,7 +91,7 @@ function updatePrice() {
         price += parseInt(layers[i][actuals[i]].price)/100;
   }
 
-  $("#price").text("€ " + price);
+  $("#price").text("€ " + ((Math.round(price * 100) / 100).toFixed(2)));
 }
 
 function addDimensionListener(){

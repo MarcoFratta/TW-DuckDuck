@@ -25,6 +25,9 @@
     align-items: center;
     text-align: left;
 }
+#main #edit_products .container input{
+    text-align: left;
+}
 
 #main #edit_products .box > * {
     margin: 2% 5% 2% 5%;

@@ -13,7 +13,7 @@
                 if(is_array($templateParams["styles"])){
                     foreach($templateParams["styles"] as $style){                        
                         echo $style;    
-                        echo "\r\n\t\t";                    ;
+                        echo "\r\n\t\t";                        
                     }
                 } else {
                     echo $templateParams["styles"];
@@ -34,7 +34,7 @@
                 if(is_array($templateParams["scripts"])){
                     foreach($templateParams["scripts"] as $script){                        
                         echo $script;    
-                        echo "\r\n\t\t";                    ;
+                        echo "\r\n\t\t";
                     }
                 } else {
                     echo $templateParams["scripts"];

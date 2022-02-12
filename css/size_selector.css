@@ -1,4 +1,4 @@
-#size_selector {
+section[id*="size_selector"] {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -6,7 +6,7 @@
     width: 80%;
     margin: 0 auto;
   }
-  #size_selector > div {
+  section[id*="size_selector"] > div {
     width:100%;
     display: flex;
     flex-direction: row;
@@ -19,7 +19,7 @@
     margin: 0 auto;
   }
 
-  #size_selector div div {
+  section[id*="size_selector"] div div {
     background-color:rgba(158, 144, 255, 0.1);
     width: 60%;
     display: flex;
@@ -32,14 +32,14 @@
     border-right: 1px solid #e4d3fa;
     padding: 1% 1%;
   }
-  #size_selector #decrease {
+  section[id*="size_selector"] #decrease {
     border-radius:  5px 0 0 5px;
 
   }
-  #size_selector #increase {   
+  section[id*="size_selector"] #increase {   
     border-radius: 0 5px 5px 0 ;
   }
-  #size_selector button {
+  section[id*="size_selector"] button {
     font-size: 1.5rem;
     align-self:center;
     font-weight: normal;
@@ -51,7 +51,7 @@
     height: 100%;
   }
 
-  #size_selector img {
+  section[id*="size_selector"] img {
     padding: 0 1.5%;
    
     width: 15%;

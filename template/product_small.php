@@ -21,9 +21,9 @@ function smallProductCard($product,$dimensions,$type=null)
             <footer>
                 <h3>'.$product->getName().'</h3>
                 <div><div>'.
-                '<h2 '.($real_price!==$actual_price ? 'class="actual_price"' : '').'>'.$actual_price.'
+                '<h2 '.($real_price!==$actual_price ? 'class="actual_price"' : '').'>€ '.$actual_price.'
                 </h2>'.($real_price!==$actual_price ? 
-                ('<h2 class="real_price">'.$real_price.'</h2>'):'').'</div><div>'.displaySize($dim,$product->getId()).'             
+                ('<h2 class="real_price">€ '.$real_price.'</h2>'):'').'</div><div>'.displaySize($dim,$product->getId()).'             
                 <form action="add_cart.php" method="POST">
                     <input type="hidden" name="type" value="normal"/>
                     <input type="hidden" name="product_id" value="'.$product->getId().'"/>
@@ -47,6 +47,7 @@ function sellerProductCard($product, $categories, $dimensions)
     <article id="' . $product->getId() . '">
         <form enctype="multipart/form-data">
             <input type="hidden" name="id" value="' . $product->getId() . '"/>
+            <input type="hidden" name="type" value="normal">
             <div class="box">
                 <div class="container">
                     <div class="center">
@@ -68,13 +69,14 @@ function sellerProductCard($product, $categories, $dimensions)
                         </div>
                     </div>
                 </div>
-                <div class="center">
-                    <input type="file" id="loaded_image_' . $product->getId() . '" name="img">
-                </div>
+               
                 <div class="center">
                         ';
     $var .= sizeSelector($dim, $product->getId());
     $var .= '
+                </div>
+                <div>
+                <input type="file" id="loaded_image_' . $product->getId() . '" name="img">
                 </div>
                 <div class="container">
                     <label for="category_' . $product->getId() . '">Categoria</label>
@@ -90,7 +92,7 @@ function sellerProductCard($product, $categories, $dimensions)
                     <textarea id="description_' . $product->getId() . '" name="description" cols="80" rows="5">' . $product->getDescription() . '</textarea>
                 </div>
                 <div class="container">
-                    <button type="submit "id="delete_' . $product->getId() . '">Elimina</button>
+                    <button type="button" id="delete_' . $product->getId() . '">Elimina</button>
                     <button type="submit "id="save_' . $product->getId() . '">Salva</button>
                 </div>
         </form>
