@@ -90,9 +90,10 @@ function sellerProductCard($product, $categories, $dimensions)
                     <textarea id="description_' . $product->getId() . '" name="description" cols="80" rows="5">' . $product->getDescription() . '</textarea>
                 </div>
                 <div class="container">
-                    <button type="submit "id="delete_' . $product->getId() . '">Elimina</button>
-                    <button type="submit "id="save_' . $product->getId() . '">Salva</button>
+                    <button type="submit" id="delete_' . $product->getId() . '">Elimina</button>
+                    <button type="submit" id="save_' . $product->getId() . '">Salva</button>
                 </div>
+            </div>
         </form>
     </article>';
     return $var;

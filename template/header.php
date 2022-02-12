@@ -17,7 +17,7 @@
                     '<div>
                         <i data-feather="arrow-left" onClick="history.back()"></i>
                         <h2>'.$templateParams['header_title'].'</h2>
-                        <button type="button" id="filters" onClick="toggleFilters()"><img src="./img/mix/svg/filters.svg"/></button>
+                        <button type="button" id="filters" onClick="toggleFilters()"><img src="./img/mix/svg/filters.svg" alt="logo"/></button>
                     </div>';
                 }
             ?>  
