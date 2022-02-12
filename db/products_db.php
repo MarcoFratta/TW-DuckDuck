@@ -125,7 +125,8 @@ class ProductsHelper
                     JOIN dimensions AS d ON d.id_dimension = n.id_dimension
                 WHERE $this->DATE >= (NOW() - INTERVAL 1 WEEK) 
                 AND $this->DISCOUNT = 0
-                ORDER BY d.size ASC";
+                ORDER BY d.size ASC
+                LIMIT ?";
             break;
 
         case 'dDim':
@@ -134,7 +135,8 @@ class ProductsHelper
                     JOIN dimensions AS d ON d.id_dimension = n.id_dimension
                 WHERE $this->DATE >= (NOW() - INTERVAL 1 WEEK) 
                 AND $this->DISCOUNT = 0
-                ORDER BY d.size DESC";
+                ORDER BY d.size DESC
+                LIMIT ?";
             break;
         
         default:
@@ -194,7 +196,8 @@ class ProductsHelper
                     FROM normal_products as n 
                         JOIN dimensions AS d ON d.id_dimension = n.id_dimension
                     WHERE discount != 0
-                    ORDER BY d.size ASC";
+                    ORDER BY d.size ASC
+                    LIMIT ?";
                 break;
 
             case 'dDim':
@@ -202,7 +205,8 @@ class ProductsHelper
                     FROM normal_products as n 
                         JOIN dimensions AS d ON d.id_dimension = n.id_dimension
                     WHERE discount != 0
-                    ORDER BY d.size DESC";
+                    ORDER BY d.size DESC
+                    LIMIT ?";
                 break;
             
             default:
