@@ -30,27 +30,27 @@
     ?>
     <section>
         <div>
-            <h6>Spedizione</h6>
-            <h6><?php echo $shipping != 0 ? $shipping : "gratis" ?></h6>
+            <h4>Spedizione</h4>
+            <h4><?php echo $shipping != 0 ? $shipping : "gratis" ?></h4>
         </div>
         <div>
-            <h6>Iva ( <?php echo $iva * 100 ?>% )</h6>
-            <h6>€ <?php echo number_format($sum * $iva,2,',',".")?></h6>
+            <h4>Iva ( <?php echo $iva * 100 ?>% )</h4>
+            <h4>€ <?php echo number_format($sum * $iva,2,',',".")?></h4>
         </div>
         <div>
-            <h6>Imponibile ( senza IVA )</h6>
-            <h6>€ <?php echo number_format($sum - ($sum * $iva),2,',','.') ?></h6>
+            <h4>Imponibile ( senza IVA )</h4>
+            <h4>€ <?php echo number_format($sum - ($sum * $iva),2,',','.') ?></h4>
         </div>
 
         <div>
-            <h6>Totale</h6>
-            <h6>
+            <h4>Totale</h4>
+            <h4>
                 € <?php
                     $total = $sum + $shipping;
                     $_SESSION['total'] = $total;
                     echo number_format($total,2,',','.');
                     ?>
-            </h6>
+            </h4>
         </div>
     </section>
     <button type="button" onclick="document.location='addresses.php'">Procedi all'acquisto</button>

@@ -150,12 +150,12 @@
 #main > section > section div:first-child {
   margin-top: 0;
 }
-#main > section > section > div > h6:first-child {
+#main > section > section > div > h4:first-child {
   font-size: 1rem;
   color: #979797;
 }
 
-#main > section > section > div > h6:nth-child(2) {
+#main > section > section > div > h4:nth-child(2) {
   margin-left: auto;
   font-style: normal;
   font-weight: bold;
@@ -163,14 +163,14 @@
   letter-spacing: 0.5px;
   color: #4f4f4f;
 }
-#main > section > section > div:first-child > h6:nth-child(2) {
+#main > section > section > div:first-child > h4:nth-child(2) {
   color: #6fcf97;
 }
 #main > section > section > div:last-child {
   border-top: 1px dashed #ebf0ff;
   padding-top: 5%;
 }
-#main > section > section > div:last-child > h6:nth-child(2) {
+#main > section > section > div:last-child > h4:nth-child(2) {
   color: #9e90ff;
 }
 
