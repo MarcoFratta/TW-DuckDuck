@@ -85,6 +85,8 @@ class ProductsHelper
     {
         $query = "SELECT * 
                 FROM normal_products 
+                WHERE $this->DATE >= (NOW() - INTERVAL 1 WEEK) 
+                AND $this->DISCOUNT = 0  
                 ORDER BY $this->DATE DESC
                 LIMIT ?";
         $stmt = $this->db->prepare($query);

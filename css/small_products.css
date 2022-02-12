@@ -2,7 +2,7 @@
     width:22%;
     height:fit-content;
     margin: 4% 3%;
-    padding: 20px 3% ;
+    padding: 1% 0.8% ;
     background-color: white;
     border-radius: 10px;
   }
@@ -26,22 +26,23 @@
   }
   
   
-  .small_product > footer > h3 {
+  .small_product > footer > h2 {
     font-family: Roboto;
     font-style: normal;
-    font-weight: 500;
+    font-weight: bold;
     font-size: 1rem;
     line-height: 16px;
     color: #4f4f4f;
     text-align: start;
     margin-top: 5%;
   }
-  .small_product > footer > div > div > h2 {
+  .small_product > footer > div > div > h3 {
     display: inline; 
+    font-weight: bold;
     margin:0;
     box-sizing: border-box;
   }
-  .small_product > footer > div > h2 {
+  .small_product > footer > div > h3 {
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
@@ -193,7 +194,7 @@
 @media only screen and (max-width: 550px) {
    
   .small_product {
-    padding: 2% 3%;
+    padding: 2% 1.5%;
   }
   .small_product > footer > div > div {
     margin-top: -1%;
