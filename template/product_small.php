@@ -70,11 +70,10 @@ function sellerProductCard($product, $categories, $dimensions)
                     </div>
                 </div>
                
-                <div class="center">
-                        ';
+                ';
     $var .= sizeSelector($dim, $product->getId());
     $var .= '
-                </div>
+               
                 <div>
                 <input type="file" id="loaded_image_' . $product->getId() . '" name="img">
                 </div>

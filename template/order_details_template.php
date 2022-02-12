@@ -2,6 +2,7 @@
     include_once "template/cart_product.php";
     $id_order = $_SESSION['id_order_details'];
     $order = $db->orders()->getOrderById($id_order);
+    
     $status = $order->getStatus();
     $dimensions = toArray($db->products()->getDimensions());
 ?>
@@ -28,8 +29,12 @@
 
 <?php
     if(mysqli_num_rows($db->orders()->getOrderNormalProduct($id_order)) != 0){
-        foreach ($db->orders()->getOrderNormalProduct($id_order) as $normal_product):
+        $products = $db->orders()->getOrderNormalProduct($id_order);
+        foreach ( $products as $normal_product):
             $product = $db->products()->getNormalProductById($normal_product['id_normal_product']);
+            if(is_null($product)){
+                $product =  Product::deletedProduct($normal_product['id_normal_product'],$normal_product['price']);
+            } 
             echo order_product($product, "normal", $normal_product['quantity'], $dimensions); 
         endforeach; }
         

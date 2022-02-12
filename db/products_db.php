@@ -167,7 +167,7 @@ class ProductsHelper
         return $this->toItems($result->fetch_all(MYSQLI_ASSOC));
     }
     public function deleteNormalProductById($id){
-        $query = 'DELETE FROM custom_products WHERE '.$this-> NORMAL_ID.' ID=? ';
+        $query = 'DELETE FROM normal_products WHERE '.$this-> NORMAL_ID.'=? ';
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i', $id);
         $stmt->execute();

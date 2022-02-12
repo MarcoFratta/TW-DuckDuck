@@ -32,11 +32,11 @@ section[id*="size_selector"] {
     border-right: 1px solid #e4d3fa;
     padding: 1% 1%;
   }
-  section[id*="size_selector"] #decrease {
+  section[id*="size_selector"] button[id*="decrease"] {
     border-radius:  5px 0 0 5px;
 
   }
-  section[id*="size_selector"] #increase {   
+  section[id*="size_selector"] button[id*="increase"] {   
     border-radius: 0 5px 5px 0 ;
   }
   section[id*="size_selector"] button {

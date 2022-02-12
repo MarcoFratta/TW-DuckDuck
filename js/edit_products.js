@@ -12,8 +12,12 @@ function addListener(val) {
 
     $(val).find('button[id*="delete"]').click(function () {
       // Prevent default posting of form - put here to work in case of errors
+      if (!confirm('Sei sicuro di voler eliminare il prodotto?')) {
+        // Save it!
+        return;
+      } 
     event.preventDefault();
-      console.log("ciao");
+    
     // Abort any pending request
     if (request) {
       request.abort();
@@ -45,9 +49,7 @@ function addListener(val) {
 
     // Callback handler that will be called on success
     request.done(function (response, textStatus, jqXHR) {
-      // Log a message to the console
-      //console.log(response);
-      //location.reload()
+      location.reload()
     });
 
     // Callback handler that will be called on failure

@@ -5,7 +5,11 @@ body {
   background: #f6f6f6;
   overflow-x: hidden;
 }
-
+h1,h2,h3,h4,h5,h6, p, label,input,select,option, textarea {
+  color: #4f4f4f;
+  font-family: Roboto;
+  border-color: #EBF0FF;
+}
 
 #header {
   background-color: white;
