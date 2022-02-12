@@ -37,6 +37,12 @@
 
   color: #979797;
 }
+#main > section  select{
+  background-color: white;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: normal;
+}
 #main > section > div:first-child div > h4 {
   color: #4f4f4f;
   font-style: normal;

@@ -193,6 +193,7 @@ color: #9E90FF;
   letter-spacing: 0.5px;
   color: #979797;
   outline: none;
+  background-color: white;
   border: none;
 }
 #main > section  select option{
@@ -201,6 +202,7 @@ color: #9E90FF;
   font-weight: lighter;
   font-size: 1rem;
   color: #979797;
+  background-color: white;
 }
 
 @media only screen and (max-width: 1800px) {
