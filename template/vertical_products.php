@@ -10,6 +10,8 @@
 ?>
 
 <form id="filtersContainer" method="POST" action="<?php echo $dest ?>">
+<fieldset>
+    <legend>Filtri</legend>
     <div>
         <h4>Nome:</h4>
         <div>
@@ -49,6 +51,8 @@
             </div>
         </div>
     </div>
+</fieldset>
+    
 </form>
 
 <section id="vertical_products">
