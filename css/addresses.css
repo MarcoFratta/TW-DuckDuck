@@ -31,7 +31,7 @@
 }
 
 
-form > .address {
+form .address {
     display: flex;
     justify-content: start;
     align-items:center;
@@ -44,7 +44,7 @@ form > .address {
     padding: 5% 5%;
 }
 
-form > .address h3 {
+form .address h3 {
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
@@ -58,7 +58,7 @@ form > .address h3 {
     width: 100%;
 }
 
-form > .address h4 {
+form .address h4 {
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
@@ -70,7 +70,7 @@ form > .address h4 {
     padding-left: 2%;
     padding-bottom: 2%;
 }
-form > .address > label {
+form .address > label {
     display: flex;
     order: 1;
     width: 80%;
@@ -78,16 +78,16 @@ form > .address > label {
     justify-content: flex-start;
     align-items:flex-start;
 }
-form > .address > input {
+form .address > input {
     order: 2;
     margin: 0 auto;
 }
-form > .address > label {
+form .address > label {
     cursor: pointer;
 }
 
-form > input {
-    margin: auto auto 0 auto;
+form > fieldset > input {
+    margin: 30px auto;
     padding: 5%;
     width: 90%;
     font-weight: bold;
@@ -97,12 +97,8 @@ form > input {
     border-radius: 5px;
 }
 
-form > .highlight {
+form  .highlight {
     border: 2px solid #9E90FF;
-}
-
-fieldset {
-    visibility: hidden;
 }
 
 legend {
