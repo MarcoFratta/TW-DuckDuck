@@ -160,7 +160,7 @@ class ProductsHelper
     {
         switch ($filter) {
             case 'alpha':
-                "SELECT * 
+                $query = "SELECT * 
                     FROM normal_products 
                     WHERE discount != 0
                     ORDER BY name ASC
@@ -168,7 +168,7 @@ class ProductsHelper
                 break;
 
             case 'omega':
-                "SELECT * 
+                $query = "SELECT * 
                     FROM normal_products 
                     WHERE discount != 0
                     ORDER BY name DESC
@@ -176,7 +176,7 @@ class ProductsHelper
                 break;
 
             case 'cPrice':
-                "SELECT * 
+                $query = "SELECT * 
                     FROM normal_products 
                     WHERE discount != 0
                     ORDER BY price ASC
@@ -184,7 +184,7 @@ class ProductsHelper
                 break;
 
             case 'dPrice':
-                "SELECT * 
+                $query = "SELECT * 
                     FROM normal_products 
                     WHERE discount != 0
                     ORDER BY price DESC
@@ -192,7 +192,7 @@ class ProductsHelper
                 break;
 
             case 'cDim':
-                "SELECT n.* 
+                $query = "SELECT n.* 
                     FROM normal_products as n 
                         JOIN dimensions AS d ON d.id_dimension = n.id_dimension
                     WHERE discount != 0
@@ -201,7 +201,7 @@ class ProductsHelper
                 break;
 
             case 'dDim':
-                "SELECT n.* 
+                $query = "SELECT n.* 
                     FROM normal_products as n 
                         JOIN dimensions AS d ON d.id_dimension = n.id_dimension
                     WHERE discount != 0
@@ -210,16 +210,12 @@ class ProductsHelper
                 break;
             
             default:
-                "SELECT * 
+            $query = "SELECT * 
                     FROM normal_products 
                     WHERE discount != 0
                     LIMIT ?";
                 break;
         }
-        $query = "SELECT * 
-                FROM normal_products 
-                WHERE discount != 0
-                LIMIT ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i', $n);
         $stmt->execute();
