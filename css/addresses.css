@@ -101,6 +101,14 @@ form > .highlight {
     border: 2px solid #9E90FF;
 }
 
+fieldset {
+    visibility: hidden;
+}
+
+legend {
+    visibility: hidden;
+}
+
 @media only screen and (max-width: 1800px) {
     #main > section {
       width: 40%;
