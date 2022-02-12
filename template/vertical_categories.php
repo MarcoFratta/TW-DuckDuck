@@ -6,7 +6,7 @@
         foreach($categories as $category): ?>
             <button class="category" type="button" onclick="<?php echo "document.location='category.php?category=".$category->getId()."'" ?>">
                 <?php echo $category->getName() ?>
-                <img src="<?php echo $category->getImage() ?>">
+                <img alt="" src="<?php echo $category->getImage() ?>"/>
             </button>
         <?php endforeach; ?>
 </section>
