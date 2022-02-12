@@ -52,17 +52,21 @@ function sellerProductCard($product, $categories, $dimensions)
                         <img alt="" src="' . $product->getImagePath() . '">
                     </div>
                     <div>
+                        <label for="name_' . $product->getId() . '" hidden>Nome</label>
                         <input type="text" name="name" id="name_' . $product->getId() . '" value="' . $product->getName() . '">
                         <div class="container">
                             <h2>€</h2>
+                            <label for="price_' . $product->getId() . '" hidden>Prezzo</label>
                             <input type="number" id="price_' . $product->getId() . '" step="0.01" min="0" name="price" value="' . ($product->getPrice()/100) . '">
                         </div>
                         <div class="container">
                             <h2>Sconto %</h2>
+                            <label for="discount_' . $product->getId() . '" hidden>Sconto</label>
                             <input type="number" id="discount_' . $product->getId() . '" min="0" max="100" name="discount" value="' . $product->getDiscount() . '">
                         </div>
                         <div class="container">
                             <h2>Quantità</h2>
+                            <label for="amount_' . $product->getId() . '" hidden>Quantità</label>
                             <input type="number" min="0" id="amount_' . $product->getId() . '" step="1" name="amount" value="' . $product->getAmount() . '">
                         </div>
                     </div>
@@ -73,6 +77,7 @@ function sellerProductCard($product, $categories, $dimensions)
     $var .= '
                
                 <div>
+                <label for="loaded_image_' . $product->getId() . '" hidden>Immagine</label>
                 <input type="file" id="loaded_image_' . $product->getId() . '" name="img">
                 </div>
                 <div class="container">
@@ -86,6 +91,7 @@ function sellerProductCard($product, $categories, $dimensions)
                 </div>
                 <h2>Descrizione</h2>
                 <div class="container">
+                    <label for="description_' . $product->getId() . '" hidden>Descrizione</label>
                     <textarea id="description_' . $product->getId() . '" name="description" cols="80" rows="5">' . $product->getDescription() . '</textarea>
                 </div>
                 <div class="container">
@@ -108,17 +114,20 @@ function sellerPieceCard($product)
             <div class="box">
                 <div class="container">
                     <div class="center">
-                        <img alt="" src="' . $product->getImagePath() . '">
+                        <img alt="immagine pezzo" src="' . $product->getImagePath() . '">
                     </div>
                     <div>
+                        <label for="name_' . $product->getId() . '" hidden>Nome</label>
                         <input type="text" name="name" id="name_' . $product->getId() . '" value="' . $product->getName() . '">
                         <div class="container">
                             <h2>€</h2>
+                            <label for="price_' . $product->getId() . '" hidden>Prezzo</label>
                             <input type="number" id="price_' . $product->getId() . '" step="0.01" min="0" name="price" value="' . ($product->getPrice()/100) . '">
                         </div>
                     </div>
                 </div>
                 <div class="center">
+                    <label for="loaded_image_' . $product->getId() . '" hidden>Immagine</label>
                     <input type="file" id="loaded_image_' . $product->getId() . '" name="img">
                 </div>
                 <div class="container">

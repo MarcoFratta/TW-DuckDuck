@@ -37,6 +37,7 @@ $gender = $client->getSex();
                 <path d="M4.00006 17H10.0001" stroke="#9E90FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
             <h4>Sesso</h4>
+            <label for="type" hidden>Genere</label>
             <select name="gender" id="type">
                 <?php echo is_null($gender) ? '<option value="Non Specificato" hidden disabled selected>' : '' ?>non specificato</option>
                 <?php echo $gender == "Uomo" ? '<option value="Uomo" selected>' : '<option value="Uomo">' ?>Uomo</option>
@@ -52,7 +53,8 @@ $gender = $client->getSex();
 
 
             <h4>Cellulare</h4>
-            <input type="tel" name="phone" placeholder="<?php echo $client->getPhone() !== null ? $client->getPhone() : '333-333-3333' ?>" name="cel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+            <label for="phone" hidden>Cellulare</label>
+            <input type="tel" name="phone" id="phone" placeholder="<?php echo $client->getPhone() !== null ? $client->getPhone() : '333-333-3333' ?>" name="cel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
         </div>
 
         <div class="container_buttons">

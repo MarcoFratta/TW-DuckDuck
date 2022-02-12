@@ -17,15 +17,15 @@
 
             <div class="box">
                 <div class="container">
-                    <h4>Ordine n. <?php echo $order->getId() ?></h4>
-                    <button type="submit" name="order_details" value="<?php echo $order->getId() ?>"><h4>></h4></button>
+                    <h3>Ordine n. <?php echo $order->getId() ?></h3>
+                    <button type="submit" name="order_details" value="<?php echo $order->getId() ?>"><h3>></h3></button>
                 </div>
                 <div class="container">
-                    <h3>Data di esecuzione: </h3>
+                    <h4>Data di esecuzione: </h4>
                     <h5><?php echo $order->getDate() ?></h5>
                 </div>
                 <div class="container">
-                    <h3>Stato: </h3>
+                    <h4>Stato: </h4>
                     <h5><?php switch ($order->getStatus()) {
                         case 0:
                           echo "Elaborato";
@@ -41,7 +41,7 @@
                       } ?></h5>
                 </div>
                 <div class="container">
-                    <h3>Numero prodotti: </h3>
+                    <h4>Numero prodotti: </h4>
                     <h5><?php
                         $amount = 0;
                         foreach ($db->orders()->getOrderNormalProduct($order->getId()) as $product) {
@@ -58,7 +58,7 @@
                     ?></h5>
                 </div>
                 <div class="container">
-                    <h3>Prezzo: </h3>
+                    <h4>Prezzo: </h4>
                     <h5>
                     <?php
                         $amount = 0;
@@ -69,7 +69,7 @@
                         }
                         foreach ($db->orders()->getOrderCustomProduct($order->getId()) as $product) {
                             if ($product != null) {
-                                $amount += ($product['price']/100)*$product['quantity'];
+                                $amount += ($product['price']/10000)*$product['quantity'];
                             }
                         }
                         echo "&euro;".number_format((float)$amount, 2, ',', '');
