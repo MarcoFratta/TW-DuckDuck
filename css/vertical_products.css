@@ -57,6 +57,11 @@ body {
   letter-spacing: 0.5px;
   color: #4F4F4F;
 }
+#main > form label {
+  font-family: Roboto;
+  font-style: normal;
+  font-size: 12px;
+}
 @media only screen and (max-width: 1800px) {
   #main > section {
     width: 40%;

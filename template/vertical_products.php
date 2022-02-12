@@ -1,4 +1,4 @@
-<form id="filtersContainer">
+<form id="filtersContainer" method="POST" action="applyFilter(<?php echo $_GET['category']?>)">
     <div>
         <h4>Nome:</h4>
         <div class="filter">
