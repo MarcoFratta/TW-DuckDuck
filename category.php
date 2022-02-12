@@ -23,30 +23,25 @@ if(isset($_GET['category'])){
         die(displayError("categoria non trovata"));
     }
     if(isset($_POST['filter'])) {
-        if($_POST['filter'] == 'alpha') {
-            $products = $db->products()->getProductsByCategoryAlpha($category->getId());
-            
-        } elseif ($_POST['filter'] == 'omega') {
-            $products = $db->products()->getProductsByCategoryOmega($category->getId());
-        } elseif ($_POST['filter'] == 'cPrice') {
-            $products = $db->products()->getProductsByCategoryCPrice($category->getId());
-        } elseif ($_POST['filter'] == 'dPrice') {
-            $products = $db->products()->getProductsByCategoryDPrice($category->getId());
-        } elseif ($_POST['filter'] == 'cDim') {
-            $products = $db->products()->getProductsByCategoryCDim($category->getId());
-        } elseif ($_POST['filter'] == 'dDim') {
-            $products = $db->products()->getProductsByCategoryDDim($category->getId());
-        }
+        $products = $db->products()->getProductsByCategory($category->getId(), $_POST['filter']);
         $title = $category->getName();
     } else {
-        $products = $db->products()->getProductsByCategory($category->getId());
+        $products = $db->products()->getProductsByCategory($category->getId(), 0);
         $title = $category->getName();
     }
 } elseif(isset($_GET['new_products'])){
-    $products = $db->products()->getLastNormalProducts();
+    if(isset($_POST['filter'])) {
+        $products = $db->products()->getLastNormalProducts(50, $_POST['filter']);
+    } else {
+        $products = $db->products()->getLastNormalProducts(50, 0);
+    }
     $title = "Nuovi arrivi";
 }elseif(isset($_GET['discounted'])){
-    $products = $db->products()->getNormalProductsWithDiscount();
+    if(isset($_POST['filter'])) {
+        $products = $db->products()->getNormalProductsWithDiscount(50, $_POST['filter']);
+    } else {
+        $products = $db->products()->getNormalProductsWithDiscount(50, 0);
+    }
     $title = "In sconto";
 } else {
     die(displayError("non trovato"));

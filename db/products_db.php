@@ -81,14 +81,72 @@ class ProductsHelper
         return $this->toProducts($result->fetch_all(MYSQLI_ASSOC));
     }
 
-    public function getLastNormalProducts($n=50)
-    {
-        $query = "SELECT * 
+    public function getLastNormalProducts($n, $filter)
+    {   switch ($filter) {
+        case 'alpha':
+            $query = "SELECT * 
+                FROM normal_products 
+                WHERE $this->DATE >= (NOW() - INTERVAL 1 WEEK) 
+                AND $this->DISCOUNT = 0  
+                ORDER BY name ASC
+                LIMIT ?";
+            break;
+
+        case 'omega':
+            $query = "SELECT * 
+                FROM normal_products 
+                WHERE $this->DATE >= (NOW() - INTERVAL 1 WEEK) 
+                AND $this->DISCOUNT = 0  
+                ORDER BY name DESC
+                LIMIT ?";
+            break;
+
+        case 'cPrice':
+            $query = "SELECT * 
+                FROM normal_products 
+                WHERE $this->DATE >= (NOW() - INTERVAL 1 WEEK) 
+                AND $this->DISCOUNT = 0  
+                ORDER BY price ASC
+                LIMIT ?";
+            break;
+
+        case 'dPrice':
+            $query = "SELECT * 
+                FROM normal_products 
+                WHERE $this->DATE >= (NOW() - INTERVAL 1 WEEK) 
+                AND $this->DISCOUNT = 0  
+                ORDER BY price DESC
+                LIMIT ?";
+            break;
+
+        case 'cDim':
+            $query = "SELECT n.* 
+                FROM normal_products as n 
+                    JOIN dimensions AS d ON d.id_dimension = n.id_dimension
+                WHERE $this->DATE >= (NOW() - INTERVAL 1 WEEK) 
+                AND $this->DISCOUNT = 0
+                ORDER BY d.size ASC";
+            break;
+
+        case 'dDim':
+            $query = "SELECT n.* 
+                FROM normal_products as n 
+                    JOIN dimensions AS d ON d.id_dimension = n.id_dimension
+                WHERE $this->DATE >= (NOW() - INTERVAL 1 WEEK) 
+                AND $this->DISCOUNT = 0
+                ORDER BY d.size DESC";
+            break;
+        
+        default:
+            $query = "SELECT * 
                 FROM normal_products 
                 WHERE $this->DATE >= (NOW() - INTERVAL 1 WEEK) 
                 AND $this->DISCOUNT = 0  
                 ORDER BY $this->DATE DESC
                 LIMIT ?";
+            break;
+    }
+        
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i', $n);
         $stmt->execute();
@@ -96,8 +154,64 @@ class ProductsHelper
         return $this->toProducts($result->fetch_all(MYSQLI_ASSOC));
     }
 
-    public function getNormalProductsWithDiscount($n=50)
+    public function getNormalProductsWithDiscount($n, $filter)
     {
+        switch ($filter) {
+            case 'alpha':
+                "SELECT * 
+                    FROM normal_products 
+                    WHERE discount != 0
+                    ORDER BY name ASC
+                    LIMIT ?";
+                break;
+
+            case 'omega':
+                "SELECT * 
+                    FROM normal_products 
+                    WHERE discount != 0
+                    ORDER BY name DESC
+                    LIMIT ?";
+                break;
+
+            case 'cPrice':
+                "SELECT * 
+                    FROM normal_products 
+                    WHERE discount != 0
+                    ORDER BY price ASC
+                    LIMIT ?";
+                break;
+
+            case 'dPrice':
+                "SELECT * 
+                    FROM normal_products 
+                    WHERE discount != 0
+                    ORDER BY price DESC
+                    LIMIT ?";
+                break;
+
+            case 'cDim':
+                "SELECT n.* 
+                    FROM normal_products as n 
+                        JOIN dimensions AS d ON d.id_dimension = n.id_dimension
+                    WHERE discount != 0
+                    ORDER BY d.size ASC";
+                break;
+
+            case 'dDim':
+                "SELECT n.* 
+                    FROM normal_products as n 
+                        JOIN dimensions AS d ON d.id_dimension = n.id_dimension
+                    WHERE discount != 0
+                    ORDER BY d.size DESC";
+                break;
+            
+            default:
+                "SELECT * 
+                    FROM normal_products 
+                    WHERE discount != 0
+                    LIMIT ?";
+                break;
+        }
         $query = "SELECT * 
                 FROM normal_products 
                 WHERE discount != 0
@@ -135,11 +249,45 @@ class ProductsHelper
         }
     }
 
-
-    public function getProductsByCategory($id_category)
+    public function getProductsByCategory($id_category, $filter)
     {
-        $query = "SELECT *
-         FROM normal_products WHERE $this->CATEGORY=?";
+        switch ($filter) {
+            case 'alpha':
+                $query = "SELECT * FROM normal_products WHERE $this->CATEGORY=? ORDER BY name ASC";
+                break;
+
+            case 'omega':
+                $query = "SELECT * FROM normal_products WHERE $this->CATEGORY=? ORDER BY name DESC";
+                break;
+
+            case 'cPrice':
+                $query = "SELECT * FROM normal_products WHERE $this->CATEGORY=? ORDER BY price ASC";
+                break;
+
+            case 'dPrice':
+                $query = "SELECT * FROM normal_products WHERE $this->CATEGORY=? ORDER BY price DESC";
+                break;
+
+            case 'cDim':
+                $query = "SELECT n.* 
+                    FROM normal_products as n 
+                        JOIN dimensions AS d ON d.id_dimension = n.id_dimension
+                    WHERE $this->CATEGORY=? ORDER BY d.size ASC";
+                break;
+
+            case 'dDim':
+                $query = "SELECT n.* 
+                    FROM normal_products as n 
+                        JOIN dimensions AS d ON d.id_dimension = n.id_dimension
+                    WHERE $this->CATEGORY=? ORDER BY d.size DESC";
+                break;
+            
+            default:
+                $query = "SELECT *
+                    FROM normal_products WHERE $this->CATEGORY=?";
+                break;
+        }
+        
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i', $id_category);
         $stmt->execute();
@@ -353,72 +501,6 @@ class ProductsHelper
             echo $error; // 1054 Unknown column 'foo' in 'field list'
             return false;
         }
-    }
-
-    public function getProductsByCategoryAlpha($id_category)
-    {
-        $query = "SELECT * FROM normal_products WHERE $this->CATEGORY=? ORDER BY name ASC";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('i', $id_category);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        return $this->toProducts($result->fetch_all(MYSQLI_ASSOC));
-    }
-
-    public function getProductsByCategoryOmega($id_category)
-    {
-        $query = "SELECT * FROM normal_products WHERE $this->CATEGORY=? ORDER BY name DESC";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('i', $id_category);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        return $this->toProducts($result->fetch_all(MYSQLI_ASSOC));
-    }
-
-    public function getProductsByCategoryCPrice($id_category)
-    {
-        $query = "SELECT * FROM normal_products WHERE $this->CATEGORY=? ORDER BY price ASC";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('i', $id_category);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        return $this->toProducts($result->fetch_all(MYSQLI_ASSOC));
-    }
-
-    public function getProductsByCategoryDPrice($id_category)
-    {
-        $query = "SELECT * FROM normal_products WHERE $this->CATEGORY=? ORDER BY price DESC";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('i', $id_category);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        return $this->toProducts($result->fetch_all(MYSQLI_ASSOC));
-    }
-
-    public function getProductsByCategoryCDim($id_category)
-    {
-        $query = "SELECT n.* 
-        FROM normal_products as n 
-            JOIN dimensions AS d ON d.id_dimension = n.id_dimension
-        WHERE $this->CATEGORY=? ORDER BY d.size ASC";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('i', $id_category);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        return $this->toProducts($result->fetch_all(MYSQLI_ASSOC));
-    }
-
-    public function getProductsByCategoryDDim($id_category)
-    {
-        $query = "SELECT n.* 
-        FROM normal_products as n 
-            JOIN dimensions AS d ON d.id_dimension = n.id_dimension
-        WHERE $this->CATEGORY=? ORDER BY d.size DESC";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('i', $id_category);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        return $this->toProducts($result->fetch_all(MYSQLI_ASSOC));
     }
 
     private function toItems($result)
