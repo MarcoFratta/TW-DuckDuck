@@ -7,11 +7,13 @@ function smallProductCard($product,$dimensions,$type=null)
     $dim = getProductSize($product,$dimensions);
     $real_price = $product->getPrice() /100;
     $actual_price = productPriceWithDiscount($product);
-    return '<article class="small_product">
+    if($product->getAmount() == 0){
+        $type = Type::SOLD_OUT;
+    }
+    return '<article class="small_product'.($type==Type::SOLD_OUT ? " sold_out" : "") .'">
                 <header>'
-                .($type==null ? '' :('<h4 class="'.($type == Type::DISCOUNT ? "sconto" : $type).
-                '">'.($type == Type::DISCOUNT ? ($product->getDiscount()."% off") : $type).'</h4>')).
-            '<img alt="heart" src="img/mix/empty_heart.png"/> 
+                .($type==null ? '' :('<h4 class="'.($type).'">'.($type == Type::DISCOUNT ? ($product->getDiscount()."% off") : str_replace("_"," ",$type)).'</h4>')).'
+            <img alt="heart" src="img/mix/empty_heart.png"/> 
                 </header>
             <main>
                 <img alt="" onClick="location.href ='.("'product.php?id_product=".$product->getId()."'").'" src="'.$product->getImagePath().'"/>

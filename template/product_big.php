@@ -5,29 +5,43 @@ require_once "template/common.php";
 $dim_id = $product->getDimension();
 $dimension = $db->products()->getDimensionById($dim_id);
 $price = productPriceWithDiscount($product);
+$category = $db->categories()->getCategoryById($product->getCategory());
 ?>
-<article>
-    <h1><?php echo $product->getName() ?></h1>
-    <h3>Categorie</h3>
-    <img> <!-- icona cuore per i preferiti -->
+<section>
+    <article>
+        <img alt="Papera" src="<?php echo $product->getImagePath() ?>">
+        <div>
+            <div>
+                <h1><?php echo $product->getName() ?></h1>
+                <h3><?php echo $category->getName() ?></h3>
+            </div>
+            <img alt="heart" src="../img/mix/empty_heart.png" />
+        </div>
 
-    <img alt="" src="<?php echo $product->getImagePath() ?>"> <!-- immagine prodotto -->
+        <p><?php echo $product->getDescription() ?></p>
+        <?php echo '<div' . ($product->getAmount() == 0 ? ' class="sold_out"' : ' class="available"') . '>' ?>
+        <svg width="10" height="10" viewBox="0 0 10 10"  xmlns="http://www.w3.org/2000/svg">
+            <rect width="10" height="10" rx="5"  />
+        </svg>
 
-    <p><?php echo $product->getDescription() ?></p>
-    <h3>- <?php echo $product->getAmount() ?> disponibili</h3>
+        <h3><?php echo $product->getAmount() ?> disponibili</h3>
+        </div>
+        <div>
+            <h1>€ <?php echo $price ?></h1>
+            <h3>IVA inclusa</h3>
+        </div>
 
-    <h1>€ <?php echo $price?></h1>
-    <h3>IVA inclusa</h3>
 
-    <?php echo displaySize($dimension->getSize())?>
-    <a href="size.php?size=<?php echo $dimension->getSize()?>">Guida alle taglie</a>
+        <?php echo displaySize($dimension->getSize()) ?>
+        <a href="size.php?size=<?php echo $dimension->getSize() ?>">Guida alle taglie</a>
 
-    <form action="add_cart.php" method="post">
-        <input type="hidden" name="type" value="normal">
-        <input type="hidden" name="product_id" value="<?php echo $product->getId() ?>">
-        <button type="submit">Aggiungi al carrello</button>
-    </form>
+        <form action="add_cart.php" method="post">
+            <input type="hidden" name="type" value="normal">
+            <input type="hidden" name="product_id" value="<?php echo $product->getId() ?>">
+            <button type="submit">Aggiungi al carrello</button>
+        </form>
 
-    <?php echo shippingInfo() ?>
+        <?php echo shippingInfo() ?>
 
-</article>
+    </article>
+</section>
