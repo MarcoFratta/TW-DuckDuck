@@ -19,11 +19,11 @@ function smallProductCard($product,$dimensions,$type=null)
                 <img alt="" onClick="location.href ='.("'product.php?id_product=".$product->getId()."'").'" src="'.$product->getImagePath().'"/>
             </main>
             <footer>
-                <h3>'.$product->getName().'</h3>
+                <h2>'.$product->getName().'</h2>
                 <div><div>'.
-                '<h2 '.($real_price!==$actual_price ? 'class="actual_price"' : '').'>€ '.$actual_price.'
-                </h2>'.($real_price!==$actual_price ? 
-                ('<h2 class="real_price">€ '.$real_price.'</h2>'):'').'</div><div>'.displaySize($dim,$product->getId()).'             
+                '<h3 '.($real_price!==$actual_price ? 'class="actual_price"' : '').'>€ '.$actual_price.'
+                </h3>'.($real_price!==$actual_price ? 
+                ('<h3 class="real_price">€ '.$real_price.'</h3>'):'').'</div><div>'.displaySize($dim,$product->getId()).'             
                 <form action="add_cart.php" method="POST">
                     <input type="hidden" name="type" value="normal"/>
                     <input type="hidden" name="product_id" value="'.$product->getId().'"/>
@@ -35,8 +35,6 @@ function smallProductCard($product,$dimensions,$type=null)
             </footer>
         </article>';
 }
-
-
 
 
 function sellerProductCard($product, $categories, $dimensions)
@@ -56,25 +54,24 @@ function sellerProductCard($product, $categories, $dimensions)
                     <div>
                         <input type="text" name="name" id="name_' . $product->getId() . '" value="' . $product->getName() . '">
                         <div class="container">
-                            <h3>€</h3>
+                            <h2>€</h2>
                             <input type="number" id="price_' . $product->getId() . '" step="0.01" min="0" name="price" value="' . ($product->getPrice()/100) . '">
                         </div>
                         <div class="container">
-                            <h3>Sconto %</h3>
+                            <h2>Sconto %</h2>
                             <input type="number" id="discount_' . $product->getId() . '" min="0" max="100" name="discount" value="' . $product->getDiscount() . '">
                         </div>
                         <div class="container">
-                            <h3>Quantità</h3>
+                            <h2>Quantità</h2>
                             <input type="number" min="0" id="amount_' . $product->getId() . '" step="1" name="amount" value="' . $product->getAmount() . '">
                         </div>
                     </div>
                 </div>
                
-                <div class="center">
-                        ';
+                ';
     $var .= sizeSelector($dim, $product->getId());
     $var .= '
-                </div>
+               
                 <div>
                 <input type="file" id="loaded_image_' . $product->getId() . '" name="img">
                 </div>
@@ -87,7 +84,7 @@ function sellerProductCard($product, $categories, $dimensions)
     $var .= '
                 </select>
                 </div>
-                <h3>Descrizione</h3>
+                <h2>Descrizione</h2>
                 <div class="container">
                     <textarea id="description_' . $product->getId() . '" name="description" cols="80" rows="5">' . $product->getDescription() . '</textarea>
                 </div>
@@ -116,7 +113,7 @@ function sellerPieceCard($product)
                     <div>
                         <input type="text" name="name" id="name_' . $product->getId() . '" value="' . $product->getName() . '">
                         <div class="container">
-                            <h3>€</h3>
+                            <h2>€</h2>
                             <input type="number" id="price_' . $product->getId() . '" step="0.01" min="0" name="price" value="' . ($product->getPrice()/100) . '">
                         </div>
                     </div>

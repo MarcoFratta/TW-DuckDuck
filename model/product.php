@@ -38,6 +38,9 @@ class Product
                 $this->category = $category;
                 $this->addition_date = $addition_date;
         }
+        static public function deletedProduct($id,$product){
+                return new self($id,"Prodotto eliminato","","../img/mix/error_duck.php.png",$product,1,null,null,null,null,null);
+        }
 
         static public function createOrderProduct($id, $price)
         {
