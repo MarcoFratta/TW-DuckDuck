@@ -22,8 +22,26 @@ if(isset($_GET['category'])){
     if(!$category){
         die(displayError("categoria non trovata"));
     }
-    $products = $db->products()->getProductsByCategory($category->getId());
-    $title = $category->getName();
+    if(isset($_POST['filter'])) {
+        if($_POST['filter'] == 'alpha') {
+            $products = $db->products()->getProductsByCategoryAlpha($category->getId());
+            
+        } elseif ($_POST['filter'] == 'omega') {
+            $products = $db->products()->getProductsByCategoryOmega($category->getId());
+        } elseif ($_POST['filter'] == 'cPrice') {
+            $products = $db->products()->getProductsByCategoryCPrice($category->getId());
+        } elseif ($_POST['filter'] == 'dPrice') {
+            $products = $db->products()->getProductsByCategoryDPrice($category->getId());
+        } elseif ($_POST['filter'] == 'cDim') {
+            $products = $db->products()->getProductsByCategoryCDim($category->getId());
+        } elseif ($_POST['filter'] == 'dDim') {
+            $products = $db->products()->getProductsByCategoryDDim($category->getId());
+        }
+        $title = $category->getName();
+    } else {
+        $products = $db->products()->getProductsByCategory($category->getId());
+        $title = $category->getName();
+    }
 } elseif(isset($_GET['new_products'])){
     $products = $db->products()->getLastNormalProducts();
     $title = "Nuovi arrivi";

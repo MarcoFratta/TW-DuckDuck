@@ -1,39 +1,39 @@
-<form id="filtersContainer" method="POST" action="applyFilter(<?php echo $_GET['category']?>)">
+<form id="filtersContainer" method="POST" action="category.php?category=<?php echo $_GET['category']?>">
     <div>
         <h4>Nome:</h4>
-        <div class="filter">
+        <div>
             <div class="single-filter">
-                <input type="radio" id="alpha" name="filter"/>
+                <input type="radio" id="alpha" value="alpha" name="filter"/>
                 <label for="alpha">A-Z</label>
             </div>
             <div class="single-filter">
-                <input type="radio" id="omega" name="filter"/>
+                <input type="radio" id="omega" value="omega" name="filter"/>
                 <label for="omega">Z-A</label>
             </div>
         </div>
     </div>
     <div>
         <h4>Prezzo:</h4>
-        <div class="filter">
+        <div>
             <div class="single-filter">
-                <input type="radio" id="cPrice" name="filter"/>
+                <input type="radio" id="cPrice" value="cPrice" name="filter"/>
                 <label for="cPrice">min-max</label>
             </div>
             <div class="single-filter">
-                <input type="radio" id="dPrice" name="filter"/>
+                <input type="radio" id="dPrice" value="dPrice" name="filter"/>
                 <label for="dPrice">max-min</label>
             </div>
         </div>
     </div>
     <div>
         <h4>Dimensione:</h4>
-        <div class="filter">
+        <div>
             <div class="single-filter">
-                <input type="radio" id="cDim" name="filter"/>
+                <input type="radio" id="cDim" value="cDim" name="filter"/>
                 <label for="cDim">1-5</label>
             </div>
             <div class="single-filter">
-                <input type="radio" id="dDim" name="filter"/>
+                <input type="radio" id="dDim" value="dDim" name="filter"/>
                 <label for="dDim">5-1</label>
             </div>
         </div>

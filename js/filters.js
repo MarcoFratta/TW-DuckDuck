@@ -16,8 +16,3 @@ function toggleFilters() {
     }
 }
 
-function applyFilter(cat) {
-    /* category.php?category=cat */
-
-}
-

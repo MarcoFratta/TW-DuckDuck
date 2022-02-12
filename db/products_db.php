@@ -353,6 +353,72 @@ class ProductsHelper
         }
     }
 
+    public function getProductsByCategoryAlpha($id_category)
+    {
+        $query = "SELECT * FROM normal_products WHERE $this->CATEGORY=? ORDER BY name ASC";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $id_category);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $this->toProducts($result->fetch_all(MYSQLI_ASSOC));
+    }
+
+    public function getProductsByCategoryOmega($id_category)
+    {
+        $query = "SELECT * FROM normal_products WHERE $this->CATEGORY=? ORDER BY name DESC";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $id_category);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $this->toProducts($result->fetch_all(MYSQLI_ASSOC));
+    }
+
+    public function getProductsByCategoryCPrice($id_category)
+    {
+        $query = "SELECT * FROM normal_products WHERE $this->CATEGORY=? ORDER BY price ASC";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $id_category);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $this->toProducts($result->fetch_all(MYSQLI_ASSOC));
+    }
+
+    public function getProductsByCategoryDPrice($id_category)
+    {
+        $query = "SELECT * FROM normal_products WHERE $this->CATEGORY=? ORDER BY price DESC";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $id_category);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $this->toProducts($result->fetch_all(MYSQLI_ASSOC));
+    }
+
+    public function getProductsByCategoryCDim($id_category)
+    {
+        $query = "SELECT n.* 
+        FROM normal_products as n 
+            JOIN dimensions AS d ON d.id_dimension = n.id_dimension
+        WHERE $this->CATEGORY=? ORDER BY d.size ASC";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $id_category);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $this->toProducts($result->fetch_all(MYSQLI_ASSOC));
+    }
+
+    public function getProductsByCategoryDDim($id_category)
+    {
+        $query = "SELECT n.* 
+        FROM normal_products as n 
+            JOIN dimensions AS d ON d.id_dimension = n.id_dimension
+        WHERE $this->CATEGORY=? ORDER BY d.size DESC";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $id_category);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $this->toProducts($result->fetch_all(MYSQLI_ASSOC));
+    }
+
     private function toItems($result)
     {
         foreach ($result as $product) :
