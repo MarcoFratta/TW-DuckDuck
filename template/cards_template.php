@@ -18,11 +18,12 @@
     <form id="cards" method="POST" action="completed.php">
         <?php foreach($cards as $card): ?>
             <div class="card">
-                <input type="radio" name="card" value="<?php echo $card->getId() ?>" checked>
+                <label for="card" hidden>Carta</label>
+                <input type="radio" id="card" name="card" value="<?php echo $card->getId() ?>" checked>
                 <?php echo 
                     "<h4>" . $card->getNumber() . "</h4>"
                     . '<div class="container">
-                    <img><img src="./img/mix/svg/mastercard.svg"><h5>' . $card->getExpire_date()
+                    <img src="./img/mix/svg/mastercard.svg" alt="mastercard"><h5>' . $card->getExpire_date()
                     . '</h5></div>';
                 ?>
             </div>

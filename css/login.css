@@ -16,7 +16,7 @@
     border:none;
     box-shadow: none;
   }
-#main > section > div:first-child h3 {
+#main > section > div:first-child .login {
   font-family: Roboto;
   font-style: normal;
   font-weight: bold;
@@ -98,7 +98,7 @@
 #main > section > div:nth-child(3) > svg {
   margin: 0 auto;
 }
-#main > section > div:nth-child(3) > h3 {
+#main > section > div:nth-child(3) > .login {
   font-family: Roboto;
   font-style: normal;
   font-weight: bold;
@@ -128,7 +128,7 @@
   margin-right: auto;
   padding: 4%;
 }
-#main > section > div:nth-child(4) div h3 {
+#main > section > div:nth-child(4) div .login {
   width: 80%;
   font-family: Roboto;
   font-style: normal;

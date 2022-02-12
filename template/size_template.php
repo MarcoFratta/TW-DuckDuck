@@ -1,6 +1,6 @@
 <section>
     <h3><?php echo $dimension->getName()?></h3>
-    <img src="./img/dimensions.png">
+    <img alt="immagine esplicativa dimensioni" src="./img/dimensions.png">
     <section id="size_selector">
         <div>
         <input type="hidden" id="actual" value="<?php echo $dimension->getSize()?>"/>
@@ -10,9 +10,9 @@
             </form><div>
             <?php
                 for ($i = 1; $i <= 5; $i++) {
-                    echo '<img alt="" src="./img/mix/svg/dimension-duck.svg" id="';
-                    echo $dimension->getSize()<$i ? "disabled" : "";
-                    echo '"/>';
+                    echo '<img alt="" src="./img/mix/svg/dimension-duck.svg" ';
+                    echo $dimension->getSize()<$i ? 'class="disabled"' : "";
+                    echo '/>';
             }?></div>
             <form method="GET" action="size.php">
                 <input type="hidden" name="size" value="<?php echo $dimension->getSize()!=5 ? $dimension->getSize()+1: 5?>"/>

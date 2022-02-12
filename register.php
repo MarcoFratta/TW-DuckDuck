@@ -8,27 +8,32 @@ require_once "utils/functions.php";
 ?>
 <section>
     <div><img alt="logo" src="img/mix/svg/login_logo.svg">
-        <h3>Benvenuto su Duck Duck</h3>
+        <p class="login">Benvenuto su Duck Duck</p>
         <h5>Registrati per continuare</h5>
     </div>
     <form method="POST" action="new_user.php">
         <div>
             <span data-feather="user"></span>
-            <input type="text" placeholder="Nome completo" name="name">
+            <label for="name" hidden>nome</label>
+            <input type="text" placeholder="Nome completo" name="name" id="name">
         </div>
         <div>
             <span data-feather="mail"></span>
-            <input type="email" placeholder="Email" name="email">
+            <label for="email" hidden>email</label>
+            <input type="email" placeholder="Email" name="email" id="email">
         </div>
         <div>
             <span data-feather="lock"></span>
+            <label for="password" hidden>password</label>
             <input type="password" placeholder="Password" id="password" name="password">
         </div>
         <div>
             <span data-feather="lock"></span>
+            <label for="confirm_password" hidden>conferma password</label>
             <input type="password" placeholder="Conferma password" id="confirm_password" name="confirm_password">
         </div>
         <div>
+            <label for="type" hidden>tipo</label>
             <select name="type" id="type">
                 <option value="client">Cliente</option>
                 <option value="seller">Venditore</option>
@@ -40,7 +45,7 @@ require_once "utils/functions.php";
         <svg width="126" height="1" viewBox="0 0 126 1" fill="none" xmlns="http://www.w3.org/2000/svg">
             <line y1="0.5" x2="126" y2="0.5" stroke="#EBF0FF" />
         </svg>
-        <h3>OPPURE</h3>
+        <p class="login">OPPURE</p>
         <svg width="126" height="1" viewBox="0 0 126 1" fill="none" xmlns="http://www.w3.org/2000/svg">
             <line y1="0.5" x2="126" y2="0.5" stroke="#EBF0FF" />
         </svg>
@@ -53,13 +58,13 @@ require_once "utils/functions.php";
                 <path d="M8.00014 16.5003C10.0666 16.5003 11.9442 15.7095 13.3638 14.4235L10.8878 12.3283C10.0846 12.9367 9.08615 13.3003 8.00014 13.3003C5.91933 13.3003 4.15253 11.9735 3.48692 10.1219L0.878113 12.1319C2.20212 14.7227 4.89093 16.5003 8.00014 16.5003Z" fill="#4CAF50" />
                 <path d="M15.8444 6.93322H15.2V6.90002H8V10.1H12.5212C12.2044 10.9948 11.6288 11.7664 10.8864 12.3284C10.8868 12.328 10.8872 12.328 10.8876 12.3276L13.3636 14.4229C13.1884 14.5821 16 12.5 16 8.50003C16 7.96363 15.9448 7.44003 15.8444 6.93322Z" fill="#1976D2" />
             </svg>
-            <h3>Accedi con Google</h3>
+            <p class="login">Accedi con Google</p>
         </div>
         <div>
             <svg width="11" height="21" viewBox="0 0 11 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M11 0.5H8C6.67392 0.5 5.40215 1.02678 4.46447 1.96447C3.52678 2.90215 3 4.17392 3 5.5V8.5H0V12.5H3V20.5H7V12.5H10L11 8.5H7V5.5C7 5.23478 7.10536 4.98043 7.29289 4.79289C7.48043 4.60536 7.73478 4.5 8 4.5H11V0.5Z" fill="#4092FF" />
             </svg>
-            <h3>Accedi con Facebook</h3>
+            <p class="login">Accedi con Facebook</p>
         </div>
     </div>
     <div>
