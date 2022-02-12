@@ -4,7 +4,7 @@ $gender = $client->getSex();
 ?>
 <section>
     <div>
-        <img src="./img/mix/svg/login_logo.svg">
+        <img src="./img/mix/svg/login_logo.svg" alt="logo">
         <div>
             <h4><?php echo $client->getName() ?></h4>
             <p><?php echo $client->getEmail() ?></p>

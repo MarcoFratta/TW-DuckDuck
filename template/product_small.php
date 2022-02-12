@@ -93,8 +93,9 @@ function sellerProductCard($product, $categories, $dimensions)
                 </div>
                 <div class="container">
                     <button type="button" id="delete_' . $product->getId() . '">Elimina</button>
-                    <button type="submit "id="save_' . $product->getId() . '">Salva</button>
+                    <button type="submit" id="save_' . $product->getId() . '">Salva</button>
                 </div>
+            </div>
         </form>
     </article>';
     return $var;

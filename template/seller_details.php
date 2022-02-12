@@ -5,7 +5,7 @@ $seller = $db->users()->getSellerById($_SESSION['id']);
 <section>
 
     <div>
-        <img src="./img/mix/svg/login_logo.svg">
+        <img src="./img/mix/svg/login_logo.svg" alt="logo">
         <div>
             <h4><?php echo $seller->getName() ?></h4>
             <p><?php echo $seller->getEmail() ?></p>
