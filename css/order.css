@@ -33,7 +33,7 @@
   border-color: #9e90ff;
 }
 
-#main > section > #orders > .box > .container > h4 {
+#main > section > #orders > .box > .container > h3 {
   order: 1;
   font-family: Roboto;
   font-style: normal;
@@ -44,7 +44,7 @@
   flex-grow: 2;
 }
 
-#main > section > #orders > .box > .container > h3 {
+#main > section > #orders > .box > .container > h4 {
   order: 1;
   flex-grow: 2;
   font-family: Roboto;
@@ -61,7 +61,7 @@
   font-weight: normal;
 }
 
-#main > section > h3 {
+#main > section > h4 {
   margin-top: 20%;
 }
 
@@ -74,7 +74,7 @@
   color: white;
   order: 2;
 }
-#main > section > #orders > .box > .container > button > h4 {
+#main > section > #orders > .box > .container > button > h3 {
     color: white;
   }
   #main .empty_cart {

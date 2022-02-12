@@ -49,7 +49,7 @@ h1,h2,h3,h4,h5,h6, p, label,input,select,option, textarea {
 #filters {
   visibility: hidden;
 }
-h2 {
+h3, h2 {
   font-family: Roboto;
   font-style: normal;
   font-weight: bold;
@@ -79,7 +79,7 @@ header svg {
 #header div > div > img{
   width: 30%;
 }
-#header div > h2 {
+#header div > h3 {
   margin-left: 2%;
   font-size: 1.8rem;
 }
