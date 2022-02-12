@@ -33,6 +33,9 @@ body {
   text-align: left;
   width: 60%;
 }
+#filters {
+  visibility: visible;
+}
 @media only screen and (max-width: 1800px) {
   #main > section {
     width: 40%;
