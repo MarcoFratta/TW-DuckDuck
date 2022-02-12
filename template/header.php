@@ -15,8 +15,8 @@
                 if(isset($templateParams['header_title'])){
                     echo 
                     '<div>
-                        <span id="arrow-left" data-feather="arrow-left" onClick="history.back()"></span>
-                        <h2>'.$templateParams['header_title'].'</h2>
+                        <span data-feather="arrow-left" onClick="history.back()"></span>
+                        <h3>'.$templateParams['header_title'].'</h3>
                         <button type="button" id="filters" onClick="toggleFilters()"><img src="./img/mix/svg/filters.svg" alt="logo"/></button>
                     </div>';
                 }
