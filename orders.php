@@ -8,7 +8,7 @@
         require_once "utils/functions.php";  
 
         $templateParams['title'] = "Ordini";
-        $templateParams['header_title'] = "Ordini";
+        $templateParams['header_title_order'] = "Ordini";
         $templateParams['styles'] = ['<link rel="stylesheet" type="text/css" href="./css/order.css?'.time().'" />'];
         require "template/common_top_html.php";
         require "template/header.php";

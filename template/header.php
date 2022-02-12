@@ -20,6 +20,22 @@
                         <button type="button" id="filters" onClick="toggleFilters()"><img src="./img/mix/svg/filters.svg" alt="logo"/></button>
                     </div>';
                 }
+                if(isset($templateParams['header_title_category'])){
+                    echo 
+                    '<div>
+                        <span data-feather="arrow-left" onClick="location.href=' . "'categories.php'" . '"></span>
+                        <h3>'.$templateParams['header_title_category'].'</h3>
+                        <button type="button" id="filters" onClick="toggleFilters()"><img src="./img/mix/svg/filters.svg" alt="logo"/></button>
+                    </div>';
+                }
+                if(isset($templateParams['header_title_order'])){
+                    echo 
+                    '<div>
+                    <span data-feather="arrow-left" onClick="location.href=' . "'details.php'" . '"></span>
+                        <h3>'.$templateParams['header_title_order'].'</h3>
+                        <button type="button" id="filters" onClick="toggleFilters()"><img src="./img/mix/svg/filters.svg" alt="logo"/></button>
+                    </div>';
+                }
             ?>  
     </header>
     <nav id="sideNav" class="sidenav">
