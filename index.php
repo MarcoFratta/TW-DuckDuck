@@ -14,8 +14,8 @@
   require "template/common_top_html.php";
   require "template/header.php";
   $db = DbConnections::mySqlConnection();
-  $new_products = $db->products()->getLastNormalProducts();
-  $discount_products = $db->products()->getNormalProductsWithDiscount();
+  $new_products = $db->products()->getLastNormalProducts(50, 0);
+  $discount_products = $db->products()->getNormalProductsWithDiscount(50, 0);
   require "template/home.php";
   require "template/footer.php";
   require "template/common_bottom_html.php";
