@@ -15,11 +15,11 @@
             <h5>Accedi per continuare</h5></div>
             <form method="POST" action="auth.php?type='.$_GET['type'].'">
                 <div>
-                    <i data-feather="mail"></i>
+                    <span data-feather="mail"></span>
                     <input type="email" placeholder="Email" name="email">
                 </div>
                 <div>
-                    <i data-feather="lock"></i>
+                    <span data-feather="lock"></span>
                     <input type="password" placeholder="Password" name="password">
                 </div>             
                 <button type="submit">Accedi</button>

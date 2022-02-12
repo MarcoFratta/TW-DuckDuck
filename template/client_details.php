@@ -12,19 +12,19 @@ $gender = $client->getSex();
     </div>
 
     <div class="container first">
-        <i data-feather="shopping-bag">Busta della spesa</i>
+        <span data-feather="shopping-bag">Busta della spesa</span>
         <h4>Ordini</h4>
         <button onClick="location.href='orders.php'" type="button">></button>
     </div>
 
     <div class="container">
-        <i data-feather="inbox">Lettera</i>
+        <span data-feather="inbox">Lettera</span>
         <h4>Messaggi</h4>
         <button onClick="location.href='messages.php'" type="button">></button>
     </div>
 
     <div class="container">
-        <i data-feather="credit-card">Carta di credito</i>
+        <span data-feather="credit-card">Carta di credito</span>
         <h4>Metodi di pagamento</h4>
         <button onClick="location.href='cards.php?edit=true'" type="button">></button>
     </div>

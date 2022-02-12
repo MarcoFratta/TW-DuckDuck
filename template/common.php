@@ -42,23 +42,23 @@ function shippingInfo()
 {
     return '<section id="shipment_info">
     <div> 
-        <i class="shipping_icon" data-feather="calendar"></i>
+        <span class="shipping_icon" data-feather="calendar"></span>
         <p>Consegna entro 7 giorni lavorativi</p>
     </div>
     <div> 
-        <i class="shipping_icon" data-feather="truck"></i>
+        <span class="shipping_icon" data-feather="truck"></span>
         <p>Spedizione gratuita</p>
     </div>
     <div> 
-        <i class="shipping_icon" data-feather="shield"></i>
+        <span class="shipping_icon" data-feather="shield"></span>
         <p>24 mesi di garanzia</p>
     </div>
     <div> 
-        <i class="shipping_icon" data-feather="package"></i>
+        <span class="shipping_icon" data-feather="package"></span>
         <p>Reso gratuito entro 60 giorni</p>
     </div>
     <div>          
-        <i class="shipping_icon" data-feather="droplet"></i>
+        <span class="shipping_icon" data-feather="droplet"></span>
         <p>Plastica 100% riciclata</p>
     </div>
     </section>';

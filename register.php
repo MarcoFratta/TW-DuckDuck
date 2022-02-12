@@ -13,19 +13,19 @@ require_once "utils/functions.php";
     </div>
     <form method="POST" action="new_user.php">
         <div>
-            <i data-feather="user"></i>
+            <span data-feather="user"></span>
             <input type="text" placeholder="Nome completo" name="name">
         </div>
         <div>
-            <i data-feather="mail"></i>
+            <span data-feather="mail"></span>
             <input type="email" placeholder="Email" name="email">
         </div>
         <div>
-            <i data-feather="lock"></i>
+            <span data-feather="lock"></span>
             <input type="password" placeholder="Password" id="password" name="password">
         </div>
         <div>
-            <i data-feather="lock"></i>
+            <span data-feather="lock"></span>
             <input type="password" placeholder="Conferma password" id="confirm_password" name="confirm_password">
         </div>
         <div>

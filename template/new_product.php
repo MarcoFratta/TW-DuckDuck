@@ -8,26 +8,22 @@
 <article>
     <form method="POST"  enctype="multipart/form-data" action="add_product.php?type=normal">
         <div class="box">
-            <div class="container">
-                <div>
-                    <div class="container">
-                        <h3>Nome</h3>
-                        <input type="text" name="name" required>
-                    </div>
-                    <div class="container">
-                        <h3>€</h3>
-                        <input type="number" name="price" step="0.01" min="0" required>
-                    </div>
-                    <div class="container">
-                        <h3>Sconto %</h3>
-                        <input type="number" name="discount" min="0" max="100">
-                    </div>
-                    <div class="container">
-                        <h3>Quantità</h3>
-                        <input type="number" min="0" id="amount" name="amount" required>
-                    </div>
+                <div class="container">
+                    <h3>Nome</h3>
+                    <input type="text" name="name" required>
                 </div>
-            </div>
+                <div class="container">
+                    <h3>€</h3>
+                    <input type="number" name="price" step="0.01" min="0" required>
+                </div>
+                <div class="container">
+                    <h3>Sconto %</h3>
+                    <input type="number" name="discount" min="0" max="100">
+                </div>
+                <div class="container">
+                    <h3>Quantità</h3>
+                    <input type="number" min="0" id="amount" name="amount" required>
+                </div>
             <div class="center">
                 <input type="file" name="img">
             </div>

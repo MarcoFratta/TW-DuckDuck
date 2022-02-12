@@ -27,6 +27,10 @@ article > form .box {
     text-align: left;
 }
 
+#main >article > form .container:first-child{
+    margin-top: 5%;
+}
+
 #main >article > form .box > * {
     margin: 2% 5% 2% 5%;
 }
@@ -42,7 +46,7 @@ article > form .box {
     display: flex;
     justify-content: center;
     width: 90%;
-    margin-bottom: 5%;
+    margin: 5% 5%;
 }
 
 #main >article > form .box > .container > .center > img {

@@ -13,19 +13,19 @@ $seller = $db->users()->getSellerById($_SESSION['id']);
     </div>
 
     <div class="container first">
-        <i data-feather="shopping-bag">Busta della spesa</i>
+        <span data-feather="shopping-bag">Busta della spesa</span>
         <h4>I miei prodotti</h4>
         <button onClick="location.href='products.php'" type="button">></button>
     </div>
 
     <div class="container">
-        <i data-feather="database">Busta della spesa</i>
+        <span data-feather="database">Busta della spesa</span>
         <h4>I miei pezzi</h4>
         <button onClick="location.href='pieces.php'" type="button">></button>
     </div>
 
     <div class="container">
-        <i data-feather="inbox">Lettera</i>
+        <span data-feather="inbox">Lettera</span>
         <h4>Messaggi</h4>
         <button onClick="location.href='messages.php'" type="button">></button>
     </div>
