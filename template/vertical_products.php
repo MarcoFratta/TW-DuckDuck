@@ -1,4 +1,15 @@
-<form id="filtersContainer" method="POST" action="category.php?category=<?php echo $_GET['category']?>">
+<?php 
+    if(isset($_GET['category'])) {
+        $dest = "category.php?category=".$_GET['category'];
+    } elseif(isset($_GET['new_products'])) {
+        $dest = "category.php?new_products=1";
+    } elseif(isset($_GET['discounted'])) {
+        $dest = "category.php?discounted=1";
+    }
+    
+?>
+
+<form id="filtersContainer" method="POST" action="<?php echo $dest ?>">
     <div>
         <h4>Nome:</h4>
         <div>
