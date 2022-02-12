@@ -48,7 +48,7 @@ if(isset($_GET['category'])){
 }
 
 $templateParams['title'] = $title;
-$templateParams['header_title'] = $title;
+$templateParams['header_title_category'] = $title;
 
 require "template/common_top_html.php";
 require "template/header.php";
