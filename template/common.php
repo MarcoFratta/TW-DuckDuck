@@ -23,7 +23,7 @@ function sizeSelector($size, $id = null)
     $val =  '<section id="size_selector' . ($id !== null ? ("_" . $id) : "") . '">
         <input type="hidden" name="dimension" id="dimension' . ($id !== null ? ("_" . $id) : "") . '" value="' . $size . '"/>
         <div>
-        <button type="button" id="decrease' . ($id !== null ? ("_" . $id) : "") . '">-</button>
+        <button type="button" id="decrease' . ($id !== null ? ("_" . $id) : "") . '">-</button><div>
         ';
     $val .= "\r\n";
     for ($i = 1; $i <= $max_size; $i++) {
@@ -32,7 +32,7 @@ function sizeSelector($size, $id = null)
         $val .= "\r\n";
     }
     $val .= "\t\t" . '
-    <button type="button" id="increase' . ($id !== null ? ("_" . $id) : "") . '">+</button>
+    </div><button type="button" id="increase' . ($id !== null ? ("_" . $id) : "") . '">+</button>
     </div>
     </section>';
     return $val;

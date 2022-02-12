@@ -5,11 +5,9 @@ body {
   border-radius: 35px;
   z-index: 2;
   background: #f6f6f6;
-  padding-top: 0%;
 }
 
 #main > section {
-  min-height: 60vh;
   width: 50%;
   display: flex;
   justify-content: center;
@@ -17,7 +15,6 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   background: #f6f6f6;
-  padding-top: 0%;
 }
 
 .small_product:nth-child(odd) {
@@ -34,46 +31,8 @@ body {
   text-align: left;
   width: 60%;
 }
-#filters {
-  visibility: visible;
-}
-#main > form {
-  width: 50%;
-  display: none;
-  margin-left: auto;
-  margin-right: auto;
-  justify-content: center;
-  align-items: center;
-}
-#main > form > div {
-  margin: 3% auto;
-}
-#main > form h4 {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 150%;
-  letter-spacing: 0.5px;
-  color: #4F4F4F;
-}
-#main > form label {
-  font-family: Roboto;
-  font-style: normal;
-  font-size: 12px;
-}
-@media only screen and (max-width: 1800px) {
+@media only screen and (max-width: 1100px) {
   #main > section {
-    width: 40%;
-    min-height: 70vh;
-  }
-}
-@media only screen and (max-width: 880px) {
-  #main > section {
-    width: 100%;
-    min-height: 70vh;
-  }
-  #main > form {
     width: 100%;
   }
 }

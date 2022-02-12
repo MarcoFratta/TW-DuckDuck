@@ -8,7 +8,10 @@ display: block;
 }
 
   
-  
+ #main > section #size_selector {
+   width: 25%;
+ } 
+
   #main section > h2 {
     font-family: Roboto;
     font-style: normal;
@@ -135,6 +138,9 @@ display: block;
     .create_div > img {
       width: 65%;
     }
+    #main > section #size_selector {
+      width: 72%;
+    } 
   }
 
   

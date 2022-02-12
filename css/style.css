@@ -326,6 +326,9 @@ body > h2 {
     height:auto;
   
   }
+  #header > div:nth-child(1) > img {
+    width: 15%;
+  }
   #header div:nth-child(2) {
     padding-bottom: 2%;
   }

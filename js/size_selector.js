@@ -5,7 +5,12 @@ var dimension = 1;
 $(function () {
   $('section[id*="size_selector"]').each(function(){
     var parent = this;
-    dimension = parseInt($(this).children('[id*="dimension"]').val());
+    dimension = $(this).find('[id*="dimension"]').val();
+    if(dimension === undefined){
+      console.log("seconda");
+      dimension = $(this).find('[id*="actual"]').val();
+    }
+    dimension = parseInt(dimension);
     console.log(dimension);
     $(this).find('button[id*="decrease"]').on("click", function(){
       console.log(dimension);
