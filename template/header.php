@@ -17,8 +17,9 @@
                     '<div>
                         <i data-feather="arrow-left" onClick="history.back()"></i>
                         <h2>'.$templateParams['header_title'].'</h2>
+                        <button type="button" id="filters"><img src="./img/mix/svg/filters.svg" /></button>
                     </div>';
-                } 
+                }
             ?>  
     </header>
     <nav id="sideNav" class="sidenav">

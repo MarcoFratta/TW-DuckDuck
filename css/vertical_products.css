@@ -5,6 +5,7 @@ body {
   border-radius: 35px;
   z-index: 2;
   background: #f6f6f6;
+  padding-top: 0%;
 }
 
 #main > section {
@@ -31,6 +32,9 @@ body {
 #vertical_products section {
   text-align: left;
   width: 60%;
+}
+#filters {
+  visibility: visible;
 }
 @media only screen and (max-width: 1800px) {
   #main > section {
