@@ -12,6 +12,8 @@
     }
     
     $templateParams['title'] = "Dimensioni";
+    $templateParams['header_title'] = "Dimensioni";
+    $templateParams['styles'] = ['<link rel="stylesheet" type="text/css" href="./css/dimensions.css?'.time().'" />'];
     require "template/common_top_html.php";
     require "template/header.php";
     $db = DbConnections::mySqlConnection();

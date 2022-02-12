@@ -1,0 +1,123 @@
+#main > section {
+    display: block;
+    width: 25%;
+    font-family: Roboto;
+    background: #ffffff;
+    min-height: 60vh;
+    overflow:auto;
+  }
+
+#main > section > .box {
+    width: 60%;
+    margin: 10% 20%;
+    background-color: #f6f6f6;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+#main > section > img {
+    width: 80%;
+    margin: 0 10% 0 10%;
+}
+
+#main > section > h3 {
+    font-size: x-large;
+    font-weight: bold;
+    padding: 5% 0;
+}
+
+#main > section > .box > .container {
+  display: flex;
+  margin: 0 5%;
+  padding: 4% 0;
+  
+}
+
+#main > section > .box > .container > h4 {
+    text-align: right;
+    flex-grow: 2;
+}
+
+#main > section > .box > .container > h4:first-child {
+    text-align: left
+}
+
+
+#main > section > .box > .container > #purple {
+    color: #9E90FF;
+}
+
+#main > section > .box > .container > #green {
+    color: #6FCF97;
+}
+
+#main > section > .box > .container > #red {
+    color: #FB7181;
+}
+
+#size_selector {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  #size_selector div {
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 5px;
+    border: 1px solid #e4d3fa;
+    background: rgba(158, 144, 255, 0.1);
+    margin: 5% 0;
+  }
+  #size_selector button {
+    font-size: 1.5rem;
+    font-weight: normal;
+    text-align: center;
+    background-color: #f6f6f6;
+    width: 100%;
+    height: 100%;
+  }
+  #size_selector form {
+    width: 3%;
+    margin: 0;
+    flex-grow: 1.5;
+    border-left: 1px solid #e4d3fa;
+    background-color: #f6f6f6;
+    border-radius: 5px;
+  }
+
+  #size_selector button:first-child {
+    border-left: none;
+    border-right: 1px solid #ccacf5;
+  }
+
+  #size_selector img {
+    margin: 1% 1.5% 1% 1.5%;
+    width: 10%;
+    height: auto;
+  }
+
+  #size_selector #disabled {
+    opacity: 50%;
+  }
+
+  @media only screen and (max-width: 1100px) {
+    #size_selector div {
+      width: 72%;
+    }
+  }
+
+  @media only screen and (max-width: 1800px) {
+    #main > section {
+      width: 40%;
+      min-height: 70vh;
+    }
+}
+  @media only screen and (max-width: 880px) {
+    #main > section {
+      width: 100%;
+      min-height: 70vh;
+    }
+}
