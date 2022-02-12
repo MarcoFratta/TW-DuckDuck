@@ -12,10 +12,10 @@ $category = $db->categories()->getCategoryById($product->getCategory());
         <img alt="Papera" src="<?php echo $product->getImagePath() ?>">
         <div class="title">
             <div>
-                <h1><?php echo $product->getName() ?></h1>
+                <h2><?php echo $product->getName() ?></h2>
                 <h3><?php echo $category->getName() ?></h3>
             </div>
-            <img alt="heart" src="../img/mix/empty_heart.png" />
+            <img alt="heart" src="./img/mix/empty_heart.png" />
         </div>
 
         <p><?php echo $product->getDescription() ?></p>
@@ -27,7 +27,7 @@ $category = $db->categories()->getCategoryById($product->getCategory());
         <h3><?php echo $product->getAmount() ?> disponibili</h3>
         </div>
         <div>
-            <h1>€ <?php echo $price ?></h1>
+            <h2>€ <?php echo $price ?></h2>
             <h3>IVA inclusa</h3>
         </div>
 
